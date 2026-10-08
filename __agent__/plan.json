@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "title": "Audit repository, frontend, assets, routes, deployment, and references",
+      "status": "in-progress"
+    },
+    {
+      "title": "Create rollback point and isolated feature branch",
+      "status": "pending"
+    },
+    {
+      "title": "Implement cinematic theater intro and homepage foundation",
+      "status": "pending"
+    },
+    {
+      "title": "Generate four real browser previews for approval",
+      "status": "pending"
+    },
+    {
+      "title": "Run build and relevant tests, then stop for approval",
+      "status": "pending"
+    }
+  ],
+  "updated_at": "2026-10-08T11:35:34.130Z",
+  "session_id": "01a11b4a-0764-7247-a14b-d0a328d53b9d"
+}

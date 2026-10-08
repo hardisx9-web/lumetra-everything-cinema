@@ -1,0 +1,32 @@
+{
+  "name": "global-cinema-archive",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A sourced global cinema archive, cinematheque, and film research journal.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/server.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "check:sources": "node scripts/source-registry-check.mjs && node scripts/source-adapter-check.mjs",
+    "ingest:sources": "node scripts/ingest-sources.mjs",
+    "ingest:sources:report": "node scripts/ingest-sources.mjs --report-only",
+    "publish:sources": "node scripts/publish-ingested.mjs",
+    "db:migrate": "node scripts/db-migrate.mjs",
+    "db:import": "node scripts/db-import-ingestion.mjs",
+    "db:health": "node scripts/db-health-check.mjs",
+    "db:report": "node scripts/db-catalogue-report.mjs",
+    "db:audit-embeds": "node scripts/audit-embeds.mjs",
+    "db:audit-embeds:report": "node scripts/audit-embeds.mjs --report-only",
+    "db:export": "node scripts/db-export-public.mjs",
+    "enumerate:sources": "node scripts/enumerate-catalogues.mjs",
+    "test:ingestion": "node --test lib/ingestion/ingestion.test.mjs lib/ingestion/embed-audit.test.mjs lib/ingestion/providers/*.test.mjs scripts/bfi-reprocessing-plan.test.mjs",
+    "test:embeds:db": "node --test db/embed-audit-store.test.mjs",
+    "test:db": "node --test db/persistence.test.mjs db/ingestion-store.test.mjs",
+    "test": "node scripts/smoke.mjs && node scripts/runtime-smoke.mjs && npm run check:sources && npm run test:ingestion"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "pg": "^8.23.1"
+  }
+}

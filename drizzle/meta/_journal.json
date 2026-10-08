@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1791436234173,
+      "tag": "0000_swift_centennial",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1791439384257,
+      "tag": "0001_vengeful_gabe_jones",
+      "breakpoints": true
+    }
+  ]
+}

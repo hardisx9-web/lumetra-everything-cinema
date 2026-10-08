@@ -1,0 +1,74 @@
+{
+  "work-trip-to-the-moon": {
+    "provider": "Wikimedia Commons",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Trip-to-moon-1902.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Trip-to-moon-1902.jpg",
+    "url": "/media/posters/work-trip-to-the-moon.jpg",
+    "variants": {
+      "320": "/media/posters/work-trip-to-the-moon-320.webp",
+      "640": "/media/posters/work-trip-to-the-moon-640.webp",
+      "960": "/media/posters/work-trip-to-the-moon-960.webp"
+    },
+    "license": "Public domain per file description; territory-specific limitations may apply",
+    "attribution": "Georges M\u00e9li\u00e8s",
+    "alt": "A Trip to the Moon (1902), historical poster",
+    "rights_status": "REVIEWED_FILE_STATEMENT",
+    "verified_at": "2026-10-08",
+    "width": 260,
+    "height": 273
+  },
+  "work-man-with-a-movie-camera": {
+    "provider": "Wikimedia Commons",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Man_with_a_movie_camera_1929_1.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Man_with_a_movie_camera_1929_1.png",
+    "url": "/media/posters/work-man-with-a-movie-camera.png",
+    "variants": {
+      "320": "/media/posters/work-man-with-a-movie-camera-320.webp",
+      "640": "/media/posters/work-man-with-a-movie-camera-640.webp",
+      "960": "/media/posters/work-man-with-a-movie-camera-960.webp"
+    },
+    "license": "Public domain per file description; territory-specific limitations may apply",
+    "attribution": "Dziga Vertov / VUFKU",
+    "alt": "Man with a Movie Camera (1929), film still",
+    "rights_status": "REVIEWED_FILE_STATEMENT",
+    "verified_at": "2026-10-08",
+    "width": 487,
+    "height": 400
+  },
+  "work-cleopatra-1917": {
+    "provider": "Wikimedia Commons",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Cleopatra1917.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Cleopatra1917.jpg",
+    "url": "/media/posters/work-cleopatra-1917.jpg",
+    "variants": {
+      "320": "/media/posters/work-cleopatra-1917-320.webp",
+      "640": "/media/posters/work-cleopatra-1917-640.webp",
+      "960": "/media/posters/work-cleopatra-1917-960.webp"
+    },
+    "license": "Public domain per file description; territory-specific limitations may apply",
+    "attribution": "Fox Film Corporation",
+    "alt": "Cleopatra (1917), original poster",
+    "rights_status": "REVIEWED_FILE_STATEMENT",
+    "verified_at": "2026-10-08",
+    "width": 650,
+    "height": 990
+  },
+  "work-london-after-midnight": {
+    "provider": "Wikimedia Commons",
+    "source_page": "https://commons.wikimedia.org/wiki/File:London_After_Midnight_Poster_1927_MGM.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/London_After_Midnight_Poster_1927_MGM.jpg",
+    "url": "/media/posters/work-london-after-midnight.jpg",
+    "variants": {
+      "320": "/media/posters/work-london-after-midnight-320.webp",
+      "640": "/media/posters/work-london-after-midnight-640.webp",
+      "960": "/media/posters/work-london-after-midnight-960.webp"
+    },
+    "license": "Public domain per file description; territory-specific limitations may apply",
+    "attribution": "Metro-Goldwyn-Mayer",
+    "alt": "London After Midnight (1927), original poster",
+    "rights_status": "REVIEWED_FILE_STATEMENT",
+    "verified_at": "2026-10-08",
+    "width": 1956,
+    "height": 2962
+  }
+}

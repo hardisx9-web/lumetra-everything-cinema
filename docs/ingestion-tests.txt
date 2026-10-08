@@ -1,0 +1,27 @@
+✔ frame policy distinguishes parent restrictions from child frame-src (1.526301ms)
+✔ offered current player never becomes WATCH_HERE from free/config/header evidence (9.320547ms)
+✔ missing offered iframe is review, never a guessed URL or claimed legal prohibition (0.82028ms)
+✔ actual XFO restriction is technically disabled and respected (1.94204ms)
+✔ mismatched or incomplete player identity is not verified (1.219445ms)
+✔ removed player is technical unavailability, not a new failed free-source verification (0.235981ms)
+✔ conditional terms include private use and written licence conflict without approving use (1.293775ms)
+✔ promotion requires permission and third-party browser proof, never a boolean alone (1.901399ms)
+✔ blocked-host checkpoints prevent another request, including after resume (0.464772ms)
+✔ transport refuses untrusted URLs before making a request (0.57174ms)
+✔ NFB traverses every advertised page; no film-count cap (3.442392ms)
+✔ partial discovery survives access denial, no false enumeration completion (0.431162ms)
+✔ repeated and premature-empty pages fail closed, retaining discovery (0.514255ms)
+✔ LOC follows documented next pagination even when server caps page size below requested 1000 (0.655445ms)
+✔ UNAM prefixed REST JSON is accepted only at actual array suffix; missing images stay null (0.375088ms)
+✔ missing YouTube credentials are explicit, not a successful empty catalogue (0.242691ms)
+✔ HTTP 200 + iframe does not establish live film, paid content and fragments cannot pass (10.015691ms)
+✔ HLS needs complete matching duration and an accessible media segment, not merely a route 200 (0.847411ms)
+✔ freshness/expiry and genuinely working embed are mandatory even with a claimed watch label (1.544207ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 260.121429
