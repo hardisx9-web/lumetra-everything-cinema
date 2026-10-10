@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {matchArtwork,rights,normalize} from './policy.mjs';
+const work={work_id:'work-a',canonical_title:'The Voyage',year:1924,director:'Anne Example',alternate_titles:[]};
+const value=value=>({value});
+const page=(changes={})=>({title:'File:The Voyage 1924 poster.jpg',imageinfo:[{mime:'image/jpeg',width:600,height:900,descriptionurl:'https://commons.wikimedia.org/wiki/File:example',extmetadata:{LicenseShortName:value('Public domain'),Copyrighted:value('False'),Categories:value('The Voyage (1924 film)'),ImageDescription:value('Poster for The Voyage (1924), directed by Anne Example'),...changes}}]});
+test('film category plus exact date and typed image accepted, preserving license URL',()=>{const r=matchArtwork(work,page());assert(r.accepted);assert.equal(r.type,'POSTER');assert.equal(r.evidence.work_id,work.work_id);assert.equal(r.permission.url,'https://creativecommons.org/publicdomain/mark/1.0/');});
+test('same title remake rejected',()=>assert(!matchArtwork({...work,year:1994},page()).accepted));
+test('title substring and first director token are not enough',()=>assert(!matchArtwork({...work,canonical_title:'Voyage',director:'Anne Different'},page()).accepted));
+test('uncorroborated generic title rejected',()=>{const p=page({Categories:value('Film posters'),ImageDescription:value('The Voyage poster')});p.title='File:The Voyage.jpg';assert(!matchArtwork(work,p).accepted);});
+test('fan artwork, books and premiere photographs rejected',()=>{for(const kind of ['fan art','book cover','premiere','film festival'])assert(!matchArtwork(work,page({ImageDescription:value(kind+' for The Voyage (1924) Anne Example')})).accepted);});
+test('territorial conflict on Commons does not become permission',()=>assert(!matchArtwork(work,page({Categories:value('The Voyage (1924 film)|Works copyrighted in the U.S.')})).accepted));
+test('NC, ND, custom and unknown licenses fail closed',()=>{for(const name of ['CC BY-NC 4.0','CC BY-ND 3.0','Licensed','Copyrighted',''])assert.equal(rights({LicenseShortName:value(name),LicenseUrl:value('https://creativecommons.org/licenses/by/4.0/')}),null);});
+test('CC attribution and SA identity retained, not promoted to public domain',()=>{for(const name of ['CC BY 4.0','CC BY-SA 3.0']){const slug=name.includes('SA')?'by-sa/3.0':'by/4.0';const r=rights({LicenseShortName:value(name),LicenseUrl:value('https://creativecommons.org/licenses/'+slug+'/')});assert.equal(r.name,name);assert.notEqual(r.basis,'PUBLIC_DOMAIN');}});
+test('unknown type, moving image and tiny thumbnail rejected',()=>{const p=page({ImageDescription:value('Portrait'),Categories:value('The Voyage (1924 film)')});p.title='File:portrait.jpg';assert(!matchArtwork(work,p).accepted);p.imageinfo[0].mime='video/webm';assert(!matchArtwork(work,p).accepted);p.imageinfo[0].mime='image/jpeg';p.imageinfo[0].width=30;assert(!matchArtwork(work,p).accepted);});
+test('Unicode identity preserved',()=>{assert.notEqual(normalize('東京物語'),normalize('小城之春'));assert.equal(normalize('Méliès'),normalize('Melies'));});

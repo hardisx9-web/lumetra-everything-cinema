@@ -1,0 +1,10 @@
+{
+  "run_id": "e8533312-d09c-4c21-82db-45daf736495e",
+  "status": "COMPLETED",
+  "cursor": 14470,
+  "total": 14470,
+  "counts": {
+    "RIGHTS_BLOCKED_EXISTING_REFERENCE": 14470
+  },
+  "updated_at": "2026-10-09T14:44:44.310Z"
+}

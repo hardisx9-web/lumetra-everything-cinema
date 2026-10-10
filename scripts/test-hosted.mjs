@@ -1,5 +1,14 @@
-import {DatabaseSync} from 'node:sqlite';import assert from 'node:assert/strict';
-const {initialize,query,dossier,stats,facets}=await import(new URL('../site-server/catalogue.js',import.meta.url));
-const sqlite=new DatabaseSync(':memory:');const {readFileSync}=await import('node:fs');sqlite.exec(readFileSync(new URL('../drizzle/0000_swift_centennial.sql',import.meta.url),'utf8'));
-const db={prepare(sql){return {sql,args:[],bind(...a){this.args=a;return this;},async first(){return sqlite.prepare(sql).get(...this.args)||null},async all(){return {results:sqlite.prepare(sql).all(...this.args)}}}},async batch(stmts){sqlite.exec('BEGIN');try{const result=stmts.map(x=>sqlite.prepare(x.sql).run(...x.args));sqlite.exec('COMMIT');return result;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
-let steps=0;while(!(await initialize(db,{fetch:async request=>new Response(readFileSync(new URL('../public'+new URL(request.url).pathname,import.meta.url)))})).ready){steps++;assert(steps<150);}const s=await stats(db);assert.equal(s.works,20512);assert.equal(s.eligible_sources,3883);assert.equal(s.embedded_sources,0);const r=await query(db,new URLSearchParams('q=moon'));assert.equal(r.total,27);assert.equal(r.items.length,24);const f=await query(db,new URLSearchParams('q=moon&country=France&year=1902'));assert.equal(f.total,1);const detail=await dossier(db,f.items[0].id);assert(detail.evidence.length>0);assert((await facets(db)).years.includes(2026));await assert.rejects(query(db,new URLSearchParams('page=0')));const long=await query(db,new URLSearchParams('q='+ 'film '.repeat(25)));assert(long.total>=0);assert((await initialize(db,{fetch:async request=>new Response(readFileSync(new URL('../public'+new URL(request.url).pathname,import.meta.url)))})).ready);console.log(JSON.stringify({pass:true,steps:steps+1,counts:s,search:r.total,dossier:detail.title}));
+import assert from 'node:assert/strict';
+import {openCatalogue,importCatalogue} from './local-catalogue.mjs';
+import {initialize,query,dossier,stats,facets} from '../site-server/catalogue.js';
+const {sqlite,db,assets}=openCatalogue(),steps=await importCatalogue(db,assets),s=await stats(db);
+assert.equal(s.works,20512);assert.equal(s.source_records,23711);assert.equal(s.embedded_sources,0);
+// Expiring evidence is checked at the actual test time, never made fresh by a fixture date.
+const current=sqlite.prepare('SELECT count(*) sources,count(DISTINCT work_id) works FROM source WHERE checked_ms<=? AND expires_ms>?').get(Date.now(),Date.now());
+assert.equal(s.eligible_sources,current.sources);assert.equal(s.watchable_works,current.works);
+const r=await query(db,new URLSearchParams('q=moon'));assert.equal(r.total,27);assert.equal(r.items.length,24);
+const f=await query(db,new URLSearchParams('q=moon&country=France&year=1902'));assert.equal(f.total,1);const detail=await dossier(db,f.items[0].id);assert(detail.evidence.length>0);assert(detail.artwork);
+assert((await facets(db)).years.includes(2026));await assert.rejects(query(db,new URLSearchParams('page=0')));
+assert((await query(db,new URLSearchParams('q='+'film '.repeat(25)))).total>=0);
+assert((await initialize(db,assets)).ready);
+console.log(JSON.stringify({pass:true,steps,counts:s,search:r.total,dossier:detail.title}));sqlite.close();

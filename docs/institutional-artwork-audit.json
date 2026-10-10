@@ -1,0 +1,266 @@
+{
+  "generated_at": "2026-10-09T14:46:22.083Z",
+  "definitions": {
+    "existing_asset": "Original media_asset row with provider source_id, excluding the separately reviewed Commons rows.",
+    "technically_reachable": "Only rows with a persisted health-check status URL_AVAILABLE/HEALTHY in this audit; UNTESTED is not called reachable.",
+    "valid_film_match": "The row is associated with a Work through ingestion identity, but SOURCE_RELATION_UNREVIEWED is not independent artwork confirmation.",
+    "rights_approved": "license_verified=true, review_status=APPROVED and health_status=HEALTHY. No institutional source currently meets this gate.",
+    "published": "Approved local artwork export; original institutional rows are intentionally zero."
+  },
+  "totals": {
+    "films": 20512,
+    "original_asset_rows": 14470,
+    "original_asset_works": 13961,
+    "rights_approved_rows": 0,
+    "rights_approved_works": 0
+  },
+  "provider_order": [
+    "nfb_canada",
+    "bfi_player_free",
+    "mosfilm",
+    "cinematheque_henri",
+    "retina_latina",
+    "35mm_online"
+  ],
+  "providers": {
+    "nfb_canada": {
+      "provider": "National Film Board of Canada",
+      "policy_status": "RESTRICTED_WRITTEN_PERMISSION_REQUIRED",
+      "can_republish": false,
+      "attribution_required": true,
+      "source_url": "https://help.nfb.ca/terms/",
+      "rights_basis": "NFB digital-platform terms state content including photographs/images is protected and non-private reproduction, display, distribution or exploitation requires express written permission; NFB Archives says reproduction/use other than private use requires a written licence.",
+      "technical_notes": "The source URL is an NFB CDN jacket/key-art URL. HTTP reachability does not grant a licence. Request an artwork/feed licence and permitted territory/attribution.",
+      "total_existing_asset_rows": 1956,
+      "distinct_films_with_asset": 1447,
+      "source_metadata_image_url_rows": 2187,
+      "source_metadata_image_url_works": 1447,
+      "identity": {
+        "associated_by_ingestion_work_id": 1956,
+        "identity_confidence_unreviewed": 1956,
+        "explicitly_rejected": 0
+      },
+      "technical": {
+        "health_checked_rows": 30,
+        "status_counts": {
+          "BLOCKED": 4,
+          "HEALTHY": 26
+        },
+        "not_health_checked": 1926
+      },
+      "rights": {
+        "license_verified_rows": 0,
+        "rights_approved_rows": 0,
+        "rights_approved_films": 0,
+        "explicit_attribution_rows": 0,
+        "explicit_license_url_rows": 0
+      },
+      "published_rows": 0,
+      "published_films": 0,
+      "blocker": "No item-level permission/licence in the stored metadata; technical access cannot override this."
+    },
+    "bfi_player_free": {
+      "provider": "BFI Player / BFI",
+      "policy_status": "RESTRICTED_AUTHORIZATION_REQUIRED",
+      "can_republish": false,
+      "attribution_required": true,
+      "source_url": "https://player.bfi.org.uk/terms-of-use",
+      "policy_urls": [
+        "https://player.bfi.org.uk/terms-of-use",
+        "https://www.bfi.org.uk/terms-use"
+      ],
+      "rights_basis": "BFI Player terms clauses 2.1–2.4 reserve rights in service content; clauses 6.8 and 6.12 limit use to personal/non-commercial viewing and prohibit copying, displaying, publishing, licensing, scraping, data mining or extraction unless expressly authorized.",
+      "technical_notes": "Image URLs are BFI Player responsive hero-image paths. The internal search endpoint is a technical service, not an artwork feed. No per-file licence, creator or attribution is stored in the ingestion record.",
+      "total_existing_asset_rows": 10158,
+      "distinct_films_with_asset": 10158,
+      "source_metadata_image_url_rows": 10158,
+      "source_metadata_image_url_works": 10158,
+      "identity": {
+        "associated_by_ingestion_work_id": 10158,
+        "identity_confidence_unreviewed": 10158,
+        "explicitly_rejected": 0
+      },
+      "technical": {
+        "health_checked_rows": 189,
+        "status_counts": {
+          "HEALTHY": 189
+        },
+        "not_health_checked": 9969
+      },
+      "rights": {
+        "license_verified_rows": 0,
+        "rights_approved_rows": 0,
+        "rights_approved_films": 0,
+        "explicit_attribution_rows": 0,
+        "explicit_license_url_rows": 0
+      },
+      "published_rows": 0,
+      "published_films": 0,
+      "blocker": "No item-level permission/licence in the stored metadata; technical access cannot override this."
+    },
+    "mosfilm": {
+      "provider": "Mosfilm",
+      "policy_status": "RESTRICTED_PERMISSION_REQUIRED",
+      "can_republish": false,
+      "attribution_required": true,
+      "source_url": "https://www.mosfilm.ru/user-agreement/",
+      "policy_urls": [
+        "https://www.mosfilm.ru/user-agreement/",
+        "https://www.mosfilm.ru/contacts/"
+      ],
+      "rights_basis": "The current www.mosfilm.ru user agreement permits access and reproduction of Materials only for personal, non-commercial use on one computer; it prohibits copying, reproduction, republication, uploading, posting, transmission, distribution or other use without special permission and expressly prohibits use on another website or network environment.",
+      "technical_notes": "The existing rows resolve to www.mosfilm.ru/upload/iblock/... delivery URLs. The contacts page exposes rights-related contacts, but is not the policy scope. Do not infer rights from film age, official CDN/site reachability or the site promotion language.",
+      "total_existing_asset_rows": 1428,
+      "distinct_films_with_asset": 1428,
+      "source_metadata_image_url_rows": 1431,
+      "source_metadata_image_url_works": 1428,
+      "identity": {
+        "associated_by_ingestion_work_id": 1428,
+        "identity_confidence_unreviewed": 1428,
+        "explicitly_rejected": 0
+      },
+      "technical": {
+        "health_checked_rows": 20,
+        "status_counts": {
+          "HEALTHY": 20
+        },
+        "not_health_checked": 1408
+      },
+      "rights": {
+        "license_verified_rows": 0,
+        "rights_approved_rows": 0,
+        "rights_approved_films": 0,
+        "explicit_attribution_rows": 0,
+        "explicit_license_url_rows": 0
+      },
+      "published_rows": 0,
+      "published_films": 0,
+      "blocker": "No item-level permission/licence in the stored metadata; technical access cannot override this."
+    },
+    "cinematheque_henri": {
+      "provider": "Cinémathèque française / HENRI",
+      "policy_status": "UNRESOLVED_ITEM_RIGHTS_REVIEW_REQUIRED",
+      "can_republish": false,
+      "attribution_required": true,
+      "source_url": "https://www.cinematheque.fr/mentions-legales.html",
+      "rights_basis": "The official legal notice identifies the publisher but grants no blanket image-republication licence. Film collection images can involve archive, photographer and rights-holder permissions.",
+      "technical_notes": "HENRI thumbnail URLs are 248x186 institutional film images. Preserve as review-only until item-level permission or open licence is recorded.",
+      "total_existing_asset_rows": 410,
+      "distinct_films_with_asset": 410,
+      "source_metadata_image_url_rows": 455,
+      "source_metadata_image_url_works": 410,
+      "identity": {
+        "associated_by_ingestion_work_id": 410,
+        "identity_confidence_unreviewed": 410,
+        "explicitly_rejected": 0
+      },
+      "technical": {
+        "health_checked_rows": 4,
+        "status_counts": {
+          "HEALTHY": 4
+        },
+        "not_health_checked": 406
+      },
+      "rights": {
+        "license_verified_rows": 0,
+        "rights_approved_rows": 0,
+        "rights_approved_films": 0,
+        "explicit_attribution_rows": 0,
+        "explicit_license_url_rows": 0
+      },
+      "published_rows": 0,
+      "published_films": 0,
+      "blocker": "No item-level permission/licence in the stored metadata; technical access cannot override this."
+    },
+    "retina_latina": {
+      "provider": "Retina Latina",
+      "policy_status": "UNRESOLVED_ITEM_RIGHTS_REVIEW_REQUIRED",
+      "can_republish": false,
+      "attribution_required": true,
+      "source_url": "https://www.retinalatina.org/",
+      "rights_basis": "Saved ingestion records contain poster URLs but no item-level licence, creator or permission. Availability dates for films are not artwork-reuse permission.",
+      "technical_notes": "Request a platform artwork licence/feed or item-level permissions; do not confuse viewing rights with image rights.",
+      "total_existing_asset_rows": 418,
+      "distinct_films_with_asset": 418,
+      "source_metadata_image_url_rows": 418,
+      "source_metadata_image_url_works": 418,
+      "identity": {
+        "associated_by_ingestion_work_id": 418,
+        "identity_confidence_unreviewed": 418,
+        "explicitly_rejected": 0
+      },
+      "technical": {
+        "health_checked_rows": 7,
+        "status_counts": {
+          "HEALTHY": 7
+        },
+        "not_health_checked": 411
+      },
+      "rights": {
+        "license_verified_rows": 0,
+        "rights_approved_rows": 0,
+        "rights_approved_films": 0,
+        "explicit_attribution_rows": 0,
+        "explicit_license_url_rows": 0
+      },
+      "published_rows": 0,
+      "published_films": 0,
+      "blocker": "No item-level permission/licence in the stored metadata; technical access cannot override this."
+    },
+    "35mm_online": {
+      "provider": "35mm.online",
+      "policy_status": "UNRESOLVED_ITEM_RIGHTS_REVIEW_REQUIRED",
+      "can_republish": false,
+      "attribution_required": true,
+      "source_url": "https://35mm.online/",
+      "rights_basis": "Saved records contain image URLs but no item-level reuse licence or attribution. Provider artwork policy was not established from the ingestion snapshot.",
+      "technical_notes": "Keep all 100 records pending rights/terms confirmation; do not use paid/subscription status as image permission.",
+      "total_existing_asset_rows": 100,
+      "distinct_films_with_asset": 100,
+      "source_metadata_image_url_rows": 100,
+      "source_metadata_image_url_works": 100,
+      "identity": {
+        "associated_by_ingestion_work_id": 100,
+        "identity_confidence_unreviewed": 100,
+        "explicitly_rejected": 0
+      },
+      "technical": {
+        "health_checked_rows": 0,
+        "status_counts": {},
+        "not_health_checked": 100
+      },
+      "rights": {
+        "license_verified_rows": 0,
+        "rights_approved_rows": 0,
+        "rights_approved_films": 0,
+        "explicit_attribution_rows": 0,
+        "explicit_license_url_rows": 0
+      },
+      "published_rows": 0,
+      "published_films": 0,
+      "blocker": "No item-level permission/licence in the stored metadata; technical access cannot override this."
+    }
+  },
+  "recovery_batch": {
+    "run_id": "e8533312-d09c-4c21-82db-45daf736495e",
+    "status": "COMPLETED",
+    "checkpoint": {
+      "total": 14470,
+      "counts": {
+        "RIGHTS_BLOCKED_EXISTING_REFERENCE": 14470
+      },
+      "cursor": 14470
+    },
+    "counts": {
+      "total": 14470,
+      "counts": {
+        "RIGHTS_BLOCKED_EXISTING_REFERENCE": 14470
+      },
+      "cursor": 14470
+    },
+    "items": 14470,
+    "rights_blocked": 14470
+  },
+  "conclusion": "Existing institutional image references are plentiful but none have a stored item-level reuse permission or open licence. The exporter is not overly restrictive for this evidence state; publishing them would bypass provider terms. The approved serving increase remains the nine separately reviewed Commons assets, including the DFI-sourced Atlantis poster.",
+  "next_action": "Obtain written artwork/feed permission or item-level open-licence metadata from NFB, BFI, Mosfilm, HENRI, Retina Latina and 35mm; then run a new immutable provider-scoped artwork observation."
+}

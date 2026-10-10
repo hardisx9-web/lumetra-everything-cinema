@@ -1,0 +1,298 @@
+{
+  "generated_at": "2026-10-09T16:45:52.018Z",
+  "catalogue": {
+    "films": 20512,
+    "playback_sources": 23711,
+    "eligible_sources": 3883,
+    "watchable_works": 2975,
+    "embedded_sources": 0
+  },
+  "films_audited": 20512,
+  "before": {
+    "usable_serving_works": 4,
+    "verified_archival_works": 0,
+    "posters": 3,
+    "stills": 1
+  },
+  "after": {
+    "usable_works": 9,
+    "serving_works": 9,
+    "films_with_usable_poster": 5,
+    "films_with_usable_still": 3,
+    "films_with_production_photograph": 1,
+    "films_with_other_permitted_artwork": 0,
+    "films_without_suitable_imagery": 20503,
+    "films_with_unverified_rights": 13962,
+    "films_with_failed_image_url": 0,
+    "films_with_access_blocked_image_url": 4,
+    "image_rows_not_health_checked": 14220,
+    "confirmed_incorrect_installed_artwork": 0
+  },
+  "increase": {
+    "new_works": 5,
+    "genuine_posters_added": 2,
+    "valid_stills_added": 2,
+    "production_photographs_added": 1,
+    "broken_images_repaired": 0,
+    "duplicate_hash_records_detected": 4
+  },
+  "definitions": {
+    "coverage": "Distinct canonical Work IDs, not downloaded image count. Approved rights, high-confidence identity, successful full decode and local hosted variants required.",
+    "overlap": "Coverage types and unverified-rights counts can overlap on one Work; films_without_suitable_imagery is the complement of usable_works.",
+    "failed_urls": "Confirmed HTTP 404/410 only; access blocks and unchecked URLs are separate.",
+    "incorrect": "Rejected search candidates are NOT counted as incorrectly installed imagery. Historical institutional match accuracy remains unreviewed.",
+    "health": "250 inherited URLs were sampled in the prior attempt: HTTP/content-type availability only. Acquired published images additionally pass a complete image decode.",
+    "new_posters": "Newly pictured Works with posters; upgrades to four inherited files do not inflate additions.",
+    "remaining": "Without suitable imagery does not mean no image exists. Rights/matching/research remain unresolved."
+  },
+  "external_enrichment_attempts": {
+    "decisions": 294,
+    "unique_films": 173
+  },
+  "rejected_candidates": {
+    "decisions": 1124,
+    "unique_work_candidate_pairs": 1086
+  },
+  "withheld_edition_review": 1,
+  "runs": [
+    {
+      "run_id": "7f870fc4-aa5c-4bca-9591-f974b15c1133",
+      "mode": "inventory",
+      "scope": "all media_asset source metadata",
+      "status": "COMPLETED",
+      "started_at": "2026-10-08T17:47:18.777Z",
+      "finished_at": "2026-10-08T17:50:24.234Z",
+      "counts": {
+        "INVENTORIED": 20512
+      },
+      "checkpoint": {
+        "total": 20512,
+        "processed": 20512
+      }
+    },
+    {
+      "run_id": "4d18c17d-e6b5-49a5-bb3e-bbacfe401dbe",
+      "mode": "curated",
+      "scope": "reviewed supplied Commons records",
+      "status": "COMPLETED",
+      "started_at": "2026-10-08T17:48:55.152Z",
+      "finished_at": "2026-10-08T17:48:55.215Z",
+      "counts": {
+        "ACCEPTED": 4
+      },
+      "checkpoint": {
+        "total": 4,
+        "processed": 4
+      }
+    },
+    {
+      "run_id": "a3d679d8-dd73-4bb3-a502-9b5cd235bcaa",
+      "mode": "commons",
+      "scope": "exact Commons title/year matches",
+      "status": "COMPLETED",
+      "started_at": "2026-10-08T17:49:06.238Z",
+      "finished_at": "2026-10-08T17:49:53.929Z",
+      "counts": {
+        "FAILED": 32,
+        "REJECTED": 8
+      },
+      "checkpoint": {
+        "total": 40,
+        "processed": 40
+      }
+    },
+    {
+      "run_id": "3235876f-3a61-43bb-ab39-6e3b582036ac",
+      "mode": "reviewed",
+      "scope": "v2-frozen-cohort",
+      "status": "COMPLETED",
+      "started_at": "2026-10-09T11:55:11.535Z",
+      "finished_at": "2026-10-09T11:55:40.407Z",
+      "counts": {
+        "ACCEPTED": 5
+      },
+      "checkpoint": {
+        "ACCEPTED": 5
+      }
+    },
+    {
+      "run_id": "268c82a1-07f8-4297-80d6-9bfa92f74064",
+      "mode": "commons",
+      "scope": "v2-frozen-cohort",
+      "status": "PAUSED",
+      "started_at": "2026-10-09T11:56:05.280Z",
+      "finished_at": null,
+      "counts": {
+        "PENDING": 20407,
+        "NO_MATCH": 39,
+        "REJECTED": 61
+      },
+      "checkpoint": {
+        "PENDING": 20407,
+        "NO_MATCH": 39,
+        "REJECTED": 61
+      }
+    },
+    {
+      "run_id": "beb3005b-f4d0-4bf4-b722-a044eefeea6f",
+      "mode": "reviewed",
+      "scope": "v2-frozen-cohort",
+      "status": "COMPLETED",
+      "started_at": "2026-10-09T12:08:24.651Z",
+      "finished_at": "2026-10-09T12:08:50.779Z",
+      "counts": {
+        "ACCEPTED": 9
+      },
+      "checkpoint": {
+        "ACCEPTED": 9
+      }
+    },
+    {
+      "run_id": "4eafbd87-6a71-4ae0-a705-48a2eee2397a",
+      "mode": "commons",
+      "scope": "v2-frozen-cohort:history",
+      "status": "COMPLETED",
+      "started_at": "2026-10-09T12:09:21.570Z",
+      "finished_at": "2026-10-09T12:19:13.845Z",
+      "counts": {
+        "FAILED": 1,
+        "NO_MATCH": 12,
+        "REJECTED": 55
+      },
+      "checkpoint": {
+        "FAILED": 1,
+        "NO_MATCH": 12,
+        "REJECTED": 55
+      }
+    },
+    {
+      "run_id": "cfec22e9-7be4-48e3-851b-c9ebd7962fa4",
+      "mode": "commons",
+      "scope": "v2-frozen-cohort:history",
+      "status": "COMPLETED",
+      "started_at": "2026-10-09T12:20:22.291Z",
+      "finished_at": "2026-10-09T12:32:00.903Z",
+      "counts": {
+        "ACCEPTED": 1,
+        "NO_MATCH": 26,
+        "REJECTED": 41
+      },
+      "checkpoint": {
+        "ACCEPTED": 1,
+        "NO_MATCH": 26,
+        "REJECTED": 41
+      }
+    },
+    {
+      "run_id": "e8533312-d09c-4c21-82db-45daf736495e",
+      "mode": "institutional-existing",
+      "scope": "14,470 original media_asset rows",
+      "status": "COMPLETED",
+      "started_at": "2026-10-09T14:43:13.220Z",
+      "finished_at": "2026-10-09T14:44:44.308Z",
+      "counts": {
+        "total": 14470,
+        "counts": {
+          "RIGHTS_BLOCKED_EXISTING_REFERENCE": 14470
+        },
+        "cursor": 14470
+      },
+      "checkpoint": {
+        "total": 14470,
+        "counts": {
+          "RIGHTS_BLOCKED_EXISTING_REFERENCE": 14470
+        },
+        "cursor": 14470
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "status": "ACCEPTED",
+      "decisions": 19,
+      "works": 10
+    },
+    {
+      "status": "FAILED",
+      "decisions": 33,
+      "works": 33
+    },
+    {
+      "status": "INVENTORIED",
+      "decisions": 20512,
+      "works": 20512
+    },
+    {
+      "status": "NO_MATCH",
+      "decisions": 77,
+      "works": 65
+    },
+    {
+      "status": "PENDING",
+      "decisions": 20407,
+      "works": 20407
+    },
+    {
+      "status": "REJECTED",
+      "decisions": 165,
+      "works": 117
+    }
+  ],
+  "candidate_decisions": [
+    {
+      "decision": "REJECTED",
+      "reason": "IDENTITY_NOT_CORROBORATED",
+      "count": 496
+    },
+    {
+      "decision": "REJECTED",
+      "reason": "NOT_SUPPORTED_IMAGE",
+      "count": 491
+    },
+    {
+      "decision": "REJECTED",
+      "reason": "RIGHTS_UNVERIFIED_OR_CONFLICTING",
+      "count": 93
+    },
+    {
+      "decision": "REJECTED",
+      "reason": "ARTWORK_TYPE_UNVERIFIED",
+      "count": 16
+    },
+    {
+      "decision": "REJECTED",
+      "reason": "NOT_FILM_ARTWORK",
+      "count": 15
+    },
+    {
+      "decision": "MATCHED",
+      "reason": "REVIEWED_EXACT_WORK_FILE",
+      "count": 14
+    },
+    {
+      "decision": "REJECTED",
+      "reason": "AMBIGUOUS_CATALOGUE_TITLE_YEAR",
+      "count": 12
+    },
+    {
+      "decision": "REJECTED",
+      "reason": "INSUFFICIENT_DIMENSIONS",
+      "count": 1
+    },
+    {
+      "decision": "MATCHED",
+      "reason": "EXACT_FILM_RELATION",
+      "count": 1
+    }
+  ],
+  "existing_image_health_sample": [
+    {
+      "status": "HEALTHY",
+      "assets": 246
+    },
+    {
+      "status": "BLOCKED",
+      "assets": 4
+    }
+  ]
+}

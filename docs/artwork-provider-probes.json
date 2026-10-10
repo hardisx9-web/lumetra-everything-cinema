@@ -1,0 +1,13 @@
+{
+  "as_of": "2026-10-09T12:20:39.239Z",
+  "europeana": {
+    "status": "KEY_REQUIRED"
+  },
+  "tmdb": {
+    "status": "NOT_ENABLED_PERMISSION_REQUIRED"
+  },
+  "loc": {
+    "status": "BLOCKED_OR_ERROR",
+    "reason": "SOURCE_ACCESS_BLOCKED_403"
+  }
+}

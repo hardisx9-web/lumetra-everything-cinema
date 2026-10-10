@@ -1,0 +1,170 @@
+{
+  "passed": 11,
+  "failed": 0,
+  "steps": 106,
+  "programme": {
+    "candidate_count": 398,
+    "selected_count": 24,
+    "artwork_count": 9,
+    "missing_artwork": 15,
+    "missing_metadata": {
+      "countries": 4,
+      "decades": 0,
+      "languages": 1,
+      "genres": 10
+    },
+    "diversity": {
+      "countries": 17,
+      "decades": 13,
+      "languages": 25,
+      "genres": 22
+    },
+    "sections": {
+      "carousel": {
+        "ids": [
+          "work-man-with-a-movie-camera",
+          "work-cleopatra-1917",
+          "work-trip-to-the-moon",
+          "work-hour-of-the-furnaces"
+        ],
+        "countries": [
+          "USSR",
+          "United States",
+          "France",
+          "Argentina"
+        ],
+        "decades": [
+          "1920",
+          "1910",
+          "1900",
+          "1960"
+        ]
+      },
+      "history": {
+        "ids": [
+          "work-daughters-of-the-dust",
+          "work-pather-panchali",
+          "work-meshes-of-the-afternoon",
+          "work-london-after-midnight"
+        ],
+        "countries": [
+          "United States",
+          "India"
+        ],
+        "decades": [
+          "1990",
+          "1950",
+          "1940",
+          "1920"
+        ]
+      },
+      "featured": {
+        "ids": [
+          "work_ingested_b3fb1ece1237ca502382ffd5",
+          "work-spring-in-a-small-town",
+          "work_ingested_107dc1e187efb1817eb7f1cc",
+          "work-cairo-station",
+          "work_ingested_d00c88e45036abbc7ada69d9",
+          "work_ingested_e11dad24d80f560ab0a70f44",
+          "work_ingested_ea76b4eed57b57b28ddda7e3",
+          "work-stalker"
+        ],
+        "countries": [
+          "United Kingdom",
+          "China",
+          "Netherlands",
+          "Egypt",
+          "Cape Verde",
+          "Iran",
+          "Portugal",
+          "Germany",
+          "USSR"
+        ],
+        "decades": [
+          "1970",
+          "1940",
+          "1930",
+          "1950",
+          "2020",
+          "2000",
+          "2010"
+        ]
+      },
+      "watch": {
+        "ids": [
+          "work_ingested_037fa741d26dda8468965fa4",
+          "work_ingested_73b400379e53f9ee772fd305",
+          "work_ingested_fb9340bc737f90eddba4ab61",
+          "work_ingested_7d4ad4c83a3aa6d39983b9a9"
+        ],
+        "countries": [],
+        "decades": [
+          "1980",
+          "1950",
+          "2010",
+          "1990"
+        ]
+      },
+      "collection": {
+        "ids": [
+          "work-black-girl",
+          "work-tokyo-story",
+          "work_ingested_96b1faeb4b5ff44fe7f4a2cc",
+          "work_ingested_7b8781195d2c27832a8d6e6e"
+        ],
+        "countries": [
+          "Senegal",
+          "France",
+          "Japan",
+          "Canada",
+          "Denmark"
+        ],
+        "decades": [
+          "1960",
+          "1950",
+          "2020",
+          "1910"
+        ]
+      }
+    }
+  },
+  "programme_ids": [
+    "work-man-with-a-movie-camera",
+    "work-cleopatra-1917",
+    "work-trip-to-the-moon",
+    "work-hour-of-the-furnaces",
+    "work-daughters-of-the-dust",
+    "work-pather-panchali",
+    "work-meshes-of-the-afternoon",
+    "work-london-after-midnight",
+    "work_ingested_b3fb1ece1237ca502382ffd5",
+    "work-spring-in-a-small-town",
+    "work_ingested_107dc1e187efb1817eb7f1cc",
+    "work-cairo-station",
+    "work_ingested_d00c88e45036abbc7ada69d9",
+    "work_ingested_e11dad24d80f560ab0a70f44",
+    "work_ingested_ea76b4eed57b57b28ddda7e3",
+    "work-stalker",
+    "work_ingested_037fa741d26dda8468965fa4",
+    "work_ingested_73b400379e53f9ee772fd305",
+    "work_ingested_fb9340bc737f90eddba4ab61",
+    "work_ingested_7d4ad4c83a3aa6d39983b9a9",
+    "work-black-girl",
+    "work-tokyo-story",
+    "work_ingested_96b1faeb4b5ff44fe7f4a2cc",
+    "work_ingested_7b8781195d2c27832a8d6e6e"
+  ],
+  "catalogue": {
+    "works": 20512,
+    "source_records": 23711,
+    "eligible_sources": 3883,
+    "watchable_works": 2975,
+    "embedded_sources": 0,
+    "approved_artwork": 9,
+    "ready": true,
+    "artwork_ready": true,
+    "artwork_version": "a74449423fce06d6",
+    "as_of": "2026-10-09T16:51:29.763Z",
+    "snapshot_exported_at": "2026-10-08T04:45:04.461Z"
+  }
+}

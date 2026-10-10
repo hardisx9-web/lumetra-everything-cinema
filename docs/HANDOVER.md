@@ -1,5 +1,13 @@
 # Lumetra handover — 8 October 2026
 
+## Latest development checkpoint — 9 October 2026 (not deployed)
+
+Artwork work continues on `feature/cinematic-reconstruction` with the earlier uncommitted cinematic/intro/Horizon work preserved. **Read [ARTWORK-OPERATIONS.md](ARTWORK-OPERATIONS.md) before continuing.** It contains exact commands, run IDs, local preview instructions, tests, source blockers and preserved-data checksums.
+
+Current measured usable artwork: **4 → 9 Works**, comprising 5 posters, 3 stills and 1 production photograph. Five previously unpictured Works gained two genuine posters, two stills and one production photograph. **20,503 Works still need approved imagery**; the mission is not complete. One proposed later-edition cover was withheld after image inspection. All original Work/playback/ingestion records and original media columns match their baseline checksums. Playback remains 3,883 eligible external sources / 2,975 Works / zero embeds at the check time.
+
+The API, versioned artwork import, image fallbacks and rotating 24-Work programme are implemented locally. Unit/helper tests (24), real catalogue checks (11), hosted-import checks and local HTTP/image smoke passed. All 22 published image variants decoded successfully. Typecheck and targeted lint passed; full lint exhausted the Node heap; Worker build is blocked by unsupported Android workerd. Browser/mobile/WebGL visual verification remains pending. Local preview: `http://127.0.0.1:4173/` (`npm run preview:catalogue`). **Await owner visual approval; do not deploy.** The production notes below describe the earlier release, not publication of this update.
+
 ## Release scope
 The release uses the supplied original opening MP4, logo and stage artwork. Two generated photographic auditorium plates frame the original video. The frontend provides the cinematic homepage, intro/replay/sound/skip, mobile navigation, real catalogue search and filters, pagination, film dossiers, connected people queries, history/world introductions, editorial reading and moderated correction submission.
 

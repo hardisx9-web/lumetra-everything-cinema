@@ -2,26 +2,30 @@
   "schema_version": 1,
   "items": [
     {
-      "title": "Audit repository, frontend, assets, routes, deployment, and references",
+      "title": "Inspect saved artwork pipeline, queues, reports, and current serving state",
       "status": "in-progress"
     },
     {
-      "title": "Create rollback point and isolated feature branch",
+      "title": "Define safe candidate and internal-review publication boundaries",
       "status": "pending"
     },
     {
-      "title": "Implement cinematic theater intro and homepage foundation",
+      "title": "Run a resumable, non-duplicating recovery batch at meaningful scale",
       "status": "pending"
     },
     {
-      "title": "Generate four real browser previews for approval",
+      "title": "Implement development-only internal artwork review and metrics export",
       "status": "pending"
     },
     {
-      "title": "Run build and relevant tests, then stop for approval",
+      "title": "Refresh public manifests only for already approved artwork",
+      "status": "pending"
+    },
+    {
+      "title": "Verify rendering, preservation, coverage metrics, and preview URLs",
       "status": "pending"
     }
   ],
-  "updated_at": "2026-10-08T11:35:34.130Z",
-  "session_id": "01a11b4a-0764-7247-a14b-d0a328d53b9d"
+  "updated_at": "2026-10-09T17:41:43.305Z",
+  "session_id": "01a11c8b-09a3-7504-9977-84423e9b3949"
 }

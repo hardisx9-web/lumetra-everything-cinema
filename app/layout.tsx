@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Starter Project",
-  description: "A clean starting point for building your site.",
+  title: "Lumetra — Everything Cinema",
+  description: "Enter a living universe of films, filmmakers, images and histories.",
   other: {
     "codex-preview": "development",
   },

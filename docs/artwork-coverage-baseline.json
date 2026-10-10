@@ -1,0 +1,80 @@
+{
+  "report_version": 1,
+  "generated_at": "2026-10-08T17:38:40.697Z",
+  "database": "PostgreSQL global_cinema",
+  "database_schema": "pre-artwork-enrichment",
+  "definitions": {
+    "usable_artwork": "A media_asset with license_verified=true and usage_basis other than UNKNOWN. Existing records have no recorded verified license.",
+    "published_artwork": "A reviewed local or provider artwork record currently available to the serving frontend.",
+    "no_suitable_imagery": "A Work with no usable artwork under the definition above; this is not a claim that no image exists anywhere.",
+    "incorrect_match": "Not measured before the matching pipeline existed; existing source attachments require review."
+  },
+  "catalogue": {
+    "films_audited": 20512,
+    "playback_source_records": 23711,
+    "eligible_external_playback_sources": 3883,
+    "watchable_works": 2975,
+    "ingestion_candidates": 33958,
+    "source_verification_rows": 33970
+  },
+  "existing_opportunities": {
+    "media_asset_rows": 14470,
+    "films_with_any_existing_media_reference": 13961,
+    "source_metadata_image_urls": 14749,
+    "source_metadata_image_providers": 6,
+    "source_metadata_image_rows_by_provider": {
+      "bfi_player_free": 10158,
+      "nfb_canada": 2187,
+      "mosfilm": 1431,
+      "cinematheque_henri": 455,
+      "retina_latina": 418,
+      "35mm_online": 100
+    }
+  },
+  "database_coverage": {
+    "films_with_verified_usable_poster": 0,
+    "films_with_verified_usable_official_still": 0,
+    "films_with_other_permitted_film_artwork": 0,
+    "films_with_artwork_url_but_failed_loading": 0,
+    "films_with_unverified_image_rights": 13961,
+    "films_with_incorrectly_matched_artwork": 0,
+    "films_without_suitable_imagery": 20512,
+    "films_with_usable_artwork_total": 0,
+    "asset_rows_pending_review": 14470,
+    "image_health_not_measured": 14470,
+    "matching_not_assessed": 14470
+  },
+  "serving_snapshot_coverage": {
+    "films_with_reviewed_artwork": 4,
+    "films_with_reviewed_poster": 3,
+    "films_with_reviewed_still": 1,
+    "artwork_records": 4,
+    "note": "This is the checked-in serving snapshot before/alongside the PostgreSQL recovery run, not a substitute for database coverage."
+  },
+  "source_provenance": {
+    "bfi_player_free": {
+      "assets": 10158,
+      "works": 10158
+    },
+    "nfb_canada": {
+      "assets": 1956,
+      "works": 1447
+    },
+    "mosfilm": {
+      "assets": 1428,
+      "works": 1428
+    },
+    "retina_latina": {
+      "assets": 418,
+      "works": 418
+    },
+    "cinematheque_henri": {
+      "assets": 410,
+      "works": 410
+    },
+    "35mm_online": {
+      "assets": 100,
+      "works": 100
+    }
+  }
+}

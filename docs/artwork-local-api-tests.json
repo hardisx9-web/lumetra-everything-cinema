@@ -1,0 +1,163 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-09T16:51:10.225Z",
+  "preview": "http://127.0.0.1:4173",
+  "api_runtime": "Native Node/D1-compatible SQLite adapter; actual application handler and exported catalogue",
+  "stats": {
+    "works": 20512,
+    "source_records": 23711,
+    "eligible_sources": 3883,
+    "watchable_works": 2975,
+    "embedded_sources": 0,
+    "approved_artwork": 9,
+    "ready": true,
+    "artwork_ready": true,
+    "artwork_version": "a74449423fce06d6",
+    "as_of": "2026-10-09T16:51:07.281Z",
+    "snapshot_exported_at": "2026-10-08T04:45:04.461Z"
+  },
+  "artwork_dossiers_checked": 9,
+  "images_http_and_full_decode_checked": 22,
+  "programme": {
+    "candidate_count": 398,
+    "selected_count": 24,
+    "artwork_count": 8,
+    "missing_artwork": 16,
+    "missing_metadata": {
+      "countries": 4,
+      "decades": 0,
+      "languages": 0,
+      "genres": 10
+    },
+    "diversity": {
+      "countries": 18,
+      "decades": 13,
+      "languages": 25,
+      "genres": 22
+    },
+    "sections": {
+      "carousel": {
+        "ids": [
+          "work-trip-to-the-moon",
+          "work-london-after-midnight",
+          "work-hour-of-the-furnaces",
+          "work-meshes-of-the-afternoon"
+        ],
+        "countries": [
+          "France",
+          "United States",
+          "Argentina"
+        ],
+        "decades": [
+          "1900",
+          "1920",
+          "1960",
+          "1940"
+        ]
+      },
+      "history": {
+        "ids": [
+          "work-pather-panchali",
+          "work-daughters-of-the-dust",
+          "work-cleopatra-1917",
+          "work-man-with-a-movie-camera"
+        ],
+        "countries": [
+          "India",
+          "United States",
+          "USSR"
+        ],
+        "decades": [
+          "1950",
+          "1990",
+          "1910",
+          "1920"
+        ]
+      },
+      "featured": {
+        "ids": [
+          "work_ingested_4cb74f2a8e6587abd4f93ad8",
+          "work-act-of-killing",
+          "work_ingested_e11dad24d80f560ab0a70f44",
+          "work_ingested_4dacb4f78def8c0055a9b9fa",
+          "work-black-girl",
+          "work-tokyo-story",
+          "work_ingested_ff3f2aabc574cd64052d0b74",
+          "work_ingested_07851430922e2d4de5fe59a2"
+        ],
+        "countries": [
+          "United Kingdom",
+          "Denmark",
+          "Norway",
+          "Iran",
+          "Netherlands",
+          "Senegal",
+          "France",
+          "Japan",
+          "Angola",
+          "Indonesia"
+        ],
+        "decades": [
+          "1930",
+          "2010",
+          "2000",
+          "1970",
+          "1960",
+          "1950",
+          "2020",
+          "1980"
+        ]
+      },
+      "watch": {
+        "ids": [
+          "work_ingested_42c2c6f391b88b2b8f238983",
+          "work_ingested_c0df2c04c3b0ed2270d97b83",
+          "work_ingested_696fd94019ffc6127cbdd04f",
+          "work_ingested_16dd2d4fec21032e0517c09b"
+        ],
+        "countries": [],
+        "decades": [
+          "2010",
+          "2000",
+          "1990",
+          "1980"
+        ]
+      },
+      "collection": {
+        "ids": [
+          "work-battle-of-algiers",
+          "work_ingested_b3fb1ece1237ca502382ffd5",
+          "work_ingested_736b106586673a79f5687c40",
+          "work_ingested_d7914b7634af0c362c311875"
+        ],
+        "countries": [
+          "Algeria",
+          "Italy",
+          "United Kingdom",
+          "Ireland",
+          "South Africa"
+        ],
+        "decades": [
+          "1960",
+          "1970",
+          "2020",
+          "1910"
+        ]
+      }
+    }
+  },
+  "unique_featured_ids": 24,
+  "checks": [
+    "real search including English display title",
+    "dossier provenance",
+    "all published image variants decode",
+    "source states unchanged",
+    "unique/session/day seed programming",
+    "missing image HTTP 404",
+    "private publication 404",
+    "API validation",
+    "original video byte-range",
+    "Horizon shell retained"
+  ],
+  "browser_limit": "No browser automation or physical mobile visual test available; HTTP/image/helper checks do not establish rendered layout or WebGL correctness."
+}

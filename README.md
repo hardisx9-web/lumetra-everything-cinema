@@ -14,4 +14,10 @@ Search, pagination, dossiers, related works and availability filtering run in D1
 
 ## Scope
 
-This is the first working product release, not completion of the full editorial mission. Image coverage is limited to four reviewed Commons assets plus unchanged owner media. Inherited editorial entries are marked for review. There are no verified embedded sources in this snapshot. Physical Android testing, full accessibility audit, automatic source-health scheduling and broad dossier enrichment remain outstanding.
+This is the first working product release, not completion of the full editorial mission. Artwork recovery is in progress: the current approved export covers nine Works (five posters, three stills, one production photograph), up from four. The other 20,503 Works still require artwork research or permission. See docs/artwork-coverage-after.json and docs/ARTWORK-SOURCES.md; original owner media is unchanged. Inherited editorial entries are marked for review. There are no verified embedded sources in this snapshot. Physical Android testing, full accessibility audit, automatic source-health scheduling and broad dossier enrichment remain outstanding.
+
+## Local artwork development (not deployment)
+
+`npm run preview:catalogue` serves the actual catalogue API and public UI at `http://127.0.0.1:4173` using persistent, project-local SQLite with the same query modules and additive migrations. This is a Termux-compatible preview, not Cloudflare workerd certification. `npm run test:artwork` runs matching, UI-helper, real catalogue-import and programming checks. `node scripts/smoke-artwork.mjs` tests the running preview and decodes every published artwork variant.
+
+Artwork acquisition runs against the authorized archival PostgreSQL configuration. Commands, saved run IDs, permissions and continuation limits are in `docs/ARTWORK-OPERATIONS.md`. Do not rerun historical source ingestion or reset the catalogue. No production deployment was made for this artwork update.
