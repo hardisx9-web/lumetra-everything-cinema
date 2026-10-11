@@ -10,4 +10,4 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "lumetra-d1-staging"
-database_id = "__SET_STAGING_D1_DATABASE_ID__"
+database_id = "7f5e4d79-f210-4600-850d-26b619607d1b"
