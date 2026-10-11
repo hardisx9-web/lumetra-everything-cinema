@@ -37,3 +37,18 @@ jobs:
       - name: Build production worker bundle
         run: |
           pnpm run build
+
+      - name: Run in-runner staging server and verify E2E HTTP requests
+        run: |
+          node scripts/preview-catalogue.mjs &
+          SERVER_PID=$!
+          echo "Waiting for staging server to initialize..."
+          for i in {1..30}; do
+            if curl -s http://127.0.0.1:4173/api/stats | grep -q '"ready":true'; then
+              echo "Staging server is ready!"
+              break
+            fi
+            sleep 1
+          done
+          node scripts/test-staging-e2e.mjs
+          kill $SERVER_PID
