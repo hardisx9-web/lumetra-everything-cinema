@@ -6,6 +6,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
+    "test": "npm run test:artwork",
     "install:ci": "bash scripts/install-pnpm.sh",
     "dev": "node scripts/preview-worker.mjs",
     "preview:catalogue": "node scripts/preview-catalogue.mjs",
