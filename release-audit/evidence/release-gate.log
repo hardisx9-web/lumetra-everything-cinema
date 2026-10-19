@@ -1,0 +1,70 @@
+{
+  "checked_at": "2026-10-19T03:41:51.242Z",
+  "scope": "V5 learning data, bundled catalogue, editorial API and identified destination/museum/world slots. Browser route crawl remains required.",
+  "counts": {
+    "technology-group": {
+      "total": 17,
+      "approved": 0,
+      "pending": 17
+    },
+    "technology": {
+      "total": 250,
+      "approved": 3,
+      "pending": 247
+    },
+    "crew-department": {
+      "total": 20,
+      "approved": 0,
+      "pending": 20
+    },
+    "crew-role": {
+      "total": 309,
+      "approved": 0,
+      "pending": 309
+    },
+    "camera-milestone": {
+      "total": 19,
+      "approved": 0,
+      "pending": 19
+    },
+    "film": {
+      "total": 20512,
+      "approved": 0,
+      "pending": 20512
+    },
+    "director-credit": {
+      "total": 6253,
+      "approved": 0,
+      "pending": 6253
+    },
+    "essay": {
+      "total": 28,
+      "approved": 0,
+      "pending": 28
+    },
+    "navigation-scene": {
+      "total": 3,
+      "approved": 0,
+      "pending": 3
+    },
+    "museum-scene": {
+      "total": 7,
+      "approved": 0,
+      "pending": 7
+    },
+    "world-navigation": {
+      "total": 2,
+      "approved": 0,
+      "pending": 2
+    }
+  },
+  "profile_aliases": 41,
+  "release_ready": false,
+  "blockers": [
+    "Unresolved subject photographs",
+    "Inherited film images require current probe and rights review",
+    "Browser route crawl incomplete",
+    "PostgreSQL restore and source refresh incomplete",
+    "Android and desktop rendered QA incomplete"
+  ]
+}

@@ -1,0 +1,12 @@
+PASS real PostgreSQL export survives D1 import with licensing + local images
+PASS unreviewed, unhealthy or unlicensed artwork fails closed
+PASS same session produces identical unique programme across sections
+PASS session/day/reshuffle seeds rotate real Works
+PASS country and decade diversity with explicit metadata gaps
+PASS search and dossier return identical provenance
+PASS existing API validation/counts and source states preserved
+PASS artwork seed resumes and runs again without duplicates
+PASS additive migration preserves populated catalogue and prior artwork
+PASS an old catalogue gets new artwork; interrupted assets do not become DONE
+PASS translated country labels do not inflate diversity
+{"passed":11,"failed":0}

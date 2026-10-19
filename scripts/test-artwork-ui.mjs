@@ -51,18 +51,18 @@ test('every poster retains film-specific metadata for load-failure fallback and 
   const html = posterMarkup(item);
   assert.match(html, /data-film-artwork/);
   assert.match(html, /poster-title-treatment/);
-  for (const expected of ['&lt;Danger &amp; light&gt;', 'Original name', '1936', 'A &amp; B', 'France', 'not a historical poster']) assert.ok(html.includes(expected), expected);
+  for (const expected of ['&lt;Danger &amp; light&gt;', 'Original name', '1936', 'A &amp; B', 'France']) assert.ok(html.includes(expected), expected);
   assert.doesNotMatch(html, /<Danger/);
   assert.match(html, /Original poster, held by Example Archive/);
 });
 
-test('missing artwork renders an honest editorial illustration and title treatment', () => {
+test('missing artwork reports unresolved image review without substitute art', () => {
   const html = posterMarkup(film());
-  assert.match(html, /poster-visual-fallback/);
-  assert.match(html, /src="\/visuals\/film-moods\/\d{2}\.svg"/);
+  assert.doesNotMatch(html, /poster-visual-fallback/);
+  assert.doesNotMatch(html, /<img|\/visuals\//);
   assert.doesNotMatch(html, /src=""/);
   assert.match(html, /Film a/);
-  assert.match(html, /Original editorial film illustration · not a historical poster/);
+  assert.match(html, /Authentic film artwork pending review/);
   assert.match(html, /1936 · A filmmaker · France/);
 });
 

@@ -1,0 +1,21 @@
+{
+  "records": 14470,
+  "distinct_works": 13961,
+  "inherited_license_verified": {
+    "f": 14470
+  },
+  "usage_basis": {
+    "SOURCE_IMAGE_LICENSE_UNVERIFIED": 14470
+  },
+  "asset_types": {
+    "POSTER": 14470
+  },
+  "source_ids": {
+    "cinematheque_henri": 410,
+    "nfb_canada": 1956,
+    "35mm_online": 100,
+    "mosfilm": 1428,
+    "retina_latina": 418,
+    "bfi_player_free": 10158
+  }
+}

@@ -1,0 +1,130 @@
+;
+; Archive created at 2026-10-08 07:41:49 MDT
+;     dbname: global_cinema
+;     TOC Entries: 119
+;     Compression: gzip
+;     Dump Version: 1.16-0
+;     Format: CUSTOM
+;     Integer: 4 bytes
+;     Offset: 8 bytes
+;     Dumped from database version: 18.6
+;     Dumped by pg_dump version: 18.6
+;
+;
+; Selected TOC Entries:
+;
+2; 3079 16399 EXTENSION - pgcrypto 
+3765; 0 0 COMMENT - EXTENSION pgcrypto 
+280; 1255 22651 FUNCTION public protect_ingestion_candidate() u0_a387
+279; 1255 22649 FUNCTION public protect_ingestion_verification() u0_a387
+240; 1259 56810 TABLE public embed_audit_item u0_a387
+241; 1259 56831 TABLE public embed_audit_result u0_a387
+239; 1259 56787 TABLE public embed_audit_run u0_a387
+225; 1259 16516 TABLE public ingest_candidate u0_a387
+222; 1259 16455 TABLE public ingest_run u0_a387
+236; 1259 22541 TABLE public ingest_source_result u0_a387
+229; 1259 16624 TABLE public media_asset u0_a387
+226; 1259 16544 TABLE public playback_source u0_a387
+228; 1259 16595 TABLE public source_verification u0_a387
+234; 1259 16691 VIEW public public_watchable_sources u0_a387
+220; 1259 16389 TABLE public schema_migration u0_a387
+231; 1259 16649 TABLE public source_health_check u0_a387
+230; 1259 16648 SEQUENCE public source_health_check_health_check_id_seq u0_a387
+3766; 0 0 SEQUENCE OWNED BY public source_health_check_health_check_id_seq u0_a387
+221; 1259 16437 TABLE public source_registry u0_a387
+227; 1259 16594 SEQUENCE public source_verification_verification_id_seq u0_a387
+3767; 0 0 SEQUENCE OWNED BY public source_verification_verification_id_seq u0_a387
+223; 1259 16472 TABLE public work u0_a387
+235; 1259 16701 TABLE public work_external_id u0_a387
+237; 1259 22581 TABLE public work_identifier u0_a387
+233; 1259 16669 TABLE public work_merge_event u0_a387
+232; 1259 16668 SEQUENCE public work_merge_event_merge_id_seq u0_a387
+3768; 0 0 SEQUENCE OWNED BY public work_merge_event_merge_id_seq u0_a387
+238; 1259 22607 TABLE public work_resolution_event u0_a387
+224; 1259 16498 TABLE public work_title u0_a387
+3482; 2604 16652 DEFAULT public source_health_check health_check_id u0_a387
+3472; 2604 16598 DEFAULT public source_verification verification_id u0_a387
+3484; 2604 16672 DEFAULT public work_merge_event merge_id u0_a387
+3757; 0 56810 TABLE DATA public embed_audit_item u0_a387
+3758; 0 56831 TABLE DATA public embed_audit_result u0_a387
+3756; 0 56787 TABLE DATA public embed_audit_run u0_a387
+3743; 0 16516 TABLE DATA public ingest_candidate u0_a387
+3740; 0 16455 TABLE DATA public ingest_run u0_a387
+3753; 0 22541 TABLE DATA public ingest_source_result u0_a387
+3747; 0 16624 TABLE DATA public media_asset u0_a387
+3744; 0 16544 TABLE DATA public playback_source u0_a387
+3738; 0 16389 TABLE DATA public schema_migration u0_a387
+3749; 0 16649 TABLE DATA public source_health_check u0_a387
+3739; 0 16437 TABLE DATA public source_registry u0_a387
+3746; 0 16595 TABLE DATA public source_verification u0_a387
+3741; 0 16472 TABLE DATA public work u0_a387
+3752; 0 16701 TABLE DATA public work_external_id u0_a387
+3754; 0 22581 TABLE DATA public work_identifier u0_a387
+3751; 0 16669 TABLE DATA public work_merge_event u0_a387
+3755; 0 22607 TABLE DATA public work_resolution_event u0_a387
+3742; 0 16498 TABLE DATA public work_title u0_a387
+3769; 0 0 SEQUENCE SET public source_health_check_health_check_id_seq u0_a387
+3770; 0 0 SEQUENCE SET public source_verification_verification_id_seq u0_a387
+3771; 0 0 SEQUENCE SET public work_merge_event_merge_id_seq u0_a387
+3559; 2606 56820 CONSTRAINT public embed_audit_item embed_audit_item_pkey u0_a387
+3561; 2606 56850 CONSTRAINT public embed_audit_result embed_audit_result_pkey u0_a387
+3557; 2606 56809 CONSTRAINT public embed_audit_run embed_audit_run_pkey u0_a387
+3525; 2606 16532 CONSTRAINT public ingest_candidate ingest_candidate_pkey u0_a387
+3514; 2606 16471 CONSTRAINT public ingest_run ingest_run_pkey u0_a387
+3549; 2606 22563 CONSTRAINT public ingest_source_result ingest_source_result_pkey u0_a387
+3540; 2606 16642 CONSTRAINT public media_asset media_asset_pkey u0_a387
+3530; 2606 16581 CONSTRAINT public playback_source playback_source_pkey u0_a387
+3510; 2606 16398 CONSTRAINT public schema_migration schema_migration_pkey u0_a387
+3543; 2606 16662 CONSTRAINT public source_health_check source_health_check_pkey u0_a387
+3512; 2606 16454 CONSTRAINT public source_registry source_registry_pkey u0_a387
+3536; 2606 16617 CONSTRAINT public source_verification source_verification_pkey u0_a387
+3547; 2606 16710 CONSTRAINT public work_external_id work_external_id_pkey u0_a387
+3551; 2606 22595 CONSTRAINT public work_identifier work_identifier_pkey u0_a387
+3545; 2606 16685 CONSTRAINT public work_merge_event work_merge_event_pkey u0_a387
+3517; 2606 16495 CONSTRAINT public work work_pkey u0_a387
+3554; 2606 22621 CONSTRAINT public work_resolution_event work_resolution_event_pkey u0_a387
+3519; 2606 16497 CONSTRAINT public work work_stable_key_key u0_a387
+3522; 2606 16509 CONSTRAINT public work_title work_title_pkey u0_a387
+3562; 1259 56856 INDEX public embed_audit_result_source_idx u0_a387
+3523; 1259 22579 INDEX public ingest_candidate_identity_idx u0_a387
+3526; 1259 16721 INDEX public ingest_candidate_run_source_idx u0_a387
+3527; 1259 16543 INDEX public ingest_candidate_source_idx u0_a387
+3515; 1259 16696 INDEX public ingest_run_report_sha256_idx u0_a387
+3541; 1259 16722 INDEX public media_asset_work_url_idx u0_a387
+3528; 1259 22580 INDEX public playback_source_identity_idx u0_a387
+3531; 1259 16593 INDEX public playback_source_registry_idx u0_a387
+3532; 1259 16592 INDEX public playback_source_watch_idx u0_a387
+3533; 1259 22648 INDEX public source_verification_candidate_run_idx u0_a387
+3534; 1259 16724 INDEX public source_verification_latest_idx u0_a387
+3537; 1259 18138 INDEX public source_verification_run_idx u0_a387
+3538; 1259 16623 INDEX public source_verification_source_idx u0_a387
+3552; 1259 22606 INDEX public work_identifier_work_idx u0_a387
+3555; 1259 22642 INDEX public work_resolution_event_work_idx u0_a387
+3520; 1259 16515 INDEX public work_title_normalized_idx u0_a387
+3588; 2620 22652 TRIGGER public ingest_candidate ingestion_candidate_immutable u0_a387
+3589; 2620 22650 TRIGGER public source_verification ingestion_verification_immutable u0_a387
+3585; 2606 56821 FK CONSTRAINT public embed_audit_item embed_audit_item_run_id_fkey u0_a387
+3586; 2606 56826 FK CONSTRAINT public embed_audit_item embed_audit_item_source_id_fkey u0_a387
+3587; 2606 56851 FK CONSTRAINT public embed_audit_result embed_audit_result_run_id_source_id_fkey u0_a387
+3564; 2606 16533 FK CONSTRAINT public ingest_candidate ingest_candidate_ingest_run_id_fkey u0_a387
+3565; 2606 16538 FK CONSTRAINT public ingest_candidate ingest_candidate_registry_source_id_fkey u0_a387
+3566; 2606 22574 FK CONSTRAINT public ingest_candidate ingest_candidate_work_id_fkey u0_a387
+3577; 2606 22564 FK CONSTRAINT public ingest_source_result ingest_source_result_ingest_run_id_fkey u0_a387
+3578; 2606 22569 FK CONSTRAINT public ingest_source_result ingest_source_result_registry_source_id_fkey u0_a387
+3572; 2606 16643 FK CONSTRAINT public media_asset media_asset_work_id_fkey u0_a387
+3567; 2606 16587 FK CONSTRAINT public playback_source playback_source_registry_source_id_fkey u0_a387
+3568; 2606 16582 FK CONSTRAINT public playback_source playback_source_work_id_fkey u0_a387
+3573; 2606 16663 FK CONSTRAINT public source_health_check source_health_check_source_id_fkey u0_a387
+3569; 2606 22643 FK CONSTRAINT public source_verification source_verification_candidate_id_fkey u0_a387
+3570; 2606 18133 FK CONSTRAINT public source_verification source_verification_ingest_run_id_fkey u0_a387
+3571; 2606 16618 FK CONSTRAINT public source_verification source_verification_source_id_fkey u0_a387
+3575; 2606 16711 FK CONSTRAINT public work_external_id work_external_id_registry_source_id_fkey u0_a387
+3576; 2606 16716 FK CONSTRAINT public work_external_id work_external_id_work_id_fkey u0_a387
+3579; 2606 22601 FK CONSTRAINT public work_identifier work_identifier_registry_source_id_fkey u0_a387
+3580; 2606 22596 FK CONSTRAINT public work_identifier work_identifier_work_id_fkey u0_a387
+3574; 2606 16686 FK CONSTRAINT public work_merge_event work_merge_event_canonical_work_id_fkey u0_a387
+3581; 2606 22632 FK CONSTRAINT public work_resolution_event work_resolution_event_candidate_id_fkey u0_a387
+3582; 2606 22627 FK CONSTRAINT public work_resolution_event work_resolution_event_ingest_run_id_fkey u0_a387
+3583; 2606 22637 FK CONSTRAINT public work_resolution_event work_resolution_event_registry_source_id_fkey u0_a387
+3584; 2606 22622 FK CONSTRAINT public work_resolution_event work_resolution_event_work_id_fkey u0_a387
+3563; 2606 16510 FK CONSTRAINT public work_title work_title_work_id_fkey u0_a387
