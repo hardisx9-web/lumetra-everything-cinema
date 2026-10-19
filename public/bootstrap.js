@@ -18,7 +18,7 @@ async function catalogueReady() {
   return state.ready === true && state.artwork_ready === true && Number(state.works) > 0;
 }
 // Educational wings are static and should stay readable even if the film database is offline.
-const learningPath = /^\/(?:technology|crew)(?:\/|$)/.test(location.pathname);
+const learningPath = /^\/(?:technology|crew)(?:\/|$)/.test(location.pathname) || ['/attributions','/corrections'].includes(location.pathname);
 if (learningPath) {
   await import('./app.js');
 } else {

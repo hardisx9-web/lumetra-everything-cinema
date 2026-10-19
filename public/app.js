@@ -1,4 +1,5 @@
 import { subjectPhoto } from './subject-images.js';
+import { subjectImages } from './subject-images.js';
 import { isLearningPath, renderLearning } from './cinema-learning.js';
 import { createCinemaHistoryChapters } from './cinema-home.js';
 import { artworkFor, artworkLabel, filmTitle, filmMetadata, viewingStatus, posterMarkup, disjointProgramme, sessionProgrammeSeed, textureImageUrl, fallbackFilmImage } from './artwork-ui.js';
@@ -151,7 +152,7 @@ function worldCards(compact = false) {
     { title: 'The cut that thinks', tag: '1920s / Montage', text: 'Discover how meaning moves between images, bodies and cities.', link: '/essay/montage-as-thought' },
     { title: 'Across the frame', tag: 'Worlds / Many cinemas', text: 'Cross a border. Find another way of seeing.', link: '/essay/beyond-one-world-cinema' }
   ];
-  return items.map((item) => `<a class="destination-card ${compact ? 'destination-compact' : ''}" href="${item.link}"><span class="destination-wash"></span>${subjectPhoto('destination/'+item.link,item.title)}<span class="eyebrow">${item.tag}</span><h3>${item.title}</h3><p>${item.text}</p><b>Enter this world <i>↗</i></b></a>`).join('');
+  return items.map((item) => `<article class="destination-card ${compact ? 'destination-compact' : ''}"><span class="destination-wash"></span>${subjectPhoto('destination/'+item.link,item.title)}<span class="eyebrow">${item.tag}</span><h3><a href="${item.link}">${item.title}</a></h3><p>${item.text}</p><a href="${item.link}">Enter this world ↗</a></article>`).join('');
 }
 
 function timeline(withImages = false) {
@@ -161,7 +162,7 @@ function timeline(withImages = false) {
     { year: '1940s', label: 'The street enters the frame', text: 'Postwar lives and the varied practices of Italian neorealism.', id: 'streets-of-neorealism' },
     { year: '1950s–60s', label: 'New waves, new possibilities', text: 'Criticism, independent production and a changing grammar of filmmaking.', id: 'new-wave-new-grammar' },
   ];
-  return eras.map((era, index) => `<a class="era ${withImages ? 'era-cinematic' : ''}" href="/essay/${era.id}" data-reveal>${subjectPhoto('essay/'+era.id,era.label)}<span class="era-number">0${index + 1}</span><strong>${era.year}</strong><h3>${era.label} <i>↗</i></h3><p>${era.text}</p></a>`).join('');
+  return eras.map((era, index) => `<article class="era ${withImages ? 'era-cinematic' : ''}" data-reveal>${subjectPhoto('essay/'+era.id,era.label)}<span class="era-number">0${index + 1}</span><strong>${era.year}</strong><h3><a href="/essay/${era.id}">${era.label} ↗</a></h3><p>${era.text}</p></article>`).join('');
 }
 
 function createCinemaWorldRenderer(canvas, films) {
@@ -574,11 +575,11 @@ function museum() {
 }
 
 async function person(name) {
-  title(name, `Recorded filmography for ${name} in the Lumetra cinema catalogue.`, { '@type': 'ProfilePage', mainEntity: { '@type': 'Person', name } });
+  title(name, `Works carrying the director credit “${name}” in the Lumetra catalogue.`, { '@type': 'CollectionPage', about: { '@type': 'Thing', name } });
   main.innerHTML = `<section class="page-head"><span class="eyebrow">People / Recorded filmography</span><h1 class="page-title">${esc(name)}</h1><figure class="person-profile-visual">${subjectPhoto('person/'+name,name)}<figcaption>Portrait subject verification required</figcaption></figure><p>Works linked through the database’s recorded director credit. Biography and detailed crew roles require separate editorial research.</p></section><section class="cinema-section" id="person-films"><p>Loading recorded works…</p></section>`;
   const token = requestId;
   try {
-    const result = await api(`/api/films?${new URLSearchParams({ q: name, limit: 48 })}`);
+    const result = await api(`/api/films?${new URLSearchParams({ director: name, limit: 48 })}`);
     if (token !== requestId) return;
     document.querySelector('#person-films').innerHTML = `<div class="card-grid">${result.items.filter((filmRecord) => filmRecord.director === name).map((filmRecord) => card(filmRecord)).join('')}</div><a class="cta ghost" href="/discover?q=${encodeURIComponent(name)}">Search the full catalogue →</a>`;
   } catch (error) {
@@ -635,6 +636,8 @@ async function render() {
     else link.removeAttribute('aria-current');
   }
   if (isLearningPath(path)) { renderLearning(main, path, title); return; }
+  if (path === '/attributions') { attributions(); return; }
+  if (path === '/corrections') { corrections(); return; }
   if (!editorial) {
     main.innerHTML = '<div class="loading" role="status">Opening the archive and loading the programme…</div>';
     try {
@@ -673,8 +676,14 @@ async function render() {
   else if (path === '/museum') museum();
   else if (path.startsWith('/person/')) await person(decodeURIComponent(path.slice(8)));
   else if (path === '/about') about();
+  else if (path === '/attributions') attributions();
   else if (path === '/corrections') corrections();
   else notFound();
+}
+
+function attributions() {
+  title('Image credits and rights','Sources, creators, licences and changes for approved Lumetra subject photographs.');
+  main.innerHTML=`<article class="reader"><span class="eyebrow">RIGHTS / PROVENANCE</span><h1>Every photograph has a source.</h1><p>This private review contains unfinished image research. The records below cover only the three photographs reviewed in the recovery checkpoint; they do not establish image completion across the catalogue. Original brand media is preserved from the supplied project.</p>${Object.entries(subjectImages).map(([key,image])=>`<section><h2>${esc(image.subject)}</h2>${subjectPhoto(key,image.subject)}<p><strong>Creator:</strong> ${esc(image.creator)}. <strong>Identity evidence:</strong> ${esc(image.evidence)}</p></section>`).join('')}<h2>Catalogue artwork</h2><p>Film-image records inherited from the project carry their own provenance on film dossier pages. Their current rights, subject match and loading checks remain in the release register and must be renewed before release.</p><h2>Corrections and rights enquiries</h2><p><a href="/corrections">Report an attribution, subject-identification or rights concern</a>. Include the relevant page and supporting evidence. Reports enter the private review queue.</p><h2>Your notebook</h2><p>My Cinema stores watchlist, watched and reading IDs in this browser. Export a backup before clearing browser storage. The application does not send notebook contents to its server.</p></article>`;
 }
 
 function navigate(path) {

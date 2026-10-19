@@ -1,3 +1,4 @@
+import {subjectImageVariants} from './subject-image-variants.js';
 // Only reviewed, subject-specific photographs may be selected here.
 export const subjectImages = {
   'technology/lenses/prime-lenses': {
@@ -47,5 +48,8 @@ export function subjectPhoto(key, label, className = '') {
   // Explicit review state in an unpublished candidate. This is a release blocker,
   // never substitute art or a claim that the image requirement has been met.
   if (!image) return `<p class="image-review-pending" data-image-subject="${esc(key)}" data-image-status="PENDING">Authentic photograph under review: ${esc(label)}</p>`;
-  return `<figure class="subject-photograph ${esc(className)}" data-image-subject="${esc(key)}" data-image-status="APPROVED"><img src="${esc(image.url)}" alt="${esc(image.subject)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async"><figcaption>${esc(image.caption)} <a href="${esc(image.source_page)}" target="_blank" rel="noopener noreferrer">Source</a> · <a href="${esc(image.license_url)}" target="_blank" rel="noopener noreferrer">${esc(image.license)}</a> · Changes: ${esc(image.changes)}</figcaption></figure>`;
+  const rendition = subjectImageVariants[image.url];
+  const variants = rendition?.variants || {};
+  const srcset = Object.entries(variants).map(([width,url])=>`${esc(url)} ${width}w`).join(', ');
+  return `<figure class="subject-photograph ${esc(className)}" data-image-subject="${esc(key)}" data-image-status="APPROVED"><a class="subject-image-source" href="${esc(image.source_page)}" target="_blank" rel="noopener noreferrer" aria-label="Source and rights for ${esc(image.subject)}"><img src="${esc(variants['640'] || image.url)}"${srcset?` srcset="${srcset}" sizes="(max-width:600px) 90vw, (max-width:1000px) 45vw, 640px"`:''} alt="${esc(image.subject)}" width="${rendition?.width||image.width}" height="${rendition?.height||image.height}" loading="lazy" decoding="async"></a><figcaption>${esc(image.caption)} <a href="${esc(image.source_page)}" target="_blank" rel="noopener noreferrer">Source</a> · <a href="${esc(image.license_url)}" target="_blank" rel="noopener noreferrer">${esc(image.license)}</a> · Changes: ${esc(rendition?.changes||image.changes)}</figcaption></figure>`;
 }

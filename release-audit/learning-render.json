@@ -4,17 +4,17 @@
     {
       "route": "/technology",
       "pending_slots": 18,
-      "rendered_html_bytes": 13228
+      "rendered_html_bytes": 13762
     },
     {
       "route": "/technology/cameras",
       "pending_slots": 51,
-      "rendered_html_bytes": 37558
+      "rendered_html_bytes": 37110
     },
     {
       "route": "/crew",
       "pending_slots": 21,
-      "rendered_html_bytes": 15389
+      "rendered_html_bytes": 16196
     },
     {
       "route": "/technology/cameras/kinetograph",
@@ -179,12 +179,12 @@
     {
       "route": "/technology/lenses",
       "pending_slots": 16,
-      "rendered_html_bytes": 14396
+      "rendered_html_bytes": 15286
     },
     {
       "route": "/technology/lenses/prime-lenses",
       "pending_slots": 0,
-      "rendered_html_bytes": 2131
+      "rendered_html_bytes": 2667
     },
     {
       "route": "/technology/lenses/zoom-lenses",
@@ -204,7 +204,7 @@
     {
       "route": "/technology/lenses/macro-lenses",
       "pending_slots": 0,
-      "rendered_html_bytes": 2172
+      "rendered_html_bytes": 2698
     },
     {
       "route": "/technology/lenses/anamorphic-lenses",
@@ -269,7 +269,7 @@
     {
       "route": "/technology/film",
       "pending_slots": 21,
-      "rendered_html_bytes": 16931
+      "rendered_html_bytes": 17192
     },
     {
       "route": "/technology/film/nitrate-film-base",
@@ -294,7 +294,7 @@
     {
       "route": "/technology/film/16-mm-film",
       "pending_slots": 0,
-      "rendered_html_bytes": 2164
+      "rendered_html_bytes": 2686
     },
     {
       "route": "/technology/film/8-mm-and-super-8",
@@ -379,7 +379,7 @@
     {
       "route": "/technology/lighting",
       "pending_slots": 19,
-      "rendered_html_bytes": 14148
+      "rendered_html_bytes": 13896
     },
     {
       "route": "/technology/lighting/carbon-arc-lamps",
@@ -474,7 +474,7 @@
     {
       "route": "/technology/grip",
       "pending_slots": 17,
-      "rendered_html_bytes": 12829
+      "rendered_html_bytes": 12605
     },
     {
       "route": "/technology/grip/tripods-and-fluid-heads",
@@ -559,7 +559,7 @@
     {
       "route": "/technology/production-sound",
       "pending_slots": 13,
-      "rendered_html_bytes": 10916
+      "rendered_html_bytes": 10748
     },
     {
       "route": "/technology/production-sound/shotgun-microphones",
@@ -624,7 +624,7 @@
     {
       "route": "/technology/sound-post",
       "pending_slots": 13,
-      "rendered_html_bytes": 10412
+      "rendered_html_bytes": 10244
     },
     {
       "route": "/technology/sound-post/dialogue-editing",
@@ -689,7 +689,7 @@
     {
       "route": "/technology/editing",
       "pending_slots": 12,
-      "rendered_html_bytes": 9961
+      "rendered_html_bytes": 9807
     },
     {
       "route": "/technology/editing/physical-splicers-and-cement",
@@ -749,7 +749,7 @@
     {
       "route": "/technology/color",
       "pending_slots": 13,
-      "rendered_html_bytes": 10727
+      "rendered_html_bytes": 10559
     },
     {
       "route": "/technology/color/color-charts-and-gray-cards",
@@ -814,7 +814,7 @@
     {
       "route": "/technology/vfx",
       "pending_slots": 17,
-      "rendered_html_bytes": 13406
+      "rendered_html_bytes": 13182
     },
     {
       "route": "/technology/vfx/optical-compositing",
@@ -899,7 +899,7 @@
     {
       "route": "/technology/sfx",
       "pending_slots": 12,
-      "rendered_html_bytes": 9969
+      "rendered_html_bytes": 9815
     },
     {
       "route": "/technology/sfx/mechanical-rigs",
@@ -959,7 +959,7 @@
     {
       "route": "/technology/animation",
       "pending_slots": 12,
-      "rendered_html_bytes": 9868
+      "rendered_html_bytes": 9714
     },
     {
       "route": "/technology/animation/hand-drawn-cel-animation",
@@ -1019,7 +1019,7 @@
     {
       "route": "/technology/projection",
       "pending_slots": 15,
-      "rendered_html_bytes": 11996
+      "rendered_html_bytes": 11800
     },
     {
       "route": "/technology/projection/magic-lantern",
@@ -1094,7 +1094,7 @@
     {
       "route": "/technology/set-design",
       "pending_slots": 11,
-      "rendered_html_bytes": 9936
+      "rendered_html_bytes": 9796
     },
     {
       "route": "/technology/set-design/technical-drafting-and-cad",
@@ -1149,7 +1149,7 @@
     {
       "route": "/technology/workflow",
       "pending_slots": 14,
-      "rendered_html_bytes": 11619
+      "rendered_html_bytes": 11437
     },
     {
       "route": "/technology/workflow/checksum-copy-workflows",
@@ -1219,7 +1219,7 @@
     {
       "route": "/technology/delivery",
       "pending_slots": 13,
-      "rendered_html_bytes": 11462
+      "rendered_html_bytes": 11294
     },
     {
       "route": "/technology/delivery/digital-cinema-package-dcp",
@@ -1284,7 +1284,7 @@
     {
       "route": "/technology/emerging",
       "pending_slots": 13,
-      "rendered_html_bytes": 11213
+      "rendered_html_bytes": 11045
     },
     {
       "route": "/technology/emerging/virtual-camera-operation",
@@ -1349,7 +1349,7 @@
     {
       "route": "/crew/development",
       "pending_slots": 15,
-      "rendered_html_bytes": 11469
+      "rendered_html_bytes": 11049
     },
     {
       "route": "/crew/development/creator",
@@ -1424,7 +1424,7 @@
     {
       "route": "/crew/producing",
       "pending_slots": 21,
-      "rendered_html_bytes": 16311
+      "rendered_html_bytes": 15711
     },
     {
       "route": "/crew/producing/producer",
@@ -1529,7 +1529,7 @@
     {
       "route": "/crew/direction",
       "pending_slots": 17,
-      "rendered_html_bytes": 13811
+      "rendered_html_bytes": 13331
     },
     {
       "route": "/crew/direction/director",
@@ -1614,7 +1614,7 @@
     {
       "route": "/crew/casting",
       "pending_slots": 16,
-      "rendered_html_bytes": 12256
+      "rendered_html_bytes": 11806
     },
     {
       "route": "/crew/casting/casting-director",
@@ -1694,7 +1694,7 @@
     {
       "route": "/crew/camera",
       "pending_slots": 24,
-      "rendered_html_bytes": 17430
+      "rendered_html_bytes": 16740
     },
     {
       "route": "/crew/camera/director-of-photography-dop-dp",
@@ -1814,7 +1814,7 @@
     {
       "route": "/crew/lighting",
       "pending_slots": 13,
-      "rendered_html_bytes": 10369
+      "rendered_html_bytes": 10009
     },
     {
       "route": "/crew/lighting/gaffer",
@@ -1879,7 +1879,7 @@
     {
       "route": "/crew/grip",
       "pending_slots": 11,
-      "rendered_html_bytes": 8823
+      "rendered_html_bytes": 8523
     },
     {
       "route": "/crew/grip/key-grip",
@@ -1934,7 +1934,7 @@
     {
       "route": "/crew/sound",
       "pending_slots": 9,
-      "rendered_html_bytes": 7546
+      "rendered_html_bytes": 7306
     },
     {
       "route": "/crew/sound/production-sound-mixer",
@@ -1979,7 +1979,7 @@
     {
       "route": "/crew/art",
       "pending_slots": 19,
-      "rendered_html_bytes": 14124
+      "rendered_html_bytes": 13584
     },
     {
       "route": "/crew/art/production-designer",
@@ -2074,7 +2074,7 @@
     {
       "route": "/crew/sets",
       "pending_slots": 15,
-      "rendered_html_bytes": 11254
+      "rendered_html_bytes": 10834
     },
     {
       "route": "/crew/sets/set-decorator",
@@ -2149,7 +2149,7 @@
     {
       "route": "/crew/costume",
       "pending_slots": 13,
-      "rendered_html_bytes": 10145
+      "rendered_html_bytes": 9785
     },
     {
       "route": "/crew/costume/costume-designer",
@@ -2214,7 +2214,7 @@
     {
       "route": "/crew/hair-makeup",
       "pending_slots": 14,
-      "rendered_html_bytes": 10857
+      "rendered_html_bytes": 10467
     },
     {
       "route": "/crew/hair-makeup/makeup-department-head",
@@ -2284,7 +2284,7 @@
     {
       "route": "/crew/choreography",
       "pending_slots": 17,
-      "rendered_html_bytes": 13295
+      "rendered_html_bytes": 12815
     },
     {
       "route": "/crew/choreography/choreographer",
@@ -2369,7 +2369,7 @@
     {
       "route": "/crew/locations",
       "pending_slots": 13,
-      "rendered_html_bytes": 10416
+      "rendered_html_bytes": 10056
     },
     {
       "route": "/crew/locations/location-manager",
@@ -2434,7 +2434,7 @@
     {
       "route": "/crew/sfx",
       "pending_slots": 12,
-      "rendered_html_bytes": 10106
+      "rendered_html_bytes": 9776
     },
     {
       "route": "/crew/sfx/special-effects-supervisor",
@@ -2494,7 +2494,7 @@
     {
       "route": "/crew/editorial",
       "pending_slots": 16,
-      "rendered_html_bytes": 12588
+      "rendered_html_bytes": 12138
     },
     {
       "route": "/crew/editorial/editor-picture-editor",
@@ -2574,7 +2574,7 @@
     {
       "route": "/crew/sound-post",
       "pending_slots": 21,
-      "rendered_html_bytes": 15215
+      "rendered_html_bytes": 14615
     },
     {
       "route": "/crew/sound-post/supervising-sound-editor",
@@ -2679,7 +2679,7 @@
     {
       "route": "/crew/vfx",
       "pending_slots": 31,
-      "rendered_html_bytes": 22620
+      "rendered_html_bytes": 21720
     },
     {
       "route": "/crew/vfx/vfx-supervisor",
@@ -2834,7 +2834,7 @@
     {
       "route": "/crew/animation",
       "pending_slots": 15,
-      "rendered_html_bytes": 11231
+      "rendered_html_bytes": 10811
     },
     {
       "route": "/crew/animation/animation-director",
@@ -2909,7 +2909,7 @@
     {
       "route": "/crew/delivery",
       "pending_slots": 17,
-      "rendered_html_bytes": 13160
+      "rendered_html_bytes": 12680
     },
     {
       "route": "/crew/delivery/distribution-executive",

@@ -1,4 +1,3 @@
 User-agent: *
-Allow: /
-Disallow: /api/
-Disallow: /qa.html
+Disallow: /
+# Private predeployment review: indexing remains disabled until owner-approved release.

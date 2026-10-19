@@ -46,3 +46,8 @@ next-env.d.ts
 /work/
 
 **/node_modules/
+
+# Exported audit reports and the persistent review database are packaged as
+# separate private release artifacts, not served or pushed as application code.
+/release/
+/.catalogue-seed.json.*

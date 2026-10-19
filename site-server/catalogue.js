@@ -45,9 +45,11 @@ export async function initialize(db,assets,origin='https://lumetra.invalid'){
  return {ready:false,artwork_progress:index+1,artwork_total:chunks.length,progress:90+Math.round((index+1)/Math.max(1,chunks.length)*10)};
 }
 export async function query(db,p){
- const page=Number(p.get('page')||1),limit=Number(p.get('limit')||24),q=(p.get('q')||'').trim(),country=p.get('country')||'',year=p.get('year')||'',genre=p.get('genre')||'',language=p.get('language')||'';
+ const page=Number(p.get('page')||1),limit=Number(p.get('limit')||24),q=(p.get('q')||'').trim(),country=p.get('country')||'',year=p.get('year')||'',genre=p.get('genre')||'',language=p.get('language')||'',director=p.get('director')||'';
  if(!Number.isInteger(page)||page<1||page>10000||!Number.isInteger(limit)||limit<1||limit>48||q.length>160||country.length>100||genre.length>100||language.length>100||(year&&!/^\d{4}$/.test(year)))throw fail('Invalid search parameters');
  const t=Date.now(),args=[],terms=[];
+ if(director.length>500)throw fail('Invalid director parameter');
+ if(director){terms.push('w.director=?');args.push(director);}
  if(q){const phrase=q.split(/\s+/).map(x=>'"'+x.replaceAll('"','""')+'"*').join(' AND ');const like='%'+q.replace(/[\\%_]/g,x=>'\\'+x)+'%';terms.push('(w.id IN (SELECT id FROM search WHERE search MATCH ?)'+(new TextEncoder().encode(like).length<=50?" OR w.title LIKE ? ESCAPE '\\' OR w.original_title LIKE ? ESCAPE '\\' OR w.alternate_titles LIKE ? ESCAPE '\\' OR w.director LIKE ? ESCAPE '\\'":'')+')');args.push(phrase);if(new TextEncoder().encode(like).length<=50)args.push(...Array(4).fill(like));}
  if(country){terms.push('EXISTS(SELECT 1 FROM json_each(w.countries) WHERE value=?)');args.push(country);}if(year){terms.push('w.year=?');args.push(Number(year));}
  if(genre){terms.push("EXISTS(SELECT 1 FROM work_metadata m,json_each(m.payload,'$.genres') j WHERE m.work_id=w.id AND j.value=?)");args.push(genre);}
