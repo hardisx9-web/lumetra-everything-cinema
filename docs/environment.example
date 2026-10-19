@@ -1,0 +1,4 @@
+# Hosted runtime uses the managed DB binding; no browser-visible database credential.
+# Optional future native PostgreSQL ingestion, supplied only to a private job:
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/lumetra
+# Do not commit real values. Current publication does not connect to this variable.

@@ -1,0 +1,91 @@
+name: Deploy to Cloudflare Staging
+
+on:
+  workflow_dispatch: # Manual trigger only; never triggers on push, PR, or schedule
+
+jobs:
+  deploy-staging:
+    name: Build, Seed & Deploy to Cloudflare Staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: Verify the launch source before deployment
+        run: |
+          pnpm run test:artwork
+          node scripts/test-editorial-depth.mjs
+          node scripts/test-launch-readiness.mjs
+          node scripts/test-my-cinema.mjs
+          node scripts/test-lookup.mjs
+
+      - name: Validate Staging Configuration
+        run: |
+          if grep -q "__SET_STAGING_D1_DATABASE_ID__" wrangler.staging.toml; then
+            echo "::error::wrangler.staging.toml contains a placeholder database_id. Please set a valid Cloudflare D1 database ID before deploying."
+            exit 1
+          fi
+
+      - name: Build production release bundle
+        run: |
+          pnpm run build
+
+      - name: Deploy Worker to Cloudflare Staging
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --config wrangler.staging.toml
+
+      - name: Apply Drizzle Migrations to Staging D1
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: d1 migrations apply lumetra-d1-staging --remote --config wrangler.staging.toml
+
+      - name: Trigger Server-Side Catalogue Seed (20,512 Films)
+        env:
+          STAGING_URL: ${{ secrets.STAGING_DEPLOYMENT_URL }}
+        run: |
+          if [ -z "$STAGING_URL" ]; then
+            echo "::error::STAGING_DEPLOYMENT_URL is required to seed the staging database."
+            exit 1
+          fi
+          echo "Seeding staging catalogue at $STAGING_URL..."
+          READY="false"
+          for step in {1..300}; do
+            RES=$(curl -s -X POST "$STAGING_URL/api/initialize")
+            if echo "$RES" | grep -q '"ready":true'; then
+              echo "Staging catalogue successfully seeded and indexed in $step batches!"
+              READY="true"
+              break
+            fi
+            sleep 1
+          done
+          if [ "$READY" != "true" ]; then
+            echo "::error::Catalogue seeding did not complete within the allotted steps."
+            exit 1
+          fi
+
+      - name: Verify Live Staging Deployment & Catalogue
+        env:
+          STAGING_URL: ${{ secrets.STAGING_DEPLOYMENT_URL }}
+        run: |
+          echo "Executing full E2E test suite against $STAGING_URL..."
+          node scripts/test-staging-e2e.mjs

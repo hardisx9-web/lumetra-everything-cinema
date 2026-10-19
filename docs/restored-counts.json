@@ -1,0 +1,23 @@
+{
+  "version": "PostgreSQL 18.3 (PGlite 0.5.8) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit",
+  "work": 20512,
+  "playback_source": 23711,
+  "public_watchable_sources": 3883,
+  "media_asset": 14470,
+  "ingest_candidate": 23681,
+  "source_verification": 33970,
+  "orphan_verifications": 10277,
+  "watch": [
+    {
+      "sources": 3883,
+      "works": 2975
+    }
+  ],
+  "licensed": [
+    {
+      "license_verified": false,
+      "usage_basis": "SOURCE_IMAGE_LICENSE_UNVERIFIED",
+      "count": 14470
+    }
+  ]
+}

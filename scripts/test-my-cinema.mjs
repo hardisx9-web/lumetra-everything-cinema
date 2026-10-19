@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {KEY,MAX_ITEMS,emptyNotebook,normalizeNotebook,loadNotebook,writeNotebook,toggleNotebook,notebookJSON,importNotebook} from '../public/my-cinema.js';
+const store = new Map();const storage={getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)};
+assert.deepEqual(loadNotebook(storage),emptyNotebook());
+let next=toggleNotebook(loadNotebook(storage),'saved','work-trip-to-the-moon');
+assert(writeNotebook(next,storage));assert.equal(loadNotebook(storage).saved[0],'work-trip-to-the-moon');
+next=toggleNotebook(next,'saved','work-trip-to-the-moon');assert.equal(next.saved.length,0);
+assert.deepEqual(normalizeNotebook({saved:['good','good','<script>','bad/dir',1],watched:[],reading:[]}).saved,['good']);
+assert.equal(normalizeNotebook({saved:Array.from({length:1000},(_,i)=>`work-${i}`)}).saved.length,MAX_ITEMS);
+assert.equal(toggleNotebook(emptyNotebook(),'unknown','good').saved.length,0);
+const json=notebookJSON({saved:['work-1'],watched:['work-2'],reading:['montage-as-thought']});
+assert.deepEqual(importNotebook(json),{saved:['work-1'],watched:['work-2'],reading:['montage-as-thought']});
+assert.throws(()=>importNotebook('{"format":"other","version":1}'));
+assert.equal(JSON.parse(store.get(KEY)).saved.length,1);
+console.log('PASS notebook save/watched/reading, import/export, validation, privacy-only local state');

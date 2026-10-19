@@ -1,0 +1,175 @@
+{
+  "as_of": "2026-10-09T12:01:52.611Z",
+  "method": "Read-only recursive scan of every Work, playback metadata, immutable ingestion candidate and media_asset; no external image requests. References can include generic artwork and remain unapproved.",
+  "tables": {
+    "work": 20512,
+    "playback_source": 23711,
+    "ingest_candidate": 33958,
+    "media_asset": 14479
+  },
+  "providers": {
+    "editorial": {
+      "records_examined": 33,
+      "image_references": 12,
+      "unique_image_urls": 12,
+      "works_with_image_opportunities": 12,
+      "metadata_paths": [
+        ".poster_url"
+      ]
+    },
+    "nfb_canada": {
+      "records_examined": 18544,
+      "image_references": 9915,
+      "unique_image_urls": 2140,
+      "works_with_image_opportunities": 1447,
+      "metadata_paths": [
+        ".poster_url",
+        ".original.poster_url",
+        ".image"
+      ]
+    },
+    "nz_on_screen": {
+      "records_examined": 3731,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "cinematheque_henri": {
+      "records_examined": 1675,
+      "image_references": 2130,
+      "unique_image_urls": 412,
+      "works_with_image_opportunities": 410,
+      "metadata_paths": [
+        ".poster_url",
+        ".original.metadata.poster_url",
+        ".original.poster_url",
+        ".image"
+      ]
+    },
+    "bfi_player_free": {
+      "records_examined": 56492,
+      "image_references": 50790,
+      "unique_image_urls": 10158,
+      "works_with_image_opportunities": 10158,
+      "metadata_paths": [
+        ".poster_url",
+        ".original.poster_url",
+        ".image"
+      ]
+    },
+    "filmoteca_unam": {
+      "records_examined": 411,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "35mm_online": {
+      "records_examined": 400,
+      "image_references": 800,
+      "unique_image_urls": 100,
+      "works_with_image_opportunities": 100,
+      "metadata_paths": [
+        ".raw.image.url",
+        ".poster_url",
+        ".original.raw.image.url",
+        ".original.poster_url",
+        ".image"
+      ]
+    },
+    "mosfilm": {
+      "records_examined": 6371,
+      "image_references": 7149,
+      "unique_image_urls": 1418,
+      "works_with_image_opportunities": 1428,
+      "metadata_paths": [
+        ".poster_url",
+        ".original.poster_url",
+        ".image"
+      ]
+    },
+    "retina_latina": {
+      "records_examined": 1816,
+      "image_references": 2090,
+      "unique_image_urls": 418,
+      "works_with_image_opportunities": 418,
+      "metadata_paths": [
+        ".poster_url",
+        ".original.poster_url",
+        ".image"
+      ]
+    },
+    "dfi_danish_silent": {
+      "records_examined": 1409,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "eye_film_player": {
+      "records_examined": 1438,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "nfaj_japanese_animation_classics": {
+      "records_examined": 189,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "kofa_korean_classic_film": {
+      "records_examined": 58,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "saina_movies": {
+      "records_examined": 32,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "ap_international": {
+      "records_examined": 22,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "legacy_internet_archive": {
+      "records_examined": 8,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "cinemateket_play_sweden": {
+      "records_examined": 22,
+      "image_references": 0,
+      "unique_image_urls": 0,
+      "works_with_image_opportunities": 0,
+      "metadata_paths": []
+    },
+    "WIKIMEDIA_COMMONS": {
+      "records_examined": 9,
+      "image_references": 35,
+      "unique_image_urls": 20,
+      "works_with_image_opportunities": 5,
+      "metadata_paths": [
+        ".image",
+        ".metadata.source_page",
+        ".metadata.original_url",
+        ".metadata.url",
+        ".metadata.published.source_page",
+        ".metadata.published.original_url",
+        ".metadata.sourcePage"
+      ]
+    }
+  }
+}

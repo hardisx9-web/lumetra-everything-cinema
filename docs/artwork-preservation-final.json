@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-10-09T16:50:40.020Z",
+  "tables": {
+    "work": {
+      "n": 20512,
+      "digest": "b7ebcedcfcc599b4169dafd91d60efdf"
+    },
+    "playback_source": {
+      "n": 23711,
+      "digest": "1bf006ab2af8581cf368822f054dabc3"
+    },
+    "ingest_candidate": {
+      "n": 33958,
+      "digest": "7d2e36c1c5ba42e68e87e5b5cefe0a67"
+    },
+    "source_verification": {
+      "n": 33970,
+      "digest": "fc55dfc379ab92e22f3c4b39d4aff5a5"
+    },
+    "ingest_run": {
+      "n": 5,
+      "digest": "66e7616559e02e9b53267d80b9c27cb3"
+    },
+    "media_asset": {
+      "n": 14470,
+      "digest": "6669179849d8aeb5fd686749a335b86d"
+    }
+  },
+  "originals_unchanged": true,
+  "note": "Media checksum includes every original column of all 14,470 original institution assets; new Commons rows excluded. Other five tables are whole-row checksums."
+}

@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+const base = process.env.LUMETRA_PREVIEW_URL || 'http://127.0.0.1:4194';
+const get = async (path) => {
+ const r = await fetch(base+path,{signal:AbortSignal.timeout(9000)});
+ assert(r.ok,`${path}: ${r.status}`);
+ return {response:r,body:await r.text()};
+};
+const endpoints=['/','/my-cinema','/world','/journal','/essay/sound-was-not-a-switch','/essay/the-women-at-cinemas-beginning','/discover','/film/work-trip-to-the-moon','/styles.css','/my-cinema.js','/media/opening.mp4','/media/stage.png'];
+for(const path of endpoints){const {body}=await get(path);assert(body.length>40,`${path}: empty`);}
+const stats=JSON.parse((await get('/api/stats')).body);
+assert(stats.works>20000,`Catalogue unexpectedly small: ${stats.works}`);
+const editorial=JSON.parse((await get('/api/editorial')).body);
+const ids=new Set(editorial.essays.map(x=>x.id));
+assert.equal(ids.size,editorial.essays.length,'Duplicate essay slugs');
+assert(editorial.essays.filter(x=>x.editorial_status==='RESEARCHED_DRAFT').length>=9);
+const facets=JSON.parse((await get('/api/facets')).body);
+assert(facets.genres.length>=20 && facets.languages.length>=20);
+const specific=JSON.parse((await get('/api/films?genre=Documentary&language=English&limit=2')).body);
+assert(specific.total>0 && specific.items.length>0);
+const films=JSON.parse((await get('/api/films?limit=2')).body);
+assert(films.total>20000&&films.items.length===2);
+const look=JSON.parse((await get('/api/lookup?ids=work-trip-to-the-moon,work-pather-panchali')).body);
+assert.equal(look.items.length,2);
+const bad=await fetch(base+'/api/lookup?ids=../../secrets');
+assert.equal(bad.status,400,'Lookup traversal must be rejected');
+const doc=JSON.parse((await get('/api/films/work-trip-to-the-moon')).body);
+assert.equal(doc.id,'work-trip-to-the-moon');
+const programme=JSON.parse((await get('/api/programming')).body);
+for(const key of ['carousel','history','featured','watch','collection'])assert(Array.isArray(programme[key]));
+const watch=JSON.parse((await get('/api/films?watch=1&limit=2')).body);
+assert(watch.items.every(x=>x.watchable||x.embedded));
+console.log(JSON.stringify({status:'PASS',routes:endpoints.length,works:stats.works,deepEssays:editorial.essays.filter(x=>x.editorial_status==='RESEARCHED_DRAFT').length,filmResults:films.total,facetGenres:facets.genres.length,facetLanguages:facets.languages.length,filteredResults:specific.total,currentWatchable:watch.total,warning:'Availability is inherited and must be re-verified before launch'},null,2));

@@ -1,0 +1,3 @@
+import {spawn} from 'node:child_process';
+const incoming=process.argv.slice(2),args=[];for(let i=0;i<incoming.length;i++){if(incoming[i]==='--strictPort')continue;args.push(incoming[i]==='--host'?'--ip':incoming[i]);}
+const child=spawn(process.execPath,['--import','./scripts/sites-env.mjs','./node_modules/wrangler/bin/wrangler.js','dev','--config','dist/server/wrangler.json','--local','--persist-to','.wrangler/smoke-state','--inspector-port','0',...args],{stdio:'inherit'});for(const signal of ['SIGTERM','SIGINT'])process.on(signal,()=>child.kill(signal));child.on('exit',code=>process.exit(code??1));

@@ -1,0 +1,318 @@
+{
+  "registry_meta": {
+    "name": "GLOBAL_CINEMA_SOURCE_REGISTRY",
+    "version": "1.0",
+    "generated_date": "2026-10-07",
+    "purpose": "Authoritative starting registry for legitimate free-to-watch cinema sources.",
+    "core_policy": [
+      "Only a verified complete film with a current free legitimate source can be marked watchable.",
+      "Paid subscription, rental and purchase-only sources are excluded from WATCH.",
+      "Free viewing and third-party embedding are separate permissions.",
+      "If embedding is prohibited or unverified, use WATCH_FREE_EXTERNALLY.",
+      "Do not infer rights from presence on YouTube, Internet Archive, or any hosting platform.",
+      "Every playback source must store source owner, exact URL, free/full/official verification, embed status, territories, and last-checked time."
+    ],
+    "watch_states": {
+      "WATCH_HERE": "Free, legitimate, complete film and embedding is permitted.",
+      "WATCH_FREE_EXTERNALLY": "Free, legitimate, complete film but playback must remain on the source site or embed permission is unverified.",
+      "NO_VERIFIED_FREE_STREAM": "No current verified free full-film source."
+    }
+  },
+  "sources": [
+    {
+      "id": "loc_national_screening_room",
+      "name": "Library of Congress — National Screening Room",
+      "official_url": "https://www.loc.gov/collections/national-screening-room/",
+      "region": "US / worldwide access",
+      "type": "national_archive",
+      "status": "APPROVED",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "PER_ITEM_RIGHTS_REVIEW",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "The Library says the majority of titles are freely available as MP4/ProRes downloads. Rights still require per-item review before rehosting or internal playback."
+    },
+    {
+      "id": "nfb_canada",
+      "name": "National Film Board of Canada",
+      "official_url": "https://www.nfb.ca/",
+      "region": "Canada / substantial global access",
+      "type": "national_film_board",
+      "status": "APPROVED_CONDITIONAL",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "NONCOMMERCIAL_EMBED_ONLY_UNDER_CURRENT_TERMS",
+      "default_watch_state": "WATCH_HERE_IF_TERMS_SATISFIED",
+      "notes": "NFB streams thousands free. Its current embed terms allow official embed code but restrict commercial use and require link-back."
+    },
+    {
+      "id": "mosfilm",
+      "name": "Mosfilm",
+      "official_url": "https://www.mosfilm.ru/",
+      "region": "Russia / international",
+      "type": "studio_rights_holder",
+      "status": "APPROVED",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "PER_VIDEO_PLATFORM_CHECK",
+      "default_watch_state": "WATCH_HERE_IF_OFFICIAL_EMBED_ENABLED",
+      "notes": "Enumerate only Mosfilm-controlled full-film pages/channels; verify embed and territory per title."
+    },
+    {
+      "id": "kofa_korean_classic_film",
+      "name": "Korean Film Archive — Korean Classic Film",
+      "official_url": "https://eng.koreafilm.or.kr/pages/PC_00000134",
+      "region": "South Korea / international",
+      "type": "national_archive",
+      "status": "APPROVED",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "PER_VIDEO_PLATFORM_CHECK",
+      "default_watch_state": "WATCH_HERE_IF_OFFICIAL_EMBED_ENABLED",
+      "notes": "KOFA identifies about 190 Korean classics as free on official channels; verify each title and subtitle track."
+    },
+    {
+      "id": "dfi_danish_silent",
+      "name": "Danish Film Institute — Danish Silent Film",
+      "official_url": "https://www.dfi.dk/en/english/discover-golden-age-danish-silent-films",
+      "region": "Denmark / international",
+      "type": "national_film_institute",
+      "status": "APPROVED",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "NEEDS_CURRENT_TERMS_AUDIT",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "Important official early-cinema source. Audit current player/embed rules before internal playback."
+    },
+    {
+      "id": "cinematheque_henri",
+      "name": "Cinémathèque française — HENRI",
+      "official_url": "https://www.cinematheque.fr/henri/",
+      "region": "France / worldwide access",
+      "type": "cinematheque",
+      "status": "APPROVED_EXTERNAL_ONLY",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "EXTERNAL_ONLY",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "HENRI currently lists hundreds of rare films. Terms specify viewing through the Cinémathèque service. Availability may be temporary."
+    },
+    {
+      "id": "retina_latina",
+      "name": "Retina Latina",
+      "official_url": "https://www.retinalatina.org/",
+      "region": "Latin America / Caribbean; some worldwide titles",
+      "type": "public_international_platform",
+      "status": "APPROVED_EXTERNAL_ONLY",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "EXTERNAL_ONLY",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "Retina Latina says its catalogue licenses do not permit third-party-platform distribution. Store per-title territory and expiry."
+    },
+    {
+      "id": "filmoteca_unam",
+      "name": "Filmoteca UNAM — Cine en Línea",
+      "official_url": "https://www.filmoteca.unam.mx/cine-en-linea-de-filmoteca-unam/",
+      "region": "Mexico / international where permitted",
+      "type": "university_film_archive",
+      "status": "APPROVED",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "NEEDS_CURRENT_TERMS_AUDIT",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "Official Mexican film-archive source. Verify title availability and embed policy individually."
+    },
+    {
+      "id": "35mm_online",
+      "name": "35mm.online",
+      "official_url": "https://35mm.online/",
+      "region": "Poland / international availability reported",
+      "type": "public_film_platform",
+      "status": "APPROVED",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "NEEDS_CURRENT_TERMS_AUDIT",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "Polish public sources describe nearly 4,000 digitized/reconstructed film materials. Enumerate complete films separately from other audiovisual material."
+    },
+    {
+      "id": "bfi_player_free",
+      "name": "BFI Player — Free / Archive Films",
+      "official_url": "https://player.bfi.org.uk/free",
+      "region": "United Kingdom; territory restrictions apply",
+      "type": "national_film_institute",
+      "status": "APPROVED_EXTERNAL_ONLY",
+      "priority": "P1",
+      "free": true,
+      "embed_policy": "EXTERNAL_ONLY_UNLESS_PERMISSION_CONFIRMED",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "Import only titles explicitly marked Watch for free. Exclude BFI subscription/rental catalogue."
+    },
+    {
+      "id": "eye_film_player",
+      "name": "Eye Film Player",
+      "official_url": "https://player.eyefilm.nl/",
+      "region": "Netherlands / territory varies",
+      "type": "film_museum",
+      "status": "APPROVED",
+      "priority": "P1",
+      "free": true,
+      "embed_policy": "EXTERNAL_ONLY_UNTIL_AUDITED",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "Eye says the player contains many free films alongside rentals. Import only titles individually marked free."
+    },
+    {
+      "id": "cinemateket_play_sweden",
+      "name": "Swedish Film Institute — Cinemateket Play",
+      "official_url": "https://www.filminstitutet.se/",
+      "region": "Sweden",
+      "type": "national_film_institute",
+      "status": "APPROVED",
+      "priority": "P1",
+      "free": true,
+      "embed_policy": "EXTERNAL_ONLY_UNTIL_AUDITED",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "Use the current Cinemateket Play service. Do not ingest retired Filmarkivet.se playback links."
+    },
+    {
+      "id": "nfaj_japanese_animation_classics",
+      "name": "National Film Archive of Japan — Japanese Animated Film Classics",
+      "official_url": "https://animation.filmarchives.jp/en/",
+      "region": "Japan / international website access",
+      "type": "national_archive",
+      "status": "APPROVED_EXTERNAL_ONLY",
+      "priority": "P1",
+      "free": true,
+      "embed_policy": "EXTERNAL_ONLY",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "The archive explicitly prohibits embedding its videos on third-party sites. Link to official free playback only."
+    },
+    {
+      "id": "nz_on_screen",
+      "name": "NZ On Screen",
+      "official_url": "https://www.nzonscreen.com/",
+      "region": "New Zealand / varies",
+      "type": "national_screen_culture_platform",
+      "status": "APPROVED",
+      "priority": "P1",
+      "free": true,
+      "embed_policy": "EXTERNAL_ONLY_UNTIL_AUDITED",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "Strictly filter to full free films. Exclude trailers/excerpts, TV-only records, and all paid NZOS+ rentals."
+    },
+    {
+      "id": "films_division_india_vod",
+      "name": "Films Division / NFDC India — Video On Demand",
+      "official_url": "https://filmsdivision.nfdcindia.com/video-on-demand.html",
+      "region": "India / access varies",
+      "type": "government_film_archive",
+      "status": "APPROVED",
+      "priority": "P0",
+      "free": true,
+      "embed_policy": "NEEDS_CURRENT_TERMS_AUDIT",
+      "default_watch_state": "WATCH_FREE_EXTERNALLY",
+      "notes": "Films Division holds 8,000+ works, but only currently working VOD/full-film titles may be counted as watchable."
+    }
+  ],
+  "rights_holder_channels_to_enumerate": [
+    {
+      "id": "saina_movies",
+      "name": "Saina Movies / Saina Infotainments",
+      "official_url": "https://sainavideo.com/services/",
+      "region": "India — Malayalam",
+      "status": "APPROVED_RIGHTS_HOLDER_CANDIDATE",
+      "priority": "P0",
+      "evidence": "Saina says it holds copyrights to 700+ titles and operates Saina Movies, an official YouTube channel offering HD Malayalam films.",
+      "rule": "Enumerate the official channel; verify full film, free access, embed flag and territory per video."
+    },
+    {
+      "id": "ap_international",
+      "name": "AP International",
+      "official_url": "https://www.apinternationalfilms.com/about",
+      "region": "India — South Indian cinema",
+      "status": "APPROVED_RIGHTS_HOLDER_CANDIDATE",
+      "priority": "P0",
+      "evidence": "AP International states it has acquired copyrights to 1,500+ movies.",
+      "rule": "Discover its verified official free full-film outlets and import only specific complete free films."
+    },
+    {
+      "id": "angel_digital",
+      "name": "Angel Digital",
+      "official_url": "https://www.angeldigital.co.in/",
+      "region": "India — Bengali cinema",
+      "status": "RIGHTS_HOLDER_CANDIDATE_NEEDS_FREE_CHANNEL_AUDIT",
+      "priority": "P1",
+      "evidence": "Angel states it controls multiple rights for 1,000+ Bengali films.",
+      "rule": "Do not assume the 1,000+ catalogue is free. Identify Angel-controlled free full-film outlets and verify titles individually."
+    },
+    {
+      "id": "shemaroo",
+      "name": "Shemaroo Entertainment",
+      "official_url": "https://contentlicensing.shemarooent.com/",
+      "region": "India — multiple languages",
+      "status": "RIGHTS_HOLDER_CANDIDATE_REQUIRES_CHANNEL_AND_LICENSE_AUDIT",
+      "priority": "P1",
+      "evidence": "Shemaroo advertises a large licensed movie and non-movie catalogue.",
+      "rule": "Only specific official free uploads may enter WATCH after channel ownership, full-film status and free access are verified."
+    }
+  ],
+  "metadata_sources": [
+    {
+      "id": "tmdb",
+      "name": "TMDB",
+      "purpose": ["identity matching", "posters/backdrops", "alternate titles", "basic metadata"],
+      "rule": "Use only under applicable API/license/attribution terms. Never infer playback rights from TMDB."
+    },
+    {
+      "id": "wikidata_wikimedia",
+      "name": "Wikidata / Wikimedia Commons",
+      "purpose": ["entity identifiers", "alternate-language names", "licensed/public-domain images", "historical metadata"],
+      "rule": "Check each media asset license. Never assume all posters are reusable."
+    },
+    {
+      "id": "jfdb",
+      "name": "JFDB — Japanese Film Database",
+      "official_url": "https://jfdb.jp/en/",
+      "purpose": ["Japanese film identity", "credits", "official production data"],
+      "rule": "Reference/metadata only unless a separate legitimate free playback source exists."
+    }
+  ],
+  "never_auto_ingest_as_watchable": [
+    "Random YouTube uploads from unverified channels",
+    "Piracy sites or unauthorized streaming mirrors",
+    "Torrent/index sites",
+    "Random Internet Archive uploads merely because they are downloadable",
+    "Fan uploads",
+    "Search-engine video mirrors",
+    "Trailers, clips or excerpts presented as full films",
+    "Paid-only subscription, rental or purchase sources"
+  ],
+  "required_playback_source_fields": [
+    "source_id", "source_owner", "canonical_source_url", "film_id", "full_film_verified", "free_verified", "official_or_rights_verified", "embed_status", "embed_url_if_allowed", "external_watch_url", "territories", "audio_languages", "subtitle_languages", "version_or_restoration", "runtime", "first_verified_at", "last_checked_at", "verification_evidence", "availability_expiry_if_known"
+  ],
+  "hard_gate": "No source becomes public until full_film_verified=true AND free_verified=true AND official_or_rights_verified=true AND the URL passes a live availability check.",
+  "implementation_order": [
+    "Import this registry into the project as config/data, not hard-coded UI text.",
+    "Build the Source Registry and PlaybackSource data models.",
+    "Implement adapters for all P0 sources first, with no arbitrary title-count cap.",
+    "Enumerate every currently available film from each approved source.",
+    "Deduplicate the same film across providers into one canonical Work with multiple PlaybackSources.",
+    "Resolve real metadata and poster sources.",
+    "Verify free/full/official/embed/region status per playback source.",
+    "Populate the public catalogue from the verified database.",
+    "Continue through P1 and newly discovered official sources until the source sweep is exhausted.",
+    "Run recurring discovery and rechecks so new films appear automatically and expired/dead sources are downgraded automatically."
+  ],
+  "acceptance_tests": [
+    "The catalogue is no longer a tiny hand-written seed array.",
+    "Watchable First never returns a film without a current verified free source.",
+    "WATCH HERE never appears unless embedding is actually permitted and working.",
+    "Free external sources appear as WATCH FREE EXTERNALLY.",
+    "Paid-only sources never appear in WATCH.",
+    "The same film from several sources appears once with several source options.",
+    "Counts come from database state, never hard-coded marketing numbers.",
+    "The initial sweep continues until every registered source is enumerated; it does not stop at 5k, 10k or 30k.",
+    "Newly discovered sources enter review before they can auto-publish films."
+  ]
+}

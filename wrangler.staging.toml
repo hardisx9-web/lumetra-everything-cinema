@@ -1,0 +1,14 @@
+name = "lumetra-cinema-staging"
+main = "dist/server/index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "dist/client"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lumetra-d1-staging"
+database_id = "7f5e4d79-f210-4600-850d-26b619607d1b"
+migrations_dir = "drizzle"
