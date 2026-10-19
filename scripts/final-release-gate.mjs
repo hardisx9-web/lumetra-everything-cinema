@@ -21,6 +21,7 @@ const gates=[
  gate('postgresql_server_restore','BLOCKED',['../release-audit/evidence/database-row-counts.json'],'Prior complete PostgreSQL 18.6 SQL extraction retained; running-server restore and relational validation remain unperformed.'),
  gate('github_cloudflare_production_access','BLOCKED',['DEPLOYMENT_RUNBOOK.md'],'Lumetra repository search returned no accessible result; production credentials and live D1 contents were not inspected or changed.'),
  gate('private_preview','PASS',['PREVIEW.json'],'Separate owner-private review deployment confirmed successful; original Cloudflare website untouched.'),
+ gate('private_preview_http_verification','BLOCKED',['evidence/PRIVATE_REVIEW_HTTP.json'],'Authorized HTTP/API verification of the private preview timed out before receiving any response; deployment success is not a claim of application validation.'),
  gate('owner_production_approval','BLOCKED',[],'Explicit approval still required before deployment to the existing Cloudflare website.')
 ];
 const report={timestamp:new Date().toISOString(),overall:'BLOCKED',production_deployment_performed:false,owner_approval_required:true,legacy_pending:inventory.legacy.pending,canonical_subjects:inventory.canonical_subjects,canonical_unresolved:unresolved,placement_requirements:inventory.placement_requirements,placement_browser_checks_completed:0,gates};
