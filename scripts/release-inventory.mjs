@@ -5,7 +5,6 @@ import {learningData as learning} from '../public/learning-data.js';
 import {subjectImages} from '../public/subject-images.js';
 import {api} from '../site-server/handler.js';
 import {researchedDossiers} from '../catalogue-editorial/dossier-research.js';
-import {renderLearning} from '../public/cinema-learning.js';
 
 mkdirSync('release',{recursive:true});
 mkdirSync('.sites-runtime',{recursive:true});
@@ -19,12 +18,16 @@ CREATE TABLE IF NOT EXISTS image_candidate(candidate_id TEXT PRIMARY KEY,canonic
 CREATE TABLE IF NOT EXISTS acquisition_queue(canonical_subject_id TEXT PRIMARY KEY REFERENCES image_subject,search_query TEXT,provider TEXT,status TEXT DEFAULT 'QUEUED',attempts INTEGER DEFAULT 0,next_attempt_at TEXT,last_error TEXT);
 CREATE TABLE IF NOT EXISTS acquisition_attempt(id INTEGER PRIMARY KEY,canonical_subject_id TEXT,provider TEXT,attempted_at TEXT,http_status INTEGER,outcome TEXT,evidence_path TEXT,error_reason TEXT);
 CREATE TABLE IF NOT EXISTS provider_checkpoint(provider TEXT PRIMARY KEY,not_before TEXT,reason TEXT);
+CREATE INDEX IF NOT EXISTS image_requirement_subject ON image_requirement(canonical_subject_id);
+CREATE INDEX IF NOT EXISTS image_candidate_subject ON image_candidate(canonical_subject_id);
+CREATE TABLE IF NOT EXISTS image_requirement_history(requirement_id TEXT PRIMARY KEY,page_url TEXT,placement TEXT,canonical_subject_id TEXT,condition TEXT,recorded_at TEXT);
+INSERT OR IGNORE INTO image_requirement_history SELECT requirement_id,page_url,placement,canonical_subject_id,condition,datetime('now') FROM image_requirement;
+DELETE FROM image_requirement WHERE rowid NOT IN (SELECT MIN(rowid) FROM image_requirement GROUP BY page_url,placement,canonical_subject_id);
+CREATE UNIQUE INDEX IF NOT EXISTS image_requirement_placement ON image_requirement(page_url,placement,canonical_subject_id);
 `);
 const old=JSON.parse(readFileSync('release-audit/image-coverage.json','utf8'));
 const films=catalogue.prepare('SELECT rowid,* FROM work').all();
-const byId=new Map(films.map(f=>[f.id,f]));
 const editorial=await (await api(new Request('http://local/api/editorial'),{})).json();
-const oldByKey=new Map(old.records.map(r=>[r.key,r]));
 const canonical=key=>{
  if(key.startsWith('camera-timeline/')){
   const cam=learning.cameraTimeline[Number(key.split('/')[1])];
@@ -35,7 +38,7 @@ const canonical=key=>{
 };
 const subjects=new Map();
 for(const r of old.records){const key=canonical(r.key);if(!subjects.has(key))subjects.set(key,{...r,key,legacy_keys:[]});subjects.get(key).legacy_keys.push(r.key);}
-const insertSubject=database.prepare('INSERT OR REPLACE INTO image_subject VALUES(?,?,?,?,?)');
+const insertSubject=database.prepare('INSERT INTO image_subject VALUES(?,?,?,?,?) ON CONFLICT(canonical_subject_id) DO UPDATE SET legacy_key=excluded.legacy_key,subject_type=excluded.subject_type,exact_subject_name=excluded.exact_subject_name,identity_json=excluded.identity_json');
 const insertRegistry=database.prepare('INSERT OR IGNORE INTO image_registry VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 const insertQueue=database.prepare('INSERT OR IGNORE INTO acquisition_queue(canonical_subject_id,search_query,provider) VALUES(?,?,?)');
 const candidate=database.prepare('INSERT OR IGNORE INTO image_candidate VALUES(?,?,?,?,?,?,?)');
@@ -51,11 +54,11 @@ for(const r of subjects.values()){
  for(const c of r.inherited_artwork||[])candidate.run(c.id,r.key,null,c.source,'Wikimedia Commons','RIGHTS_PENDING',JSON.stringify(c));
 }
 database.exec('COMMIT');
-const req=database.prepare('INSERT OR IGNORE INTO image_requirement VALUES(?,?,?,?,?)');
+const req=database.prepare('INSERT INTO image_requirement VALUES(?,?,?,?,?) ON CONFLICT(page_url,placement,canonical_subject_id) DO UPDATE SET condition=excluded.condition');
 const placements=[];
 function place(key,page,slot,condition='ALWAYS'){
  key=canonical(key);if(!subjects.has(key))throw Error('Uninventoried subject '+key);
- const id=createHash('sha256').update(JSON.stringify([key,page,slot,condition])).digest('hex').slice(0,24);
+ const id=createHash('sha256').update(JSON.stringify([key,page,slot])).digest('hex').slice(0,24);
  req.run(id,page,slot,key,condition);placements.push({requirement_id:id,page_url:page,placement:slot,canonical_subject_id:key,condition});
 }
 database.exec('BEGIN');
@@ -69,6 +72,7 @@ for(const g of learning.crew){
  for(const i of g.items){place(`crew/${g.id}/${i.slug}`,`/crew/${g.id}`,'role-card:'+i.slug);place(`crew/${g.id}/${i.slug}`,`/crew/${g.id}/${i.slug}`,'role-detail');place(`crew/${g.id}/${i.slug}`,'/crew','role-search:'+i.slug,'MATCHES_ROLE_QUERY');}
 }
 learning.cameraTimeline.forEach((c,i)=>place('camera-timeline/'+i,'/technology/cameras','camera-milestone:'+i));
+for(const key of Object.keys(subjectImages))place(key,'/attributions','credit-gallery:'+key);
 const directors=new Map(),years=new Map();
 for(const f of films){if(f.director){const a=directors.get(f.director)||[];a.push(f);directors.set(f.director,a);}if(f.year!=null){const a=years.get(f.year)||[];a.push(f);years.set(f.year,a);}}
 const compare=(a,b)=>Buffer.compare(Buffer.from(a.title),Buffer.from(b.title))||a.rowid-b.rowid;
@@ -80,7 +84,7 @@ for(const f of films){
  for(const slot of ['saved','watched'])place(key,'/my-cinema',slot+':'+f.id,'USER_NOTEBOOK_CONTAINS_ID');
  place(key,'/watch','viewing-result:'+f.id,'CURRENT_SOURCE_GATE_AND_FILTER');
  for(const slot of ['featured','carousel','history'])place(key,'/','programme-'+slot+':'+f.id,'CHOSEN_BY_SESSION_PROGRAMMING');
- if(f.director)place(key,'/person/'+encodeURIComponent(f.director),'filmography:'+f.id,'FIRST_48_EXACT_CREDIT_SEARCH_RESULTS');
+ if(f.director)place(key,'/person/'+encodeURIComponent(f.director),'filmography:'+f.id,'EXACT_DIRECTOR_FILTER_PAGINATED');
  const related=[...(directors.get(f.director)||[]).filter(x=>x.id!==f.id),...(years.get(f.year)||[]).filter(x=>x.id!==f.id&&x.director!==f.director)].slice(0,8);
  for(const r of related)place('film/'+r.id,detail,'related-card:'+r.id);
 }
@@ -115,8 +119,8 @@ exportCSV('EDITORIAL_AUDIT.csv',editorialRows);
 const sourceRows=catalogue.prepare('SELECT * FROM source').all();
 const evidenceRows=catalogue.prepare('SELECT * FROM evidence').all();
 const viewing=new Map();const now=Date.now();
-for(const row of evidenceRows){const p=JSON.parse(row.payload),id=p.source_id||row.source_id||JSON.stringify([row.work_id,p.canonical_source_url]);viewing.set(id,{source_id:id,work_id:row.work_id,url:p.canonical_source_url||'',source_owner:p.source_owner||'',historical_state:p.watch_state||'CATALOGUE_ONLY',last_checked_at:p.last_checked_at||'',current_eligibility:'CATALOGUE_ONLY',fresh_probe:'NOT_RUN',failure_reason:'No current permission/availability verification record'});}
-for(const row of sourceRows){const p=JSON.parse(row.payload);const eligible=row.checked_ms<=now&&row.expires_ms>now;viewing.set(row.source_id,{source_id:row.source_id,work_id:row.work_id,url:p.external_watch_url||p.canonical_source_url,source_owner:p.source_owner,historical_state:row.watch_state,last_checked_at:p.last_checked_at,expires_at:new Date(row.expires_ms).toISOString(),current_eligibility:eligible?row.watch_state:'CATALOGUE_ONLY',fresh_probe:'NOT_RUN',failure_reason:eligible?'':'Inherited verification expired; HTTP alone cannot renew authorization'});}
+for(const row of evidenceRows){const p=JSON.parse(row.payload),id=JSON.stringify([row.work_id,p.canonical_source_url||'']);viewing.set(id,{source_id:id,work_id:row.work_id,url:p.canonical_source_url||'',source_owner:p.source_owner||'',historical_state:p.watch_state||'CATALOGUE_ONLY',last_checked_at:p.last_checked_at||'',current_eligibility:'CATALOGUE_ONLY',fresh_probe:'NOT_RUN',failure_reason:'No current permission/availability verification record'});}
+for(const row of sourceRows){const p=JSON.parse(row.payload);const eligible=row.checked_ms<=now&&row.expires_ms>now;const key=JSON.stringify([row.work_id,p.canonical_source_url||p.external_watch_url||'']);const previous=viewing.get(key);viewing.set(key,{source_id:row.source_id,other_source_ids:previous?.source_id||'',work_id:row.work_id,url:p.external_watch_url||p.canonical_source_url,source_owner:p.source_owner,historical_state:row.watch_state,last_checked_at:p.last_checked_at,expires_at:new Date(row.expires_ms).toISOString(),current_eligibility:eligible?row.watch_state:'CATALOGUE_ONLY',fresh_probe:'NOT_RUN',failure_reason:eligible?'':'Inherited verification expired; HTTP alone cannot renew authorization'});}
 exportCSV('VIEWING_AVAILABILITY_REPORT.csv',[...viewing.values()]);
 const integrity={checked_at:new Date().toISOString(),database:'bundled D1-compatible SQLite restored from immutable publication files',quick_check:catalogue.prepare('PRAGMA quick_check').all(),foreign_key_check:catalogue.prepare('PRAGMA foreign_key_check').all(),works:films.length,source_rows:sourceRows.length,evidence_rows:evidenceRows.length,orphan_sources:catalogue.prepare('SELECT COUNT(*) n FROM source s LEFT JOIN work w ON s.work_id=w.id WHERE w.id IS NULL').get().n,orphan_artwork:catalogue.prepare('SELECT COUNT(*) n FROM artwork_record a LEFT JOIN work w ON a.work_id=w.id WHERE w.id IS NULL').get().n,missing_year_or_director:films.filter(f=>!f.year||!f.director).length,unknown_runtime:films.filter(f=>!f.runtime).length,source_refresh:'NOT_COMPLETED'};
 writeFileSync('release/evidence/DATABASE_INTEGRITY.json',JSON.stringify(integrity,null,2));
