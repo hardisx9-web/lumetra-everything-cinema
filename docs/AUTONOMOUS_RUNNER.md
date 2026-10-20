@@ -34,3 +34,7 @@ Metadata evidence is stored in each candidate; new candidates also embed respons
 Run `python3 scripts/test-image-discovery-v3.py -q` and `python3 scripts/test-image-acquisition.py -q` for regression checks. The bundled Termux wrapper is retained as `docs/RUN_TERMUX.sh`; no phone connection was available or accessed in this session.
 
 This integration does not modify Cloudflare, approve deployment, refresh viewing rights, publish editorial stubs, or change the three approved photographs. The existing release remains blocked pending its item-level and production QA gates.
+
+## LOC adapter correction found during live validation
+
+The supplied adapter called `/pictures/?fo=json&q=...`, which returned a collections homepage (`featured`, `collections`, `links`, `indexes`) rather than a search response. It previously treated missing `results` as no matches. The v3 adapter now uses the documented `/photos/?fo=json&c=8&q=...` search endpoint, validates response schema and refuses to mark malformed responses complete. Source: https://www.loc.gov/apis/json-and-yaml/requests/ . Twenty-seven affected subject/provider progress rows were reclassified for retry, preserving original attempt history and appending correction attempts. See `loc-adapter-correction.json` in the checkpoint for exact subjects and outcomes. These invalid homepage responses must never be counted as successful source research.

@@ -8,6 +8,7 @@ Run with the existing recovered source and .sites-runtime/release-review.sqlite.
 import argparse
 import email.utils
 import urllib.error
+import urllib.parse
 import datetime as dt
 import hashlib
 import importlib.util
@@ -76,11 +77,16 @@ def normalize(response, provider):
             continue
         yield page,url,source
 
+def query_url(query,provider):
+    if provider=='loc':
+        return 'https://www.loc.gov/photos/?'+urllib.parse.urlencode({'fo':'json','c':'8','q':query})
+    return acq.query_url(query,provider)
+
 def discover_one(row,provider):
     subject,query,_type=row
     started=utc()
     try:
-        envelope,evidence=acq.cached_json(acq.query_url(query,provider))
+        envelope,evidence=acq.cached_json(query_url(query,provider))
         candidates=[]
         for page,url,source in normalize(envelope['response'],provider):
             cid=hashlib.sha256(json.dumps([subject,source,url],sort_keys=True).encode()).hexdigest()

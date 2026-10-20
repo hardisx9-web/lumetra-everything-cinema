@@ -75,6 +75,10 @@ class PersistentDiscovery(unittest.TestCase):
   self.assertGreater(hold,mod.later(119))
   self.assertEqual(mod.choose(self.db,'commons',10),[])
   self.assertEqual(len(mod.choose(self.db,'loc',10)),1)
+ def test_loc_uses_documented_search_endpoint(self):
+  url=mod.query_url('ARRI Alexa 35','loc')
+  self.assertTrue(url.startswith('https://www.loc.gov/photos/?'))
+  self.assertIn('q=ARRI+Alexa+35',url)
  def test_invalid_api_response_not_marked_no_match(self):
   for payload,provider in [({},'loc'),({'error':{}},'commons'),({'status':503},'commons')]:
    with self.assertRaises(ValueError):list(mod.normalize(payload,provider))
