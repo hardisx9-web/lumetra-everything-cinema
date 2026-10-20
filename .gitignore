@@ -51,3 +51,8 @@ next-env.d.ts
 # separate private release artifacts, not served or pushed as application code.
 /release/
 /.catalogue-seed.json.*
+
+# Python and TypeScript execution caches
+**/__pycache__/
+*.pyc
+*.tsbuildinfo

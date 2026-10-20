@@ -18,14 +18,17 @@ for(const [id,entry] of Object.entries(researchedDossiers)){
  assert(entry.sources.length>=2,`${id} provenance`);
  assert(ids.has(entry.crossEssay),`${id} linked feature`);
 }
-let variants=new Set();
+
 for(let i=0;i<120;i++){
  const html=posterMarkup({id:`catalogue-${i}`,title:`Film <${i}>`,year:1900+i,director:'Director & Author'});
- assert(html.includes('Original illustrative cover · not a historical poster'));
+ assert(html.includes('Authentic film artwork pending review'));
+ assert(!html.includes('Original illustrative cover'));
+ assert(!html.includes('<svg'));
+ assert(!html.includes('/visuals/'));
  assert(!html.includes('<'+i+'>'));
  assert(html.includes('Film &lt;'));
  assert(!html.includes('<img '));
- const variant=/motif-([a-z]+)/.exec(html)?.[1];assert(variant);variants.add(variant);
+
 }
-assert(variants.size>=6,`only ${variants.size} cover motifs`);
-console.log(`PASS ${deepResearchEssays.length} expanded cited research essays, ${Object.keys(researchedDossiers).length} dossiers and ${variants.size} stable illustrative cover motifs`);
+
+console.log(`PASS ${deepResearchEssays.length} expanded cited research essays, ${Object.keys(researchedDossiers).length} dossiers and 120 escaped artwork-pending states (no rejected illustrative fallback)`);
