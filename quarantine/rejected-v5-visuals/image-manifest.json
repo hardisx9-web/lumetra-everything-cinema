@@ -1,0 +1,3589 @@
+{
+  "counts": {
+    "technology": 250,
+    "crew": 309,
+    "timeline": 19,
+    "film_moods": 32,
+    "essays": 16,
+    "people": 12
+  },
+  "entries": [
+    {
+      "page": "/technology/cameras",
+      "image": "/visuals/technology/cameras/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/kinetograph",
+      "image": "/visuals/technology/cameras/kinetograph.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/cin-matographe",
+      "image": "/visuals/technology/cameras/cin-matographe.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/mutograph-camera",
+      "image": "/visuals/technology/cameras/mutograph-camera.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/debrie-parvo",
+      "image": "/visuals/technology/cameras/debrie-parvo.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/bell-howell-2709",
+      "image": "/visuals/technology/cameras/bell-howell-2709.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/mitchell-standard",
+      "image": "/visuals/technology/cameras/mitchell-standard.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/bell-howell-eyemo",
+      "image": "/visuals/technology/cameras/bell-howell-eyemo.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/path-baby",
+      "image": "/visuals/technology/cameras/path-baby.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/bolex-h16",
+      "image": "/visuals/technology/cameras/bolex-h16.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/arriflex-35",
+      "image": "/visuals/technology/cameras/arriflex-35.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/clair-cameflex",
+      "image": "/visuals/technology/cameras/clair-cameflex.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/clair-npr",
+      "image": "/visuals/technology/cameras/clair-npr.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/arriflex-16sr",
+      "image": "/visuals/technology/cameras/arriflex-16sr.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/panavision-panaflex",
+      "image": "/visuals/technology/cameras/panavision-panaflex.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/arriflex-35bl",
+      "image": "/visuals/technology/cameras/arriflex-35bl.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/aaton-ltr",
+      "image": "/visuals/technology/cameras/aaton-ltr.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/imax-65-mm-capture",
+      "image": "/visuals/technology/cameras/imax-65-mm-capture.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/steadicam-camera-rig",
+      "image": "/visuals/technology/cameras/steadicam-camera-rig.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/arricam-st-lt",
+      "image": "/visuals/technology/cameras/arricam-st-lt.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/sony-hdw-f900-cinealta",
+      "image": "/visuals/technology/cameras/sony-hdw-f900-cinealta.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/thomson-viper-filmstream",
+      "image": "/visuals/technology/cameras/thomson-viper-filmstream.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/genesis-panavision",
+      "image": "/visuals/technology/cameras/genesis-panavision.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/red-one",
+      "image": "/visuals/technology/cameras/red-one.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/arri-alexa",
+      "image": "/visuals/technology/cameras/arri-alexa.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/canon-cinema-eos",
+      "image": "/visuals/technology/cameras/canon-cinema-eos.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/blackmagic-cinema-camera",
+      "image": "/visuals/technology/cameras/blackmagic-cinema-camera.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/arri-alexa-65",
+      "image": "/visuals/technology/cameras/arri-alexa-65.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/sony-venice",
+      "image": "/visuals/technology/cameras/sony-venice.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/red-monstro-v-raptor",
+      "image": "/visuals/technology/cameras/red-monstro-v-raptor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/arri-alexa-35",
+      "image": "/visuals/technology/cameras/arri-alexa-35.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/virtual-production-witness-cameras",
+      "image": "/visuals/technology/cameras/virtual-production-witness-cameras.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/cameras/smartphone-cinema-capture",
+      "image": "/visuals/technology/cameras/smartphone-cinema-capture.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses",
+      "image": "/visuals/technology/lenses/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/prime-lenses",
+      "image": "/visuals/technology/lenses/prime-lenses.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/zoom-lenses",
+      "image": "/visuals/technology/lenses/zoom-lenses.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/wide-angle-lenses",
+      "image": "/visuals/technology/lenses/wide-angle-lenses.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/telephoto-lenses",
+      "image": "/visuals/technology/lenses/telephoto-lenses.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/macro-lenses",
+      "image": "/visuals/technology/lenses/macro-lenses.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/anamorphic-lenses",
+      "image": "/visuals/technology/lenses/anamorphic-lenses.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/spherical-lenses",
+      "image": "/visuals/technology/lenses/spherical-lenses.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/tilt-shift-optics",
+      "image": "/visuals/technology/lenses/tilt-shift-optics.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/probe-lenses",
+      "image": "/visuals/technology/lenses/probe-lenses.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/diopters-close-up-lenses",
+      "image": "/visuals/technology/lenses/diopters-close-up-lenses.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/lens-mounts",
+      "image": "/visuals/technology/lenses/lens-mounts.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/matte-boxes",
+      "image": "/visuals/technology/lenses/matte-boxes.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/neutral-density-filters",
+      "image": "/visuals/technology/lenses/neutral-density-filters.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/polarizers",
+      "image": "/visuals/technology/lenses/polarizers.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/diffusion-filters",
+      "image": "/visuals/technology/lenses/diffusion-filters.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/follow-focus-wireless-fiz",
+      "image": "/visuals/technology/lenses/follow-focus-wireless-fiz.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lenses/lens-metadata-systems",
+      "image": "/visuals/technology/lenses/lens-metadata-systems.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film",
+      "image": "/visuals/technology/film/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/nitrate-film-base",
+      "image": "/visuals/technology/film/nitrate-film-base.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/acetate-safety-film",
+      "image": "/visuals/technology/film/acetate-safety-film.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/polyester-film-base",
+      "image": "/visuals/technology/film/polyester-film-base.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/35-mm-film",
+      "image": "/visuals/technology/film/35-mm-film.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/16-mm-film",
+      "image": "/visuals/technology/film/16-mm-film.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/8-mm-and-super-8",
+      "image": "/visuals/technology/film/8-mm-and-super-8.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/65-mm-camera-negative-70-mm-print",
+      "image": "/visuals/technology/film/65-mm-camera-negative-70-mm-print.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/black-and-white-negative",
+      "image": "/visuals/technology/film/black-and-white-negative.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/color-negative-film",
+      "image": "/visuals/technology/film/color-negative-film.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/reversal-film",
+      "image": "/visuals/technology/film/reversal-film.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/orthochromatic-emulsion",
+      "image": "/visuals/technology/film/orthochromatic-emulsion.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/panchromatic-emulsion",
+      "image": "/visuals/technology/film/panchromatic-emulsion.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/three-strip-technicolor",
+      "image": "/visuals/technology/film/three-strip-technicolor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/eastmancolor-process",
+      "image": "/visuals/technology/film/eastmancolor-process.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/film-perforations",
+      "image": "/visuals/technology/film/film-perforations.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/film-magazines-and-cores",
+      "image": "/visuals/technology/film/film-magazines-and-cores.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/developing-tanks-and-processors",
+      "image": "/visuals/technology/film/developing-tanks-and-processors.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/contact-printers",
+      "image": "/visuals/technology/film/contact-printers.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/optical-printers",
+      "image": "/visuals/technology/film/optical-printers.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/film-scanner-telecine",
+      "image": "/visuals/technology/film/film-scanner-telecine.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/film/film-cleaning-and-wet-gate",
+      "image": "/visuals/technology/film/film-cleaning-and-wet-gate.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting",
+      "image": "/visuals/technology/lighting/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/carbon-arc-lamps",
+      "image": "/visuals/technology/lighting/carbon-arc-lamps.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/tungsten-fresnel-units",
+      "image": "/visuals/technology/lighting/tungsten-fresnel-units.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/hmi-lamps",
+      "image": "/visuals/technology/lighting/hmi-lamps.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/led-fresnel-instruments",
+      "image": "/visuals/technology/lighting/led-fresnel-instruments.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/rgb-rgbww-led-panels",
+      "image": "/visuals/technology/lighting/rgb-rgbww-led-panels.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/fluorescent-soft-lights",
+      "image": "/visuals/technology/lighting/fluorescent-soft-lights.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/softboxes-and-lanterns",
+      "image": "/visuals/technology/lighting/softboxes-and-lanterns.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/flags-and-cutters",
+      "image": "/visuals/technology/lighting/flags-and-cutters.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/reflectors-and-bounce-boards",
+      "image": "/visuals/technology/lighting/reflectors-and-bounce-boards.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/diffusion-frames-and-silks",
+      "image": "/visuals/technology/lighting/diffusion-frames-and-silks.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/scrims-and-nets",
+      "image": "/visuals/technology/lighting/scrims-and-nets.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/barn-doors-and-snoots",
+      "image": "/visuals/technology/lighting/barn-doors-and-snoots.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/light-meters",
+      "image": "/visuals/technology/lighting/light-meters.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/color-meters",
+      "image": "/visuals/technology/lighting/color-meters.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/dmx-crmx-lighting-control",
+      "image": "/visuals/technology/lighting/dmx-crmx-lighting-control.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/dimmers-ballast-power-distribution",
+      "image": "/visuals/technology/lighting/dimmers-ballast-power-distribution.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/generators-and-battery-power",
+      "image": "/visuals/technology/lighting/generators-and-battery-power.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/lighting/virtual-production-led-wall-lighting",
+      "image": "/visuals/technology/lighting/virtual-production-led-wall-lighting.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip",
+      "image": "/visuals/technology/grip/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/tripods-and-fluid-heads",
+      "image": "/visuals/technology/grip/tripods-and-fluid-heads.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/dollies-and-tracking-rails",
+      "image": "/visuals/technology/grip/dollies-and-tracking-rails.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/jibs-and-cranes",
+      "image": "/visuals/technology/grip/jibs-and-cranes.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/telescopic-camera-cranes",
+      "image": "/visuals/technology/grip/telescopic-camera-cranes.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/steadicam",
+      "image": "/visuals/technology/grip/steadicam.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/gimbals",
+      "image": "/visuals/technology/grip/gimbals.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/cablecams-and-wire-rigs",
+      "image": "/visuals/technology/grip/cablecams-and-wire-rigs.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/car-mounts-and-process-trailers",
+      "image": "/visuals/technology/grip/car-mounts-and-process-trailers.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/drones-aerial-rigs",
+      "image": "/visuals/technology/grip/drones-aerial-rigs.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/motion-control-rigs",
+      "image": "/visuals/technology/grip/motion-control-rigs.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/sliders",
+      "image": "/visuals/technology/grip/sliders.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/apple-boxes-and-wedges",
+      "image": "/visuals/technology/grip/apple-boxes-and-wedges.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/c-stands-and-combo-stands",
+      "image": "/visuals/technology/grip/c-stands-and-combo-stands.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/clamps-rigging-and-truss",
+      "image": "/visuals/technology/grip/clamps-rigging-and-truss.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/stabilized-remote-heads",
+      "image": "/visuals/technology/grip/stabilized-remote-heads.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/grip/robot-arms",
+      "image": "/visuals/technology/grip/robot-arms.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound",
+      "image": "/visuals/technology/production-sound/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/shotgun-microphones",
+      "image": "/visuals/technology/production-sound/shotgun-microphones.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/boom-poles",
+      "image": "/visuals/technology/production-sound/boom-poles.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/lavalier-microphones",
+      "image": "/visuals/technology/production-sound/lavalier-microphones.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/wireless-microphone-systems",
+      "image": "/visuals/technology/production-sound/wireless-microphone-systems.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/multi-track-field-recorders",
+      "image": "/visuals/technology/production-sound/multi-track-field-recorders.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/mixing-consoles-and-bags",
+      "image": "/visuals/technology/production-sound/mixing-consoles-and-bags.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/timecode-generators",
+      "image": "/visuals/technology/production-sound/timecode-generators.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/smart-slates-and-clapperboards",
+      "image": "/visuals/technology/production-sound/smart-slates-and-clapperboards.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/headphones-and-ifb",
+      "image": "/visuals/technology/production-sound/headphones-and-ifb.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/windshields-and-blimps",
+      "image": "/visuals/technology/production-sound/windshields-and-blimps.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/sound-blankets-and-baffles",
+      "image": "/visuals/technology/production-sound/sound-blankets-and-baffles.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/production-sound/ambisonic-spatial-microphones",
+      "image": "/visuals/technology/production-sound/ambisonic-spatial-microphones.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post",
+      "image": "/visuals/technology/sound-post/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/dialogue-editing",
+      "image": "/visuals/technology/sound-post/dialogue-editing.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/adr-stages",
+      "image": "/visuals/technology/sound-post/adr-stages.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/foley-pits-and-props",
+      "image": "/visuals/technology/sound-post/foley-pits-and-props.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/sound-effects-libraries",
+      "image": "/visuals/technology/sound-post/sound-effects-libraries.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/convolution-reverb",
+      "image": "/visuals/technology/sound-post/convolution-reverb.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/digital-audio-workstations",
+      "image": "/visuals/technology/sound-post/digital-audio-workstations.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/sound-mixing-consoles",
+      "image": "/visuals/technology/sound-post/sound-mixing-consoles.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/surround-monitoring",
+      "image": "/visuals/technology/sound-post/surround-monitoring.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/dolby-atmos-workflows",
+      "image": "/visuals/technology/sound-post/dolby-atmos-workflows.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/dubbing-and-localization-tools",
+      "image": "/visuals/technology/sound-post/dubbing-and-localization-tools.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/m-e-stems",
+      "image": "/visuals/technology/sound-post/m-e-stems.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sound-post/final-printmasters",
+      "image": "/visuals/technology/sound-post/final-printmasters.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing",
+      "image": "/visuals/technology/editing/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/physical-splicers-and-cement",
+      "image": "/visuals/technology/editing/physical-splicers-and-cement.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/moviola",
+      "image": "/visuals/technology/editing/moviola.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/steenbeck-flatbed",
+      "image": "/visuals/technology/editing/steenbeck-flatbed.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/linear-video-editing",
+      "image": "/visuals/technology/editing/linear-video-editing.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/nonlinear-editing-software",
+      "image": "/visuals/technology/editing/nonlinear-editing-software.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/media-ingest-and-proxy-generation",
+      "image": "/visuals/technology/editing/media-ingest-and-proxy-generation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/edl-aaf-xml-interchange",
+      "image": "/visuals/technology/editing/edl-aaf-xml-interchange.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/conform-and-online-editing",
+      "image": "/visuals/technology/editing/conform-and-online-editing.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/archival-and-footage-logging",
+      "image": "/visuals/technology/editing/archival-and-footage-logging.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/picture-lock-and-turnovers",
+      "image": "/visuals/technology/editing/picture-lock-and-turnovers.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/editing/assistant-editor-shared-storage",
+      "image": "/visuals/technology/editing/assistant-editor-shared-storage.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color",
+      "image": "/visuals/technology/color/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/color-charts-and-gray-cards",
+      "image": "/visuals/technology/color/color-charts-and-gray-cards.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/log-and-raw-capture",
+      "image": "/visuals/technology/color/log-and-raw-capture.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/on-set-luts",
+      "image": "/visuals/technology/color/on-set-luts.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/dit-color-carts",
+      "image": "/visuals/technology/color/dit-color-carts.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/color-management-aces",
+      "image": "/visuals/technology/color/color-management-aces.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/color-grading-panels",
+      "image": "/visuals/technology/color/color-grading-panels.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/reference-monitors",
+      "image": "/visuals/technology/color/reference-monitors.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/waveform-vectorscope-and-false-color",
+      "image": "/visuals/technology/color/waveform-vectorscope-and-false-color.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/display-calibration-probes",
+      "image": "/visuals/technology/color/display-calibration-probes.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/hdr-mastering",
+      "image": "/visuals/technology/color/hdr-mastering.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/digital-intermediate",
+      "image": "/visuals/technology/color/digital-intermediate.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/color/render-and-transcoding-pipelines",
+      "image": "/visuals/technology/color/render-and-transcoding-pipelines.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx",
+      "image": "/visuals/technology/vfx/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/optical-compositing",
+      "image": "/visuals/technology/vfx/optical-compositing.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/green-blue-screen",
+      "image": "/visuals/technology/vfx/green-blue-screen.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/rotoscoping",
+      "image": "/visuals/technology/vfx/rotoscoping.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/matchmoving-and-camera-tracking",
+      "image": "/visuals/technology/vfx/matchmoving-and-camera-tracking.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/3d-modeling-and-texturing",
+      "image": "/visuals/technology/vfx/3d-modeling-and-texturing.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/rigging-and-character-animation",
+      "image": "/visuals/technology/vfx/rigging-and-character-animation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/motion-capture",
+      "image": "/visuals/technology/vfx/motion-capture.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/volumetric-capture",
+      "image": "/visuals/technology/vfx/volumetric-capture.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/particle-fluid-simulation",
+      "image": "/visuals/technology/vfx/particle-fluid-simulation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/digital-matte-painting",
+      "image": "/visuals/technology/vfx/digital-matte-painting.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/compositing-systems",
+      "image": "/visuals/technology/vfx/compositing-systems.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/led-volumes",
+      "image": "/visuals/technology/vfx/led-volumes.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/real-time-engines",
+      "image": "/visuals/technology/vfx/real-time-engines.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/in-camera-vfx",
+      "image": "/visuals/technology/vfx/in-camera-vfx.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/deep-compositing-and-multi-pass-renders",
+      "image": "/visuals/technology/vfx/deep-compositing-and-multi-pass-renders.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/vfx/machine-learning-assisted-cleanup",
+      "image": "/visuals/technology/vfx/machine-learning-assisted-cleanup.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx",
+      "image": "/visuals/technology/sfx/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/mechanical-rigs",
+      "image": "/visuals/technology/sfx/mechanical-rigs.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/atmospheric-haze-and-smoke",
+      "image": "/visuals/technology/sfx/atmospheric-haze-and-smoke.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/rain-and-wind-machines",
+      "image": "/visuals/technology/sfx/rain-and-wind-machines.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/controlled-breakaway-props",
+      "image": "/visuals/technology/sfx/controlled-breakaway-props.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/squibs-and-simulated-impacts",
+      "image": "/visuals/technology/sfx/squibs-and-simulated-impacts.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/animatronics",
+      "image": "/visuals/technology/sfx/animatronics.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/prosthetic-appliances",
+      "image": "/visuals/technology/sfx/prosthetic-appliances.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/miniatures-and-forced-perspective",
+      "image": "/visuals/technology/sfx/miniatures-and-forced-perspective.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/pyrotechnic-effects",
+      "image": "/visuals/technology/sfx/pyrotechnic-effects.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/wire-work-and-flying-rigs",
+      "image": "/visuals/technology/sfx/wire-work-and-flying-rigs.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/sfx/safety-barriers-and-exclusion-zones",
+      "image": "/visuals/technology/sfx/safety-barriers-and-exclusion-zones.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation",
+      "image": "/visuals/technology/animation/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/hand-drawn-cel-animation",
+      "image": "/visuals/technology/animation/hand-drawn-cel-animation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/rotoscope-animation",
+      "image": "/visuals/technology/animation/rotoscope-animation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/stop-motion-puppet-animation",
+      "image": "/visuals/technology/animation/stop-motion-puppet-animation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/clay-animation",
+      "image": "/visuals/technology/animation/clay-animation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/cut-out-and-silhouette-animation",
+      "image": "/visuals/technology/animation/cut-out-and-silhouette-animation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/multiplane-camera",
+      "image": "/visuals/technology/animation/multiplane-camera.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/computer-2d-animation",
+      "image": "/visuals/technology/animation/computer-2d-animation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/computer-generated-3d-animation",
+      "image": "/visuals/technology/animation/computer-generated-3d-animation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/motion-graphics",
+      "image": "/visuals/technology/animation/motion-graphics.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/hybrid-animation-live-action",
+      "image": "/visuals/technology/animation/hybrid-animation-live-action.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/animation/procedural-animation-and-simulation",
+      "image": "/visuals/technology/animation/procedural-animation-and-simulation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection",
+      "image": "/visuals/technology/projection/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/magic-lantern",
+      "image": "/visuals/technology/projection/magic-lantern.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/cin-matographe-projector",
+      "image": "/visuals/technology/projection/cin-matographe-projector.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/35-mm-projector",
+      "image": "/visuals/technology/projection/35-mm-projector.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/70-mm-projector",
+      "image": "/visuals/technology/projection/70-mm-projector.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/xenon-lamps",
+      "image": "/visuals/technology/projection/xenon-lamps.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/film-platters-and-reel-changers",
+      "image": "/visuals/technology/projection/film-platters-and-reel-changers.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/digital-cinema-projector",
+      "image": "/visuals/technology/projection/digital-cinema-projector.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/dlp-laser-projection",
+      "image": "/visuals/technology/projection/dlp-laser-projection.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/imax-exhibition-system",
+      "image": "/visuals/technology/projection/imax-exhibition-system.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/3d-stereoscopic-projection",
+      "image": "/visuals/technology/projection/3d-stereoscopic-projection.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/cinema-processors",
+      "image": "/visuals/technology/projection/cinema-processors.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/digital-cinema-server-dcp",
+      "image": "/visuals/technology/projection/digital-cinema-server-dcp.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/screen-materials-and-masking",
+      "image": "/visuals/technology/projection/screen-materials-and-masking.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/projection/accessibility-caption-devices",
+      "image": "/visuals/technology/projection/accessibility-caption-devices.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design",
+      "image": "/visuals/technology/set-design/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/technical-drafting-and-cad",
+      "image": "/visuals/technology/set-design/technical-drafting-and-cad.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/set-carpentry-and-scenic-paint",
+      "image": "/visuals/technology/set-design/set-carpentry-and-scenic-paint.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/prop-fabrication-3d-printing",
+      "image": "/visuals/technology/set-design/prop-fabrication-3d-printing.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/set-decoration-and-dressing",
+      "image": "/visuals/technology/set-design/set-decoration-and-dressing.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/wardrobe-cutting-and-stitching",
+      "image": "/visuals/technology/set-design/wardrobe-cutting-and-stitching.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/costume-aging-and-breakdown",
+      "image": "/visuals/technology/set-design/costume-aging-and-breakdown.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/hair-and-makeup-prosthetics",
+      "image": "/visuals/technology/set-design/hair-and-makeup-prosthetics.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/creature-suits-and-puppetry",
+      "image": "/visuals/technology/set-design/creature-suits-and-puppetry.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/location-surveying-and-photogrammetry",
+      "image": "/visuals/technology/set-design/location-surveying-and-photogrammetry.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/set-design/graphic-props-and-signage",
+      "image": "/visuals/technology/set-design/graphic-props-and-signage.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow",
+      "image": "/visuals/technology/workflow/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/checksum-copy-workflows",
+      "image": "/visuals/technology/workflow/checksum-copy-workflows.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/camera-card-offload-and-wrangling",
+      "image": "/visuals/technology/workflow/camera-card-offload-and-wrangling.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/lto-archive-tape",
+      "image": "/visuals/technology/workflow/lto-archive-tape.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/media-asset-management",
+      "image": "/visuals/technology/workflow/media-asset-management.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/digital-preservation-metadata",
+      "image": "/visuals/technology/workflow/digital-preservation-metadata.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/nitrate-and-acetate-storage",
+      "image": "/visuals/technology/workflow/nitrate-and-acetate-storage.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/film-inspection-and-repair",
+      "image": "/visuals/technology/workflow/film-inspection-and-repair.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/wet-gate-scanning",
+      "image": "/visuals/technology/workflow/wet-gate-scanning.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/restoration-software",
+      "image": "/visuals/technology/workflow/restoration-software.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/image-sequence-formats-exr",
+      "image": "/visuals/technology/workflow/image-sequence-formats-exr.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/storage-raid-nas-san",
+      "image": "/visuals/technology/workflow/storage-raid-nas-san.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/cloud-collaboration-and-render-farms",
+      "image": "/visuals/technology/workflow/cloud-collaboration-and-render-farms.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/workflow/dcp-encryption-kdm",
+      "image": "/visuals/technology/workflow/dcp-encryption-kdm.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery",
+      "image": "/visuals/technology/delivery/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/digital-cinema-package-dcp",
+      "image": "/visuals/technology/delivery/digital-cinema-package-dcp.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/subtitle-and-closed-caption-files",
+      "image": "/visuals/technology/delivery/subtitle-and-closed-caption-files.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/audio-description-tracks",
+      "image": "/visuals/technology/delivery/audio-description-tracks.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/dub-and-localization-workflows",
+      "image": "/visuals/technology/delivery/dub-and-localization-workflows.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/film-festival-screeners",
+      "image": "/visuals/technology/delivery/film-festival-screeners.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/qc-systems",
+      "image": "/visuals/technology/delivery/qc-systems.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/video-codecs-and-transcoding",
+      "image": "/visuals/technology/delivery/video-codecs-and-transcoding.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/adaptive-bitrate-streaming",
+      "image": "/visuals/technology/delivery/adaptive-bitrate-streaming.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/content-delivery-networks",
+      "image": "/visuals/technology/delivery/content-delivery-networks.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/rights-management-and-territories",
+      "image": "/visuals/technology/delivery/rights-management-and-territories.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/projectionist-playback-logs",
+      "image": "/visuals/technology/delivery/projectionist-playback-logs.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/delivery/accessible-cinema-equipment",
+      "image": "/visuals/technology/delivery/accessible-cinema-equipment.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging",
+      "image": "/visuals/technology/emerging/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/virtual-camera-operation",
+      "image": "/visuals/technology/emerging/virtual-camera-operation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/neural-rendering-and-radiance-fields",
+      "image": "/visuals/technology/emerging/neural-rendering-and-radiance-fields.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/gaussian-splatting",
+      "image": "/visuals/technology/emerging/gaussian-splatting.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/real-time-ray-tracing",
+      "image": "/visuals/technology/emerging/real-time-ray-tracing.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/ai-assisted-editing-search",
+      "image": "/visuals/technology/emerging/ai-assisted-editing-search.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/ai-assisted-rotoscoping",
+      "image": "/visuals/technology/emerging/ai-assisted-rotoscoping.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/generative-previsualization",
+      "image": "/visuals/technology/emerging/generative-previsualization.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/volumetric-stages",
+      "image": "/visuals/technology/emerging/volumetric-stages.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/real-time-multi-user-collaboration",
+      "image": "/visuals/technology/emerging/real-time-multi-user-collaboration.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/hdr-theatrical-exhibition",
+      "image": "/visuals/technology/emerging/hdr-theatrical-exhibition.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/remote-production",
+      "image": "/visuals/technology/emerging/remote-production.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/technology/emerging/sustainability-metering",
+      "image": "/visuals/technology/emerging/sustainability-metering.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development",
+      "image": "/visuals/crew/development/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/creator",
+      "image": "/visuals/crew/development/creator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/screenwriter",
+      "image": "/visuals/crew/development/screenwriter.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/story-writer",
+      "image": "/visuals/crew/development/story-writer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/story-editor",
+      "image": "/visuals/crew/development/story-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/script-consultant",
+      "image": "/visuals/crew/development/script-consultant.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/script-coordinator",
+      "image": "/visuals/crew/development/script-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/researcher",
+      "image": "/visuals/crew/development/researcher.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/development-executive",
+      "image": "/visuals/crew/development/development-executive.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/commissioning-editor",
+      "image": "/visuals/crew/development/commissioning-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/literary-rights-coordinator",
+      "image": "/visuals/crew/development/literary-rights-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/storyboard-artist",
+      "image": "/visuals/crew/development/storyboard-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/previsualization-artist",
+      "image": "/visuals/crew/development/previsualization-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/dialogue-writer",
+      "image": "/visuals/crew/development/dialogue-writer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/development/lyricist",
+      "image": "/visuals/crew/development/lyricist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing",
+      "image": "/visuals/crew/producing/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/producer",
+      "image": "/visuals/crew/producing/producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/executive-producer",
+      "image": "/visuals/crew/producing/executive-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/co-producer",
+      "image": "/visuals/crew/producing/co-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/associate-producer",
+      "image": "/visuals/crew/producing/associate-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/line-producer",
+      "image": "/visuals/crew/producing/line-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/unit-production-manager",
+      "image": "/visuals/crew/producing/unit-production-manager.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/production-manager",
+      "image": "/visuals/crew/producing/production-manager.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/production-supervisor",
+      "image": "/visuals/crew/producing/production-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/production-coordinator",
+      "image": "/visuals/crew/producing/production-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/assistant-production-coordinator",
+      "image": "/visuals/crew/producing/assistant-production-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/production-secretary",
+      "image": "/visuals/crew/producing/production-secretary.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/production-assistant-runner",
+      "image": "/visuals/crew/producing/production-assistant-runner.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/production-accountant",
+      "image": "/visuals/crew/producing/production-accountant.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/assistant-accountant",
+      "image": "/visuals/crew/producing/assistant-accountant.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/payroll-coordinator",
+      "image": "/visuals/crew/producing/payroll-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/travel-coordinator",
+      "image": "/visuals/crew/producing/travel-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/transportation-captain",
+      "image": "/visuals/crew/producing/transportation-captain.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/unit-publicist",
+      "image": "/visuals/crew/producing/unit-publicist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/sustainability-manager",
+      "image": "/visuals/crew/producing/sustainability-manager.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/producing/legal-and-clearance-counsel",
+      "image": "/visuals/crew/producing/legal-and-clearance-counsel.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction",
+      "image": "/visuals/crew/direction/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/director",
+      "image": "/visuals/crew/direction/director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/co-director",
+      "image": "/visuals/crew/direction/co-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/second-unit-director",
+      "image": "/visuals/crew/direction/second-unit-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/first-assistant-director-1st-ad",
+      "image": "/visuals/crew/direction/first-assistant-director-1st-ad.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/second-assistant-director-2nd-ad",
+      "image": "/visuals/crew/direction/second-assistant-director-2nd-ad.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/third-assistant-director",
+      "image": "/visuals/crew/direction/third-assistant-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/additional-assistant-director",
+      "image": "/visuals/crew/direction/additional-assistant-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/key-second-assistant-director",
+      "image": "/visuals/crew/direction/key-second-assistant-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/floor-runner",
+      "image": "/visuals/crew/direction/floor-runner.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/script-supervisor-continuity",
+      "image": "/visuals/crew/direction/script-supervisor-continuity.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/production-assistant-direction",
+      "image": "/visuals/crew/direction/production-assistant-direction.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/crowd-assistant-director",
+      "image": "/visuals/crew/direction/crowd-assistant-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/unit-director",
+      "image": "/visuals/crew/direction/unit-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/intimacy-coordinator",
+      "image": "/visuals/crew/direction/intimacy-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/dialogue-coach",
+      "image": "/visuals/crew/direction/dialogue-coach.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/direction/dialect-coach",
+      "image": "/visuals/crew/direction/dialect-coach.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting",
+      "image": "/visuals/crew/casting/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/casting-director",
+      "image": "/visuals/crew/casting/casting-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/casting-associate",
+      "image": "/visuals/crew/casting/casting-associate.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/casting-assistant",
+      "image": "/visuals/crew/casting/casting-assistant.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/extras-casting-director",
+      "image": "/visuals/crew/casting/extras-casting-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/background-coordinator",
+      "image": "/visuals/crew/casting/background-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/child-performance-coordinator",
+      "image": "/visuals/crew/casting/child-performance-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/acting-coach",
+      "image": "/visuals/crew/casting/acting-coach.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/movement-coach",
+      "image": "/visuals/crew/casting/movement-coach.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/animal-trainer",
+      "image": "/visuals/crew/casting/animal-trainer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/animal-wrangler",
+      "image": "/visuals/crew/casting/animal-wrangler.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/language-coach",
+      "image": "/visuals/crew/casting/language-coach.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/stand-in",
+      "image": "/visuals/crew/casting/stand-in.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/body-double",
+      "image": "/visuals/crew/casting/body-double.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/photo-double",
+      "image": "/visuals/crew/casting/photo-double.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/casting/stunt-double-dupe",
+      "image": "/visuals/crew/casting/stunt-double-dupe.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera",
+      "image": "/visuals/crew/camera/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/director-of-photography-dop-dp",
+      "image": "/visuals/crew/camera/director-of-photography-dop-dp.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/cinematographer",
+      "image": "/visuals/crew/camera/cinematographer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/camera-operator",
+      "image": "/visuals/crew/camera/camera-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/a-camera-b-camera-operator",
+      "image": "/visuals/crew/camera/a-camera-b-camera-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/first-assistant-camera-1st-ac-focus-puller",
+      "image": "/visuals/crew/camera/first-assistant-camera-1st-ac-focus-puller.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/second-assistant-camera-2nd-ac-clapper-loader",
+      "image": "/visuals/crew/camera/second-assistant-camera-2nd-ac-clapper-loader.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/camera-trainee",
+      "image": "/visuals/crew/camera/camera-trainee.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/camera-loader",
+      "image": "/visuals/crew/camera/camera-loader.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/digital-imaging-technician-dit",
+      "image": "/visuals/crew/camera/digital-imaging-technician-dit.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/data-wrangler",
+      "image": "/visuals/crew/camera/data-wrangler.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/video-assist-operator",
+      "image": "/visuals/crew/camera/video-assist-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/digital-loader",
+      "image": "/visuals/crew/camera/digital-loader.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/camera-utility",
+      "image": "/visuals/crew/camera/camera-utility.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/still-photographer",
+      "image": "/visuals/crew/camera/still-photographer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/unit-stills-photographer",
+      "image": "/visuals/crew/camera/unit-stills-photographer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/steadicam-operator",
+      "image": "/visuals/crew/camera/steadicam-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/gimbal-operator",
+      "image": "/visuals/crew/camera/gimbal-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/remote-head-operator",
+      "image": "/visuals/crew/camera/remote-head-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/underwater-camera-operator",
+      "image": "/visuals/crew/camera/underwater-camera-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/aerial-camera-operator",
+      "image": "/visuals/crew/camera/aerial-camera-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/drone-pilot-uas-operator",
+      "image": "/visuals/crew/camera/drone-pilot-uas-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/camera-systems-engineer",
+      "image": "/visuals/crew/camera/camera-systems-engineer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/camera/virtual-camera-operator",
+      "image": "/visuals/crew/camera/virtual-camera-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting",
+      "image": "/visuals/crew/lighting/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/gaffer",
+      "image": "/visuals/crew/lighting/gaffer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/best-boy-electric",
+      "image": "/visuals/crew/lighting/best-boy-electric.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/lighting-technician-electrician-spark",
+      "image": "/visuals/crew/lighting/lighting-technician-electrician-spark.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/lighting-console-operator",
+      "image": "/visuals/crew/lighting/lighting-console-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/dimmer-board-operator",
+      "image": "/visuals/crew/lighting/dimmer-board-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/generator-operator",
+      "image": "/visuals/crew/lighting/generator-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/practical-electrician",
+      "image": "/visuals/crew/lighting/practical-electrician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/lighting-trainee",
+      "image": "/visuals/crew/lighting/lighting-trainee.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/rigging-gaffer",
+      "image": "/visuals/crew/lighting/rigging-gaffer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/rigging-electric",
+      "image": "/visuals/crew/lighting/rigging-electric.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/chief-lighting-technician",
+      "image": "/visuals/crew/lighting/chief-lighting-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/lighting/lighting-programmer",
+      "image": "/visuals/crew/lighting/lighting-programmer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip",
+      "image": "/visuals/crew/grip/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/key-grip",
+      "image": "/visuals/crew/grip/key-grip.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/best-boy-grip",
+      "image": "/visuals/crew/grip/best-boy-grip.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/dolly-grip",
+      "image": "/visuals/crew/grip/dolly-grip.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/grip",
+      "image": "/visuals/crew/grip/grip.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/rigging-grip",
+      "image": "/visuals/crew/grip/rigging-grip.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/crane-operator",
+      "image": "/visuals/crew/grip/crane-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/remote-rigging-specialist",
+      "image": "/visuals/crew/grip/remote-rigging-specialist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/grip-trainee",
+      "image": "/visuals/crew/grip/grip-trainee.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/steadicam-assistant",
+      "image": "/visuals/crew/grip/steadicam-assistant.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/grip/rigging-key-grip",
+      "image": "/visuals/crew/grip/rigging-key-grip.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound",
+      "image": "/visuals/crew/sound/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound/production-sound-mixer",
+      "image": "/visuals/crew/sound/production-sound-mixer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound/boom-operator",
+      "image": "/visuals/crew/sound/boom-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound/utility-sound-technician",
+      "image": "/visuals/crew/sound/utility-sound-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound/sound-assistant",
+      "image": "/visuals/crew/sound/sound-assistant.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound/sound-recordist",
+      "image": "/visuals/crew/sound/sound-recordist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound/playback-operator",
+      "image": "/visuals/crew/sound/playback-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound/sound-trainee",
+      "image": "/visuals/crew/sound/sound-trainee.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound/production-sound-supervisor",
+      "image": "/visuals/crew/sound/production-sound-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art",
+      "image": "/visuals/crew/art/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/production-designer",
+      "image": "/visuals/crew/art/production-designer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/supervising-art-director",
+      "image": "/visuals/crew/art/supervising-art-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/art-director",
+      "image": "/visuals/crew/art/art-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/assistant-art-director",
+      "image": "/visuals/crew/art/assistant-art-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/set-designer-drafter",
+      "image": "/visuals/crew/art/set-designer-drafter.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/concept-artist",
+      "image": "/visuals/crew/art/concept-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/graphic-designer-art-department",
+      "image": "/visuals/crew/art/graphic-designer-art-department.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/illustrator",
+      "image": "/visuals/crew/art/illustrator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/storyboard-artist",
+      "image": "/visuals/crew/art/storyboard-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/model-maker",
+      "image": "/visuals/crew/art/model-maker.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/construction-manager",
+      "image": "/visuals/crew/art/construction-manager.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/construction-coordinator",
+      "image": "/visuals/crew/art/construction-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/lead-carpenter",
+      "image": "/visuals/crew/art/lead-carpenter.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/scenic-artist",
+      "image": "/visuals/crew/art/scenic-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/set-painter",
+      "image": "/visuals/crew/art/set-painter.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/sculptor-mold-maker",
+      "image": "/visuals/crew/art/sculptor-mold-maker.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/greensperson",
+      "image": "/visuals/crew/art/greensperson.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/art/art-department-coordinator",
+      "image": "/visuals/crew/art/art-department-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets",
+      "image": "/visuals/crew/sets/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/set-decorator",
+      "image": "/visuals/crew/sets/set-decorator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/leadman-leadperson",
+      "image": "/visuals/crew/sets/leadman-leadperson.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/set-dresser",
+      "image": "/visuals/crew/sets/set-dresser.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/on-set-dresser",
+      "image": "/visuals/crew/sets/on-set-dresser.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/property-master-prop-master",
+      "image": "/visuals/crew/sets/property-master-prop-master.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/assistant-prop-master",
+      "image": "/visuals/crew/sets/assistant-prop-master.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/standby-props",
+      "image": "/visuals/crew/sets/standby-props.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/prop-buyer",
+      "image": "/visuals/crew/sets/prop-buyer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/picture-vehicle-coordinator",
+      "image": "/visuals/crew/sets/picture-vehicle-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/armorer-weapons-master",
+      "image": "/visuals/crew/sets/armorer-weapons-master.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/food-stylist",
+      "image": "/visuals/crew/sets/food-stylist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/specialty-fabricator",
+      "image": "/visuals/crew/sets/specialty-fabricator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/set-decoration-buyer",
+      "image": "/visuals/crew/sets/set-decoration-buyer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sets/prop-fabricator",
+      "image": "/visuals/crew/sets/prop-fabricator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume",
+      "image": "/visuals/crew/costume/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/costume-designer",
+      "image": "/visuals/crew/costume/costume-designer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/assistant-costume-designer",
+      "image": "/visuals/crew/costume/assistant-costume-designer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/costume-supervisor",
+      "image": "/visuals/crew/costume/costume-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/costume-coordinator",
+      "image": "/visuals/crew/costume/costume-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/costumer-dresser",
+      "image": "/visuals/crew/costume/costumer-dresser.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/set-costumer",
+      "image": "/visuals/crew/costume/set-costumer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/tailor-cutter",
+      "image": "/visuals/crew/costume/tailor-cutter.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/seamstress-stitcher",
+      "image": "/visuals/crew/costume/seamstress-stitcher.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/wardrobe-buyer",
+      "image": "/visuals/crew/costume/wardrobe-buyer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/textile-dyer",
+      "image": "/visuals/crew/costume/textile-dyer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/costume-breakdown-artist",
+      "image": "/visuals/crew/costume/costume-breakdown-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/costume/costume-standby",
+      "image": "/visuals/crew/costume/costume-standby.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup",
+      "image": "/visuals/crew/hair-makeup/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/makeup-department-head",
+      "image": "/visuals/crew/hair-makeup/makeup-department-head.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/key-makeup-artist",
+      "image": "/visuals/crew/hair-makeup/key-makeup-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/makeup-artist",
+      "image": "/visuals/crew/hair-makeup/makeup-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/special-makeup-effects-artist",
+      "image": "/visuals/crew/hair-makeup/special-makeup-effects-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/prosthetics-designer",
+      "image": "/visuals/crew/hair-makeup/prosthetics-designer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/prosthetics-technician",
+      "image": "/visuals/crew/hair-makeup/prosthetics-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/hair-department-head",
+      "image": "/visuals/crew/hair-makeup/hair-department-head.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/key-hairstylist",
+      "image": "/visuals/crew/hair-makeup/key-hairstylist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/hairstylist",
+      "image": "/visuals/crew/hair-makeup/hairstylist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/wigmaker",
+      "image": "/visuals/crew/hair-makeup/wigmaker.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/barber",
+      "image": "/visuals/crew/hair-makeup/barber.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/nail-technician",
+      "image": "/visuals/crew/hair-makeup/nail-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/hair-makeup/crowd-makeup-supervisor",
+      "image": "/visuals/crew/hair-makeup/crowd-makeup-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography",
+      "image": "/visuals/crew/choreography/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/choreographer",
+      "image": "/visuals/crew/choreography/choreographer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/assistant-choreographer",
+      "image": "/visuals/crew/choreography/assistant-choreographer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/dance-director",
+      "image": "/visuals/crew/choreography/dance-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/movement-director",
+      "image": "/visuals/crew/choreography/movement-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/fight-choreographer",
+      "image": "/visuals/crew/choreography/fight-choreographer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/action-director",
+      "image": "/visuals/crew/choreography/action-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/stunt-coordinator",
+      "image": "/visuals/crew/choreography/stunt-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/stunt-performer",
+      "image": "/visuals/crew/choreography/stunt-performer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/stunt-double-dupe",
+      "image": "/visuals/crew/choreography/stunt-double-dupe.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/precision-driver",
+      "image": "/visuals/crew/choreography/precision-driver.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/horse-master-equestrian-coordinator",
+      "image": "/visuals/crew/choreography/horse-master-equestrian-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/wire-rigging-specialist",
+      "image": "/visuals/crew/choreography/wire-rigging-specialist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/stunt-rigger",
+      "image": "/visuals/crew/choreography/stunt-rigger.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/safety-supervisor",
+      "image": "/visuals/crew/choreography/safety-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/stunt-rehearsal-assistant",
+      "image": "/visuals/crew/choreography/stunt-rehearsal-assistant.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/choreography/intimacy-coordinator",
+      "image": "/visuals/crew/choreography/intimacy-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations",
+      "image": "/visuals/crew/locations/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/location-manager",
+      "image": "/visuals/crew/locations/location-manager.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/location-scout",
+      "image": "/visuals/crew/locations/location-scout.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/assistant-location-manager",
+      "image": "/visuals/crew/locations/assistant-location-manager.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/location-assistant",
+      "image": "/visuals/crew/locations/location-assistant.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/unit-manager",
+      "image": "/visuals/crew/locations/unit-manager.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/transportation-coordinator",
+      "image": "/visuals/crew/locations/transportation-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/picture-car-coordinator",
+      "image": "/visuals/crew/locations/picture-car-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/transport-captain",
+      "image": "/visuals/crew/locations/transport-captain.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/driver-unit-driver",
+      "image": "/visuals/crew/locations/driver-unit-driver.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/facilities-coordinator",
+      "image": "/visuals/crew/locations/facilities-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/travel-coordinator",
+      "image": "/visuals/crew/locations/travel-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/locations/accommodation-coordinator",
+      "image": "/visuals/crew/locations/accommodation-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx",
+      "image": "/visuals/crew/sfx/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/special-effects-supervisor",
+      "image": "/visuals/crew/sfx/special-effects-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/special-effects-coordinator",
+      "image": "/visuals/crew/sfx/special-effects-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/special-effects-technician",
+      "image": "/visuals/crew/sfx/special-effects-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/pyrotechnician",
+      "image": "/visuals/crew/sfx/pyrotechnician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/animatronics-supervisor",
+      "image": "/visuals/crew/sfx/animatronics-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/animatronics-technician",
+      "image": "/visuals/crew/sfx/animatronics-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/puppeteer",
+      "image": "/visuals/crew/sfx/puppeteer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/creature-effects-technician",
+      "image": "/visuals/crew/sfx/creature-effects-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/miniatures-supervisor",
+      "image": "/visuals/crew/sfx/miniatures-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/atmospheric-effects-technician",
+      "image": "/visuals/crew/sfx/atmospheric-effects-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sfx/safety-officer-set-medic",
+      "image": "/visuals/crew/sfx/safety-officer-set-medic.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial",
+      "image": "/visuals/crew/editorial/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/editor-picture-editor",
+      "image": "/visuals/crew/editorial/editor-picture-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/co-editor",
+      "image": "/visuals/crew/editorial/co-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/first-assistant-editor",
+      "image": "/visuals/crew/editorial/first-assistant-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/second-assistant-editor",
+      "image": "/visuals/crew/editorial/second-assistant-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/edit-producer",
+      "image": "/visuals/crew/editorial/edit-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/post-production-supervisor",
+      "image": "/visuals/crew/editorial/post-production-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/post-production-coordinator",
+      "image": "/visuals/crew/editorial/post-production-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/online-editor-conform-editor",
+      "image": "/visuals/crew/editorial/online-editor-conform-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/colorist-colourist",
+      "image": "/visuals/crew/editorial/colorist-colourist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/color-assistant",
+      "image": "/visuals/crew/editorial/color-assistant.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/di-producer",
+      "image": "/visuals/crew/editorial/di-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/finishing-artist",
+      "image": "/visuals/crew/editorial/finishing-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/archive-producer",
+      "image": "/visuals/crew/editorial/archive-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/archivist",
+      "image": "/visuals/crew/editorial/archivist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/editorial/post-production-runner",
+      "image": "/visuals/crew/editorial/post-production-runner.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post",
+      "image": "/visuals/crew/sound-post/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/supervising-sound-editor",
+      "image": "/visuals/crew/sound-post/supervising-sound-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/dialogue-editor",
+      "image": "/visuals/crew/sound-post/dialogue-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/adr-editor",
+      "image": "/visuals/crew/sound-post/adr-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/adr-supervisor",
+      "image": "/visuals/crew/sound-post/adr-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/adr-mixer",
+      "image": "/visuals/crew/sound-post/adr-mixer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/foley-artist",
+      "image": "/visuals/crew/sound-post/foley-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/foley-mixer",
+      "image": "/visuals/crew/sound-post/foley-mixer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/foley-editor",
+      "image": "/visuals/crew/sound-post/foley-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/sound-effects-editor",
+      "image": "/visuals/crew/sound-post/sound-effects-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/sound-designer",
+      "image": "/visuals/crew/sound-post/sound-designer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/re-recording-mixer-dubbing-mixer",
+      "image": "/visuals/crew/sound-post/re-recording-mixer-dubbing-mixer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/music-editor",
+      "image": "/visuals/crew/sound-post/music-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/composer",
+      "image": "/visuals/crew/sound-post/composer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/orchestrator",
+      "image": "/visuals/crew/sound-post/orchestrator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/arranger",
+      "image": "/visuals/crew/sound-post/arranger.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/music-supervisor",
+      "image": "/visuals/crew/sound-post/music-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/scoring-mixer",
+      "image": "/visuals/crew/sound-post/scoring-mixer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/score-recordist",
+      "image": "/visuals/crew/sound-post/score-recordist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/playback-engineer",
+      "image": "/visuals/crew/sound-post/playback-engineer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/sound-post/dubbing-director",
+      "image": "/visuals/crew/sound-post/dubbing-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx",
+      "image": "/visuals/crew/vfx/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/vfx-supervisor",
+      "image": "/visuals/crew/vfx/vfx-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/on-set-vfx-supervisor",
+      "image": "/visuals/crew/vfx/on-set-vfx-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/vfx-producer",
+      "image": "/visuals/crew/vfx/vfx-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/vfx-coordinator",
+      "image": "/visuals/crew/vfx/vfx-coordinator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/vfx-editor",
+      "image": "/visuals/crew/vfx/vfx-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/cg-supervisor",
+      "image": "/visuals/crew/vfx/cg-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/animation-supervisor",
+      "image": "/visuals/crew/vfx/animation-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/3d-animator",
+      "image": "/visuals/crew/vfx/3d-animator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/rigger-character-td",
+      "image": "/visuals/crew/vfx/rigger-character-td.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/modeler",
+      "image": "/visuals/crew/vfx/modeler.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/texture-artist",
+      "image": "/visuals/crew/vfx/texture-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/look-development-artist",
+      "image": "/visuals/crew/vfx/look-development-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/lighting-artist",
+      "image": "/visuals/crew/vfx/lighting-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/fx-technical-director",
+      "image": "/visuals/crew/vfx/fx-technical-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/compositor",
+      "image": "/visuals/crew/vfx/compositor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/roto-artist",
+      "image": "/visuals/crew/vfx/roto-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/paint-cleanup-artist",
+      "image": "/visuals/crew/vfx/paint-cleanup-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/matchmove-artist",
+      "image": "/visuals/crew/vfx/matchmove-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/tracking-supervisor",
+      "image": "/visuals/crew/vfx/tracking-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/matte-painter",
+      "image": "/visuals/crew/vfx/matte-painter.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/environment-artist",
+      "image": "/visuals/crew/vfx/environment-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/layout-artist",
+      "image": "/visuals/crew/vfx/layout-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/pipeline-td",
+      "image": "/visuals/crew/vfx/pipeline-td.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/render-wrangler",
+      "image": "/visuals/crew/vfx/render-wrangler.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/previs-artist",
+      "image": "/visuals/crew/vfx/previs-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/virtual-production-supervisor",
+      "image": "/visuals/crew/vfx/virtual-production-supervisor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/volume-operator",
+      "image": "/visuals/crew/vfx/volume-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/performance-capture-technician",
+      "image": "/visuals/crew/vfx/performance-capture-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/motion-capture-animator",
+      "image": "/visuals/crew/vfx/motion-capture-animator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/vfx/generative-ai-specialist-production",
+      "image": "/visuals/crew/vfx/generative-ai-specialist-production.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation",
+      "image": "/visuals/crew/animation/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/animation-director",
+      "image": "/visuals/crew/animation/animation-director.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/supervising-animator",
+      "image": "/visuals/crew/animation/supervising-animator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/character-animator",
+      "image": "/visuals/crew/animation/character-animator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/cleanup-artist",
+      "image": "/visuals/crew/animation/cleanup-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/inbetweener",
+      "image": "/visuals/crew/animation/inbetweener.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/key-animator",
+      "image": "/visuals/crew/animation/key-animator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/background-painter",
+      "image": "/visuals/crew/animation/background-painter.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/layout-artist-animation",
+      "image": "/visuals/crew/animation/layout-artist-animation.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/character-designer",
+      "image": "/visuals/crew/animation/character-designer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/storyboard-revisionist",
+      "image": "/visuals/crew/animation/storyboard-revisionist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/stop-motion-animator",
+      "image": "/visuals/crew/animation/stop-motion-animator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/stop-motion-puppet-fabricator",
+      "image": "/visuals/crew/animation/stop-motion-puppet-fabricator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/animation-editor",
+      "image": "/visuals/crew/animation/animation-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/animation/compositing-artist",
+      "image": "/visuals/crew/animation/compositing-artist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery",
+      "image": "/visuals/crew/delivery/cover.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/distribution-executive",
+      "image": "/visuals/crew/delivery/distribution-executive.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/sales-agent",
+      "image": "/visuals/crew/delivery/sales-agent.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/acquisitions-executive",
+      "image": "/visuals/crew/delivery/acquisitions-executive.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/festival-programmer",
+      "image": "/visuals/crew/delivery/festival-programmer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/film-programmer",
+      "image": "/visuals/crew/delivery/film-programmer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/publicist",
+      "image": "/visuals/crew/delivery/publicist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/trailer-editor",
+      "image": "/visuals/crew/delivery/trailer-editor.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/key-art-designer",
+      "image": "/visuals/crew/delivery/key-art-designer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/subtitler",
+      "image": "/visuals/crew/delivery/subtitler.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/localization-producer",
+      "image": "/visuals/crew/delivery/localization-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/accessibility-producer",
+      "image": "/visuals/crew/delivery/accessibility-producer.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/digital-cinema-mastering-operator",
+      "image": "/visuals/crew/delivery/digital-cinema-mastering-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/quality-control-operator",
+      "image": "/visuals/crew/delivery/quality-control-operator.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/dcp-technician",
+      "image": "/visuals/crew/delivery/dcp-technician.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/projectionist",
+      "image": "/visuals/crew/delivery/projectionist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    },
+    {
+      "page": "/crew/delivery/film-archivist-preservationist",
+      "image": "/visuals/crew/delivery/film-archivist-preservationist.svg",
+      "kind": "generated-editorial",
+      "verified_factual_photo": false
+    }
+  ],
+  "note": "All generated visuals are educational illustrations. No generated image depicts a verified historical object or real person."
+}

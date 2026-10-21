@@ -26,6 +26,14 @@ jobs:
         run: |
           pnpm install --frozen-lockfile
 
+      - name: Verify the launch source before deployment
+        run: |
+          pnpm run test:artwork
+          node scripts/test-editorial-depth.mjs
+          node scripts/test-launch-readiness.mjs
+          node scripts/test-my-cinema.mjs
+          node scripts/test-lookup.mjs
+
       - name: Validate Staging Configuration
         run: |
           if grep -q "__SET_STAGING_D1_DATABASE_ID__" wrangler.staging.toml; then

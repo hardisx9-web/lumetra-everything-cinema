@@ -1,0 +1,47 @@
+[
+  {
+    "file": "Lumetra_Master_001.zip",
+    "sha256": "1380a1e68d775a631e3ab035367aa0e9957251686a3a8593c0084b7dba4e89e3",
+    "ok": true
+  },
+  {
+    "file": "Lumetra_Master_002.zip",
+    "sha256": "e4b8e7aa672eef75adc2a0c3cac13fe4a78e3112cbcc3ced02228d902f2beaa6",
+    "ok": true
+  },
+  {
+    "file": "Lumetra_Master_003.zip",
+    "sha256": "63234e56babe213383a7c6f3b72365a1bae7c0649f2b4b9fa3d666ae69d21c71",
+    "ok": true
+  },
+  {
+    "file": "Lumetra_Master_004.zip",
+    "sha256": "a88e5447745eea350b28a720c49cae8a29ae2fceab8d096dd8158e6306b70763",
+    "ok": true
+  },
+  {
+    "file": "Lumetra_Master_005.zip",
+    "sha256": "43824eebe6352c7f38c4dd501353413f4cec8ffab24e8bdb05117f5355098893",
+    "ok": true
+  },
+  {
+    "file": "MANIFEST.json",
+    "sha256": "54e9aa6fd12a88bc364ca28ae9a31b126cfa336023779f9e65868fb8dfee9d46",
+    "ok": true
+  },
+  {
+    "file": "RESTORE_README.txt",
+    "sha256": "32a902530c8eb8cfadc24d4e61a7dbde87406fac80475472a791ae4e59515b97",
+    "ok": true
+  },
+  {
+    "file": "TRANSFER_COMPLETE.txt",
+    "sha256": "3b95d199f1671ffd08eacb17f2ed4238474f15849d0e22a21b72644a453a9718",
+    "ok": true
+  },
+  {
+    "file": "CREDENTIALS_NOT_INCLUDED.txt",
+    "sha256": "437a53d0d6236ec20b6b6008e2c8394eac8489e39921781d92f936ce917951c9",
+    "ok": true
+  }
+]

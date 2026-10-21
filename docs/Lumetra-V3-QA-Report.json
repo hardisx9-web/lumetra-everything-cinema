@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-18",
+  "decision": "RELEASE BLOCKED / candidate V3",
+  "data": {
+    "works": 20512,
+    "genre_metadata_records": 9836,
+    "language_metadata_records": 8653,
+    "approved_artwork": 9,
+    "current_verified_viewing": 0
+  },
+  "editorial": {
+    "research_drafts_longform": 9,
+    "source_urls_unique": 26,
+    "films_with_deep_research": 4,
+    "other_editorial_records": "inheritance remains incomplete"
+  },
+  "features": [
+    "My Cinema local-first saved/watch diary/reading list/export-import",
+    "bounded film lookup API",
+    "genre+language search facets",
+    "9 sectioned researched essays with sources",
+    "8 copyright-safe original fallback cover styles",
+    "official archival portal links without availability claims",
+    "original cinematic intro and WebGL fallback"
+  ],
+  "checks": {
+    "npm_test": "PASS (24 Node tests, route & responsive checks, hosted handler & programming tests)",
+    "editorial": "PASS",
+    "notebook": "PASS",
+    "lookup_validation": "PASS",
+    "smoke": "PASS (12 route/media paths, API filters and programming)",
+    "staging_e2e": "PASS WITH VIEWING WARNING",
+    "full_framework_build": "BLOCKED (vinext dependency not present; registry unavailable)",
+    "real_browser_qa": "BLOCKED (Chromium ERR_BLOCKED_BY_ADMINISTRATOR to localhost)",
+    "GitHub_push": "NOT ATTEMPTED (Lumetra repo missing from installed GitHub integration)",
+    "Cloudflare_deployment": "NOT ATTEMPTED"
+  },
+  "blockers": [
+    "Refresh and independently verify legal streaming availability",
+    "Complete original framework build on dependency-enabled runner",
+    "Verify GitHub repo permissions and actual Cloudflare Worker/D1",
+    "Run real browser / mobile / accessibility / performance QA",
+    "Specialist editorial and artwork rights review",
+    "Backups, rollback and production monitoring"
+  ],
+  "safety": "Source package excludes .git, package stores, runtime, .npmrc, .env*, private keys, installed dependencies. Original recovery in ChatGPT Library unchanged."
+}

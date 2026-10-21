@@ -29,14 +29,34 @@ export function artworkFor(film, legacyMap = {}) {
 
 export const filmTitle = (film) => film?.displayTitle || film?.title || 'Untitled catalogue record';
 export const filmMetadata = (film) => [film.year || 'Date unresolved', film.director || 'Filmmaker unresolved', (film.countries || []).join(' / ') || 'Country unresolved'].join(' · ');
+export function fallbackFilmImage() { return ''; }
+
 export const viewingStatus = (film) => film.embedded ? 'Verified embed' : film.watchable ? 'Official external viewing' : 'Catalogue record · no verified playback';
-export const artworkLabel = (image) => ({ POSTER: 'Film poster', STILL: 'Film still', FILM_STILL: 'Film still', PRODUCTION_STILL: 'Production still', PRODUCTION_PHOTOGRAPH: 'Production photograph', LOBBY_CARD: 'Lobby card', TITLE_CARD: 'Film title card' })[String(image?.artwork_type).toUpperCase()] || (image ? 'Verified film artwork' : 'Original metadata title treatment · not a historical poster');
+export const artworkLabel = (image) => ({ POSTER: 'Film poster', STILL: 'Film still', FILM_STILL: 'Film still', PRODUCTION_STILL: 'Production still', PRODUCTION_PHOTOGRAPH: 'Production photograph', LOBBY_CARD: 'Lobby card', TITLE_CARD: 'Film title card' })[String(image?.artwork_type).toUpperCase()] || (image ? 'Verified film artwork' : 'Authentic film artwork pending review');
+
+// Designed illustrative covers are deliberately different from original film artwork.
+// Their geometry is stable for each catalogue ID; they never imply a historical still.
+function coverStyle(film) {
+  const source = String(film?.id || filmTitle(film));
+  let hash = 2166136261;
+  for (const char of source) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619) >>> 0;
+  const colors = [
+    ['#daaa66','#423020','#111d27'], ['#92bfb3','#143e3c','#151a28'],
+    ['#d6b7ad','#613647','#181a25'], ['#91a6d4','#26365d','#161c2b'],
+    ['#e1bca4','#6c3626','#1f212c'], ['#b8be85','#414d28','#162528'],
+    ['#beb3e5','#39315b','#171b32'], ['#db9d84','#57322f','#1d2b34']
+  ];
+  const [accent,mid,dark] = colors[hash % colors.length];
+  return { motif: ['eclipse','architecture','horizon','radiance','film','tide','prism','orbit'][hash % 8],accent,mid,dark,index:(hash%97)+1 };
+}
 
 export function posterMarkup(film, legacyMap = {}, className = '') {
   const image = artworkFor(film, legacyMap);
   const name = filmTitle(film);
   const sources = image ? Object.entries(image.variants).map(([width, url]) => `${escapeHtml(url)} ${width}w`).join(', ') : '';
-  return `<div class="poster ${image ? 'has-artwork' : 'no-image'} ${escapeHtml(className)}"><div class="poster-title-treatment"><span class="title-treatment-kicker">LUMETRA / CATALOGUE</span><strong>${escapeHtml(name)}</strong>${film.original_title && film.original_title !== name ? `<span>${escapeHtml(film.original_title)}</span>` : ''}<span class="title-treatment-meta">${escapeHtml(filmMetadata(film))}</span><small>Original metadata title treatment · not a historical poster</small></div>${image ? `<img src="${escapeHtml(image.variants['640'] || image.url)}"${sources ? ` srcset="${sources}"` : ''} sizes="(max-width:720px) 44vw, 320px" alt="${escapeHtml(image.alt || `${artworkLabel(image)} for ${name}`)}" loading="lazy" width="640" height="960" data-film-artwork>` : ''}<span class="artwork-kind">${escapeHtml(artworkLabel(image))}</span></div>`;
+  const treatment = coverStyle(film);
+  const visuallyAlternative = '';
+  return `<div class="poster ${image ? 'has-artwork' : 'no-image'} ${escapeHtml(className)}" style="--cover-accent:${treatment.accent};--cover-mid:${treatment.mid};--cover-dark:${treatment.dark}"><div class="poster-title-treatment">${visuallyAlternative}<span class="title-treatment-kicker">LUMETRA / FRAME ${String(treatment.index).padStart(2,'0')}</span><strong>${escapeHtml(name)}</strong>${film.original_title && film.original_title !== name ? `<span class="cover-original-title">${escapeHtml(film.original_title)}</span>` : ''}<span class="title-treatment-meta">${escapeHtml(filmMetadata(film))}</span>${image ? '' : '<small>Authentic film artwork pending review</small>'}</div>${image ? `<img src="${escapeHtml(image.variants['640'] || image.url)}"${sources ? ` srcset="${sources}"` : ''} sizes="(max-width:720px) 44vw, 320px" alt="${escapeHtml(image.alt || `${artworkLabel(image)} for ${name}`)}" loading="lazy" width="640" height="960" data-film-artwork>` : ''}<span class="artwork-kind">${escapeHtml(artworkLabel(image))}</span></div>`;
 }
 
 export const PROGRAMME_SECTIONS = ['carousel', 'history', 'featured', 'watch', 'collection'];

@@ -1,5 +1,14 @@
 import {initIntro} from './intro.js';
+import {startLumetraMotion} from './motion-layer.js';
+try {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || localStorage.getItem('lumetra-motion') === 'reduced') {
+    document.documentElement.classList.add('reduced');
+  }
+} catch {
+  // Motion preference storage is optional; the media query still applies in CSS.
+}
 initIntro();
+startLumetraMotion();
 // Resume the immutable publication import only when the hosted catalogue is empty or not indexed.
 // Never replace an API failure with invented film results.
 async function catalogueReady() {
@@ -8,6 +17,11 @@ async function catalogueReady() {
   const state = await response.json();
   return state.ready === true && state.artwork_ready === true && Number(state.works) > 0;
 }
+// Educational wings are static and should stay readable even if the film database is offline.
+const learningPath = /^\/(?:technology|crew)(?:\/|$)/.test(location.pathname) || ['/attributions','/corrections'].includes(location.pathname);
+if (learningPath) {
+  await import('./app.js');
+} else {
 try {
   let ready = await catalogueReady().catch(() => false);
   if (!ready) {
@@ -23,4 +37,5 @@ try {
   await import('./app.js');
 } catch (error) {
   document.querySelector('#main').textContent = error.message;
+}
 }

@@ -1,5 +1,9 @@
+import { subjectPhoto } from './subject-images.js';
+import { subjectImages } from './subject-images.js';
+import { isLearningPath, renderLearning } from './cinema-learning.js';
 import { createCinemaHistoryChapters } from './cinema-home.js';
-import { artworkFor, artworkLabel, filmTitle, filmMetadata, viewingStatus, posterMarkup, disjointProgramme, sessionProgrammeSeed, textureImageUrl } from './artwork-ui.js';
+import { artworkFor, artworkLabel, filmTitle, filmMetadata, viewingStatus, posterMarkup, disjointProgramme, sessionProgrammeSeed, textureImageUrl, fallbackFilmImage } from './artwork-ui.js';
+import { loadNotebook, writeNotebook, toggleNotebook, notebookJSON, importNotebook, validFilmId } from './my-cinema.js';
 
 const main = document.querySelector('#main');
 let editorial;
@@ -40,30 +44,65 @@ const api = async (path) => {
   if (!response.ok) throw new Error(data.error || 'Request failed');
   return data;
 };
-const title = (value) => { document.title = `${value} — Lumetra`; };
+const defaultDescription = 'Enter a living universe of films, filmmakers, images and histories.';
+function setHeadMeta(name, content, attribute = 'name') {
+  const node = document.head.querySelector(`meta[${attribute}="${name}"]`);
+  if (node && content) node.setAttribute('content', content);
+}
+function setStructuredData(data) {
+  const node = document.head.querySelector('#structured-data');
+  if (node) node.textContent = JSON.stringify(data).replace(/</g, '\\u003c');
+}
+function title(value, description = defaultDescription, structured = {}) {
+  const pageTitle = `${value} — Lumetra`;
+  const canonicalUrl = new URL(`${location.pathname}${location.search}`, location.origin).href;
+  document.title = pageTitle;
+  setHeadMeta('description', description);
+  setHeadMeta('og:title', pageTitle, 'property');
+  setHeadMeta('og:description', description, 'property');
+  setHeadMeta('og:url', canonicalUrl, 'property');
+  setHeadMeta('twitter:title', pageTitle);
+  setHeadMeta('twitter:description', description);
+  const canonical = document.head.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.href = canonicalUrl;
+  setStructuredData({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: value,
+    description,
+    url: canonicalUrl,
+    ...structured,
+  });
+}
 
 function poster(film, className = '') {
   return posterMarkup(film, artwork, className);
 }
 
+function notebookButton(kind, id, label, activeLabel) {
+  if (!validFilmId(id)) return '';
+  const active = loadNotebook()[kind].includes(id);
+  return `<button type="button" class="notebook-button${active?' is-saved':''}" data-notebook-kind="${kind}" data-notebook-id="${esc(id)}" data-label-add="${esc(label)}" data-label-active="${esc(activeLabel)}" aria-pressed="${active}">${active ? esc(activeLabel) : esc(label)}</button>`;
+}
+
 function card(film, extra = '') {
-  return `<article class="film-card ${extra}" data-reveal><a href="${filmUrl(film.id)}">${poster(film)}<h3>${esc(filmTitle(film))}</h3></a>${film.original_title && film.original_title !== filmTitle(film) ? `<p>${esc(film.original_title)}</p>` : ''}<p>${esc(filmMetadata(film))}</p><span class="badge">${esc(viewingStatus(film))}</span><a class="film-action" href="${filmUrl(film.id)}">${film.watchable || film.embedded ? 'Viewing options & dossier' : 'Open dossier'} ↗</a></article>`;
+  return `<article class="film-card ${extra}" data-reveal><a href="${filmUrl(film.id)}">${poster(film)}<h3>${esc(filmTitle(film))}</h3></a>${film.original_title && film.original_title !== filmTitle(film) ? `<p>${esc(film.original_title)}</p>` : ''}<p>${esc(filmMetadata(film))}</p><span class="badge">${esc(viewingStatus(film))}</span><div class="film-card-actions"><a class="film-action" href="${filmUrl(film.id)}">${film.watchable || film.embedded ? 'Viewing options & dossier' : 'Open dossier'} ↗</a>${notebookButton('saved',film.id,'+ Save','✓ Saved')}</div></article>`;
 }
 
 function essayCard(essay, usedFilms = new Set()) {
   const lead = (essay.films || []).map((id) => editorial?.films.find((film) => film.id === id)).find((film) => film && !usedFilms.has(film.id));
   if (lead) usedFilms.add(lead.id);
-  const visual = lead ? `<a class="essay-card-film" href="${filmUrl(lead.id)}">${poster(lead)}<span>${esc(filmTitle(lead))} · Connected film ↗</span></a>` : '<div class="essay-card-visual essay-card-visual-empty" aria-hidden="true"><span>READING ROOM</span></div>';
-  return `<article class="essay-card" data-reveal>${visual}<span class="eyebrow">${esc(essay.room)} / ${esc(essay.period)}</span><h3>${esc(essay.title)}</h3><p>${esc(essay.deck)}</p><a href="/essay/${encodeURIComponent(essay.id)}">Read the story · ${esc(essay.reading)} ↗</a></article>`;
+  const visual = lead ? `<a class="essay-card-film" href="${filmUrl(lead.id)}">${poster(lead)}<span>${esc(filmTitle(lead))} · Connected film ↗</span></a>` : `<div class="essay-card-visual essay-art-${esc(essay.room)}">${subjectPhoto('essay/'+essay.id,essay.title)}<span class="essay-art-ring"></span><span class="essay-art-line"></span><span class="essay-art-caption">LUMETRA / ${esc(essay.room)}</span></div>`;
+  return `<article class="essay-card ${essay.editorial_status === 'RESEARCHED_DRAFT' ? 'essay-deep' : 'essay-intro'}" data-reveal>${visual}<span class="eyebrow">${esc(essay.room)} / ${esc(essay.period)}</span><h3>${esc(essay.title)}</h3><p>${esc(essay.deck)}</p><a href="/essay/${encodeURIComponent(essay.id)}">${essay.editorial_status === 'RESEARCHED_DRAFT' ? 'Read the researched feature' : 'Read introduction'} · ${esc(essay.reading)} ↗</a></article>`;
 }
 
 function imageFor(film, width = '640') {
   const image = artworkFor(film, artwork);
-  return image?.variants?.[width] || image?.url || '';
+  return image?.variants?.[width] || image?.url || fallbackFilmImage(film);
 }
 
 function home() {
-  title('Everything Cinema');
+  title('Everything Cinema', defaultDescription, { '@type': 'WebSite', name: 'Lumetra' });
   const films = programmingData?.carousel || [];
   const chapters = createCinemaHistoryChapters(programmingData?.history || []);
   const fallbackCards = films.map((film, index) => `<a class="fallback-orbit-card orbit-${index + 1}" href="${filmUrl(film.id)}">${poster(film)}</a>`).join('');
@@ -95,10 +134,14 @@ function home() {
       </div>
     </section>
     <section class="archive-threshold" aria-labelledby="threshold-title"><div class="threshold-art"><img src="/media/stage.png" alt="Lumetra projector, beam and filmmaking world artwork" width="1536" height="864" loading="lazy"></div><div class="threshold-copy"><span class="universe-kicker">THE ARCHIVE BEYOND THE SCREEN</span><h2 id="threshold-title">The picture<br><em>keeps opening.</em></h2><p>${statsData ? `${Number(statsData.works).toLocaleString()} catalogue works. ` : ''}Follow recorded films, evidence and viewing pathways through the archive.</p><a class="cta" href="/discover">Find your next frame <span>↗</span></a></div></section>
+    <section class="launch-curation cinema-section" aria-labelledby="launch-curation-title">
+      <div class="launch-curation-lead"><span class="eyebrow">THE LUMETRA DIFFERENCE</span><h2 id="launch-curation-title">Look closer.<br><em>Discover further.</em></h2><p>20,000+ catalogue records are a starting point, not a substitute for knowledge. Our research features trace evidence, technical choices and the lives of films beyond their first release.</p><a class="cta" href="/journal">Enter the reading room ↗</a><a class="cta ghost" href="/my-cinema">Open your cinema notebook ↗</a></div>
+      <div class="launch-curation-reads">${editorial.essays.filter(e=>e.editorial_status==='RESEARCHED_DRAFT').slice(0,3).map((e,i)=>`<a class="launch-read launch-read-${i+1}" href="/essay/${encodeURIComponent(e.id)}"><span>RESEARCH / ${String(i+1).padStart(2,'0')}</span><strong>${esc(e.title)}</strong><small>${esc(e.reading)} · Documentary sources ↗</small></a>`).join('')}</div>
+    </section>
     ${programmeSection('featured', 'Featured discoveries', '/discover')}
     ${programmeSection('watch', 'Verified viewing', '/watch')}
     ${programmeSection('collection', 'Across the collection', '/world')}
-    <section class="archive-doors" aria-label="Cinema destinations"><a class="archive-door door-discover" href="/discover"><span>01 / THE CATALOGUE</span><strong>Find a film</strong><i>↗</i></a><a class="archive-door door-watch" href="/watch"><span>02 / THE VIEWING ROOM</span><strong>Watch what is verified</strong><i>↗</i></a><a class="archive-door door-stories" href="/journal"><span>03 / THE READING ROOM</span><strong>Follow the history</strong><i>↗</i></a></section>
+    <section class="learn-home-doors" aria-labelledby="learn-home-title"><div class="learn-home-lead"><span class="eyebrow">INSIDE THE MAKING OF MOVIES</span><h2 id="learn-home-title">Know what you see.<br><em>Know who made it.</em></h2><p>Follow the camera through cinema history, discover the technology behind each frame, and finally understand what hundreds of names in the closing credits did.</p></div><a href="/technology"><span>THE MACHINES</span><strong>Inside cinema technology</strong><i>Explore 17 disciplines ↗</i></a><a href="/crew"><span>THE PEOPLE</span><strong>Read the credits</strong><i>Explore 20 crew departments ↗</i></a></section><section class="archive-doors" aria-label="Cinema destinations"><a class="archive-door door-discover" href="/discover"><span>01 / THE CATALOGUE</span><strong>Find a film</strong><i>↗</i></a><a class="archive-door door-watch" href="/watch"><span>02 / THE VIEWING ROOM</span><strong>Watch what is verified</strong><i>↗</i></a><a class="archive-door door-stories" href="/journal"><span>03 / THE READING ROOM</span><strong>Follow the history</strong><i>↗</i></a></section>
   </div>`;
   initCinemaWorld(films, chapters);
 }
@@ -109,7 +152,7 @@ function worldCards(compact = false) {
     { title: 'The cut that thinks', tag: '1920s / Montage', text: 'Discover how meaning moves between images, bodies and cities.', link: '/essay/montage-as-thought' },
     { title: 'Across the frame', tag: 'Worlds / Many cinemas', text: 'Cross a border. Find another way of seeing.', link: '/essay/beyond-one-world-cinema' }
   ];
-  return items.map((item) => `<a class="destination-card ${compact ? 'destination-compact' : ''}" href="${item.link}"><span class="destination-wash"></span><span class="eyebrow">${item.tag}</span><h3>${item.title}</h3><p>${item.text}</p><b>Enter this world <i>↗</i></b></a>`).join('');
+  return items.map((item) => `<article class="destination-card ${compact ? 'destination-compact' : ''}"><span class="destination-wash"></span>${subjectPhoto('destination/'+item.link,item.title)}<span class="eyebrow">${item.tag}</span><h3><a href="${item.link}">${item.title}</a></h3><p>${item.text}</p><a href="${item.link}">Enter this world ↗</a></article>`).join('');
 }
 
 function timeline(withImages = false) {
@@ -119,7 +162,7 @@ function timeline(withImages = false) {
     { year: '1940s', label: 'The street enters the frame', text: 'Postwar lives and the varied practices of Italian neorealism.', id: 'streets-of-neorealism' },
     { year: '1950s–60s', label: 'New waves, new possibilities', text: 'Criticism, independent production and a changing grammar of filmmaking.', id: 'new-wave-new-grammar' },
   ];
-  return eras.map((era, index) => `<a class="era ${withImages ? 'era-cinematic' : ''}" href="/essay/${era.id}" data-reveal><span class="era-number">0${index + 1}</span><strong>${era.year}</strong><h3>${era.label} <i>↗</i></h3><p>${era.text}</p></a>`).join('');
+  return eras.map((era, index) => `<article class="era ${withImages ? 'era-cinematic' : ''}" data-reveal>${subjectPhoto('essay/'+era.id,era.label)}<span class="era-number">0${index + 1}</span><strong>${era.year}</strong><h3><a href="/essay/${era.id}">${era.label} ↗</a></h3><p>${era.text}</p></article>`).join('');
 }
 
 function createCinemaWorldRenderer(canvas, films) {
@@ -246,7 +289,19 @@ function createCinemaWorldRenderer(canvas, films) {
       const fallback = document.createElement('canvas'); fallback.width = 640; fallback.height = 960;
       const context = fallback.getContext('2d');
       if (context) {
-        context.fillStyle = '#111f25'; context.fillRect(0, 0, 640, 960);
+        // A dedicated film-specific editorial illustration, never a substitute historical still.
+        let seed = 2166136261;
+        for (const chr of String(film.id || filmTitle(film))) seed = Math.imul(seed ^ chr.charCodeAt(0), 16777619) >>> 0;
+        const palettes = [['#172c34','#d5a96b'],['#28273b','#c3acd6'],['#183d3b','#a5c4b3'],['#4a302e','#e5b69b']];
+        const [back,accent] = palettes[seed % palettes.length];
+        const grad = context.createLinearGradient(0,0,640,960);
+        grad.addColorStop(0,back);grad.addColorStop(1,'#080e14');
+        context.fillStyle=grad;context.fillRect(0,0,640,960);
+        context.strokeStyle=accent;context.globalAlpha=.65;
+        context.lineWidth=4;
+        for(let r=110;r<440;r+=46){context.beginPath();context.ellipse(335,300,r,r*.72,(seed%13)*.1,0,Math.PI*2);context.stroke();}
+        context.globalAlpha=1;
+        context.fillStyle='#0b1115bb';context.fillRect(0,520,640,440);
         context.fillStyle = '#e5c48c'; context.font = '20px sans-serif'; context.fillText('LUMETRA / CATALOGUE', 44, 80);
         context.font = '48px serif';
         let line = ''; let y = 280;
@@ -257,7 +312,7 @@ function createCinemaWorldRenderer(canvas, films) {
         context.fillText(line, 44, y, 550);
         context.font = '23px sans-serif'; context.fillText(String(film.year || 'Date unresolved'), 44, 745);
         context.fillText(film.director || 'Filmmaker unresolved', 44, 783, 550);
-        context.font = '18px sans-serif'; context.fillText('ORIGINAL METADATA TITLE TREATMENT', 44, 860);
+        context.font = '18px sans-serif'; context.fillText('ORIGINAL LUMETRA ILLUSTRATIVE COVER', 44, 860);
         context.fillText('NOT A HISTORICAL POSTER', 44, 888);
         upload(fallback);
       }
@@ -423,21 +478,25 @@ function initCinemaWorld(films, chapters) {
 }
 
 async function discover(watch = false) {
-  title(watch ? 'Verified viewing' : 'Discover films');
+  title(watch ? 'Verified viewing' : 'Discover films', watch
+    ? 'Browse films with currently verified official viewing pathways, subject to date and territory.'
+    : 'Search the Lumetra film catalogue by title, alternate title, filmmaker, country and year.');
   const url = new URL(location.href);
   const q = url.searchParams.get('q') || '';
   const country = url.searchParams.get('country') || '';
   const year = url.searchParams.get('year') || '';
+  const genre = url.searchParams.get('genre') || '';
+  const language = url.searchParams.get('language') || '';
   const page = url.searchParams.get('page') || '1';
   const artworkOnly = url.searchParams.get('artwork') === '1';
-  main.innerHTML = `<section class="page-head"><span class="eyebrow">${watch ? 'The official viewing room' : 'The living catalogue'}</span><h1 class="page-title">${watch ? 'Find a film to watch.' : 'Your next discovery begins here.'}</h1><p>${watch ? 'Only sources passing the inherited verification gate appear here. Availability can change by date and territory.' : 'Search the restored catalogue by title, alternate title or filmmaker. A catalogue record does not establish free playback.'}</p><form class="search-form" id="search-form"><label class="sr-only" for="q">Title or filmmaker</label><input id="q" name="q" placeholder="Search films, alternate titles, filmmakers…" value="${esc(q)}" maxlength="160"><select name="country" aria-label="Country"><option value="">All countries</option></select><select name="year" aria-label="Year"><option value="">All years</option></select><button class="cta" type="submit">Search ↗</button><label class="artwork-filter"><input type="checkbox" name="artwork" value="1" ${artworkOnly ? 'checked' : ''}> With verified artwork</label></form><div id="result-status" class="results-count" role="status">Searching the database…</div></section><section class="cinema-section" id="results"></section>`;
+  main.innerHTML = `<section class="page-head"><span class="eyebrow">${watch ? 'The official viewing room' : 'The living catalogue'}</span><h1 class="page-title">${watch ? 'Find a film to watch.' : 'Your next discovery begins here.'}</h1><p>${watch ? 'Only sources passing the inherited verification gate appear here. Availability can change by date and territory.' : 'Search the restored catalogue by title, alternate title or filmmaker. A catalogue record does not establish free playback.'}</p><form class="search-form" id="search-form"><label class="sr-only" for="q">Title or filmmaker</label><input id="q" name="q" placeholder="Search films, alternate titles, filmmakers…" value="${esc(q)}" maxlength="160"><select name="country" aria-label="Country"><option value="">All countries</option></select><select name="year" aria-label="Year"><option value="">All years</option></select><select name="genre" aria-label="Genre or format"><option value="">All genres</option></select><select name="language" aria-label="Language as catalogued"><option value="">All languages</option></select><button class="cta" type="submit">Search ↗</button><label class="artwork-filter"><input type="checkbox" name="artwork" value="1" ${artworkOnly ? 'checked' : ''}> With verified artwork</label></form>${watch ? `<div class="verified-sources"><strong>Film archives worth exploring</strong><p>These are official institutions, not claims that a particular title is free to stream today.</p><a href="https://www.nfb.ca/" rel="noopener noreferrer" target="_blank">National Film Board of Canada ↗</a><a href="https://www.bfi.org.uk/bfi-player" rel="noopener noreferrer" target="_blank">BFI Player ↗</a><a href="https://www.film-foundation.org/world-cinema" rel="noopener noreferrer" target="_blank">World Cinema Project / restoration ↗</a></div>` : ''}<div id="result-status" class="results-count" role="status">Searching the database…</div></section><section class="cinema-section" id="results"></section>`;
   const form = document.querySelector('#search-form');
   form.onsubmit = (event) => { event.preventDefault(); const params = new URLSearchParams(new FormData(form)); for (const [key, value] of [...params]) if (!value) params.delete(key); navigate(`${watch ? '/watch' : '/discover'}${params.size ? `?${params}` : ''}`); };
   const token = requestId;
   try {
-    const [facets, result] = await Promise.all([api('/api/facets'), api(`/api/films?${new URLSearchParams({ q, country, year, page, ...(artworkOnly ? { artwork: '1' } : {}), ...(watch ? { watch: '1' } : {}) })}`)]);
+    const [facets, result] = await Promise.all([api('/api/facets'), api(`/api/films?${new URLSearchParams({ q, country, year, genre, language, page, ...(artworkOnly ? { artwork: '1' } : {}), ...(watch ? { watch: '1' } : {}) })}`)]);
     if (token !== requestId) return;
-    for (const [name, list, selected] of [['country', facets.countries, country], ['year', facets.years, year]]) form.elements[name].insertAdjacentHTML('beforeend', list.map((value) => `<option value="${esc(value)}" ${String(value) === selected ? 'selected' : ''}>${esc(value)}</option>`).join(''));
+    for (const [name, list, selected] of [['country', facets.countries, country], ['year', facets.years, year], ['genre', facets.genres || [], genre], ['language', facets.languages || [], language]]) form.elements[name].insertAdjacentHTML('beforeend', list.map((value) => `<option value="${esc(value)}" ${String(value) === selected ? 'selected' : ''}>${esc(value)}</option>`).join(''));
     document.querySelector('#result-status').textContent = `${result.total.toLocaleString()} results · page ${result.page} of ${Math.max(1, Math.ceil(result.total / result.limit))}`;
     const pages = Math.ceil(result.total / result.limit);
     const pageUrl = (number) => { const params = new URLSearchParams(url.search); params.set('page', number); return `${url.pathname}?${params}`; };
@@ -457,10 +516,15 @@ async function film(id) {
   try {
     const filmRecord = await api(`/api/films/${encodeURIComponent(id)}`);
     if (token !== requestId) return;
-    title(filmTitle(filmRecord));
-    const editorialRecord = filmRecord.editorial;
     const image = artworkFor(filmRecord, artwork);
-    main.innerHTML = `<article class="dossier"><a href="/discover" class="eyebrow">← Film catalogue</a><div class="dossier-top">${poster(filmRecord)}<div><span class="eyebrow">${esc(filmRecord.verification_level)} / Catalogue evidence</span><h1>${esc(filmTitle(filmRecord))}</h1>${filmRecord.original_title && filmRecord.original_title !== filmTitle(filmRecord) ? `<p>${esc(filmRecord.original_title)}</p>` : ''}<dl><dt>Year</dt><dd>${esc(filmRecord.year || 'Unresolved')}</dd><dt>Filmmaker</dt><dd>${filmRecord.director ? `<a href="/person/${encodeURIComponent(filmRecord.director)}">${esc(filmRecord.director)} ↗</a>` : 'Unresolved'}</dd><dt>Countries</dt><dd>${(filmRecord.countries || []).map((country) => `<a href="/discover?country=${encodeURIComponent(country)}">${esc(country)}</a>`).join(' · ') || 'Unresolved'}</dd><dt>Runtime</dt><dd>${filmRecord.runtime ? `${Number(filmRecord.runtime).toFixed(1)} min · source record` : 'Unresolved'}</dd></dl><span class="badge">${filmRecord.embedded ? 'VERIFIED EMBED' : filmRecord.watchable ? 'OFFICIAL EXTERNAL VIEWING' : 'NO CURRENT VERIFIED FREE PLAYBACK'}</span></div></div>${editorialRecord ? `<h2>The film</h2><p>${esc(editorialRecord.synopsis)}</p><h2>Context & form</h2><p>${esc(editorialRecord.significance)}</p><p>${esc(editorialRecord.programmeNote)}</p><p class="notice">Inherited editorial interpretation · references require renewed review. This prose is distinct from database-verified playback.</p>` : `<h2>About this record</h2><p>This dossier currently contains source-derived catalogue metadata. A researched synopsis, cast and crew, production history, reception, awards and restoration evidence have not yet been approved.</p>`}<h2>Viewing & editions</h2>${filmRecord.sources.length ? filmRecord.sources.map((source) => `<div class="source"><strong>${esc(source.source_owner)}</strong> · ${esc(source.watch_state === 'WATCH_HERE' ? 'Embedding verified' : 'Official external viewing')}<small>Checked ${esc(new Date(source.last_checked_at).toLocaleString())} · ${esc(source.territories?.join(', ') || 'Territory restrictions not specified')}<br>${esc(source.version_or_restoration || 'Edition details unresolved')}</small><a class="cta ghost" href="${safe(source.external_watch_url || source.canonical_source_url)}" target="_blank" rel="noopener noreferrer">Watch at Official Source ↗</a></div>`).join('') : '<p>No source currently passes the publication gate. Links below are evidence records and are not presented as playable films.</p>'}<h2>Evidence trail</h2>${[...(editorialRecord?.sources || []).map((source) => ({ source_owner: source.label, canonical_source_url: source.url })), ...filmRecord.evidence].map((source) => `<a class="source" href="${safe(source.canonical_source_url)}" target="_blank" rel="noopener noreferrer">${esc(source.source_owner)} ↗<small>${esc(source.canonical_source_url)}${source.last_checked_at ? `<br>Last recorded check: ${esc(source.last_checked_at)}` : ''}</small></a>`).join('') || '<p>No public evidence URL is available in this record.</p>'}${image ? `<h2>Image provenance</h2><dl><dt>Image type</dt><dd>${esc(artworkLabel(image))} (${esc(image.artwork_type || 'Unspecified')})</dd><dt>Attribution</dt><dd>${esc(image.attribution)}</dd><dt>Provider</dt><dd>${esc(image.provider || 'Not recorded')}</dd><dt>License</dt><dd><a href="${safe(image.license_url)}" target="_blank" rel="noopener noreferrer">${esc(image.license)} ↗</a><br>${esc(image.license_url)}</dd><dt>Verified</dt><dd>${esc(image.verified_at)}</dd></dl><a class="source" href="${safe(image.source_page)}" target="_blank" rel="noopener noreferrer">Source file and rights statement ↗</a>` : '<p class="notice">Original Lumetra title treatment generated from catalogue metadata; not a historical poster. No verified artwork is currently available for this record.</p>'}${filmRecord.related.length ? `<h2 id="related-films">Discover Similar Films</h2><p class="notice">Connections by recorded filmmaker or release year.</p><div class="card-grid">${filmRecord.related.map((related) => card(related)).join('')}</div>` : ''}</article>`;
+    title(filmTitle(filmRecord), `${filmTitle(filmRecord)} — ${filmMetadata(filmRecord)}. ${viewingStatus(filmRecord)}.`, {
+      '@type': 'Movie',
+      ...(filmRecord.year ? { dateCreated: String(filmRecord.year) } : {}),
+      ...(filmRecord.director ? { director: { '@type': 'Person', name: filmRecord.director } } : {}),
+      ...(image?.url ? { image: new URL(image.url, location.origin).href } : {}),
+    });
+    const editorialRecord = filmRecord.editorial;
+    main.innerHTML = `<article class="dossier"><a href="/discover" class="eyebrow">← Film catalogue</a><div class="dossier-top">${poster(filmRecord)}<div><span class="eyebrow">${esc(filmRecord.verification_level)} / Catalogue evidence</span><h1>${esc(filmTitle(filmRecord))}</h1>${filmRecord.original_title && filmRecord.original_title !== filmTitle(filmRecord) ? `<p>${esc(filmRecord.original_title)}</p>` : ''}<dl><dt>Year</dt><dd>${esc(filmRecord.year || 'Unresolved')}</dd><dt>Filmmaker</dt><dd>${filmRecord.director ? `<a href="/person/${encodeURIComponent(filmRecord.director)}">${esc(filmRecord.director)} ↗</a>` : 'Unresolved'}</dd><dt>Countries</dt><dd>${(filmRecord.countries || []).map((country) => `<a href="/discover?country=${encodeURIComponent(country)}">${esc(country)}</a>`).join(' · ') || 'Unresolved'}</dd>${filmRecord.alternate_titles?.length ? `<dt>Alternate titles</dt><dd>${filmRecord.alternate_titles.slice(0,6).map(esc).join(' · ')}</dd>` : ''}${filmRecord.languages?.length ? `<dt>Language labels</dt><dd>${filmRecord.languages.slice(0,6).map(esc).join(' · ')} <small>· As recorded by catalogue sources</small></dd>` : ''}${filmRecord.genres?.length ? `<dt>Genres & formats</dt><dd>${filmRecord.genres.slice(0,8).map(esc).join(' · ')} <small>· Catalogue labels, not an independent review</small></dd>` : ''}<dt>Runtime</dt><dd>${filmRecord.runtime ? `${Number(filmRecord.runtime).toFixed(1)} min · source record` : 'Unresolved'}</dd></dl>${notebookButton('saved',filmRecord.id,'+ Save to My Cinema','✓ Saved to My Cinema')} ${notebookButton('watched',filmRecord.id,'Mark watched','✓ Watched')}<span class="badge">${filmRecord.embedded ? 'VERIFIED EMBED' : filmRecord.watchable ? 'OFFICIAL EXTERNAL VIEWING' : 'NO CURRENT VERIFIED FREE PLAYBACK'}</span></div></div>${editorialRecord ? `<h2>The film</h2><p>${esc(editorialRecord.synopsis)}</p><h2>Context & form</h2><p>${esc(editorialRecord.significance)}</p><p>${esc(editorialRecord.programmeNote)}</p><p class="notice">Inherited editorial interpretation · references require renewed review. This prose is distinct from database-verified playback.</p>` : `<h2>About this record</h2><p>This dossier currently contains source-derived catalogue metadata. A researched synopsis, cast and crew, production history, reception, awards and restoration evidence have not yet been approved.</p>`}${filmRecord.research ? `<section class="dossier-research"><span class="eyebrow">DEEPER CONTEXT / SOURCE-LINKED EDITORIAL</span><h2>${esc(filmRecord.research.heading)}</h2>${filmRecord.research.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}<p class="notice">Research synthesis with linked institutional evidence. Interpretive context, not a firsthand film review.</p><div class="dossier-research-sources"><span class="eyebrow">RESEARCH TRAIL</span>${filmRecord.research.sources.map(s=>`<a href="${safe(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.label)} ↗</a>`).join('')}</div>${filmRecord.research.crossEssay ? `<a class="cta ghost" href="/essay/${encodeURIComponent(filmRecord.research.crossEssay)}">Read the complete research feature ↗</a>` : ''}</section>` : ''}<h2>Viewing & editions</h2>${filmRecord.sources.length ? filmRecord.sources.map((source) => `<div class="source"><strong>${esc(source.source_owner)}</strong> · ${esc(source.watch_state === 'WATCH_HERE' ? 'Embedding verified' : 'Official external viewing')}<small>Checked ${esc(new Date(source.last_checked_at).toLocaleString())} · ${esc(source.territories?.join(', ') || 'Territory restrictions not specified')}<br>${esc(source.version_or_restoration || 'Edition details unresolved')}</small><a class="cta ghost" href="${safe(source.external_watch_url || source.canonical_source_url)}" target="_blank" rel="noopener noreferrer">Watch at Official Source ↗</a></div>`).join('') : '<p>No source currently passes the publication gate. Links below are evidence records and are not presented as playable films.</p>'}<h2>Evidence trail</h2>${[...(editorialRecord?.sources || []).map((source) => ({ source_owner: source.label, canonical_source_url: source.url })), ...filmRecord.evidence].map((source) => `<a class="source" href="${safe(source.canonical_source_url)}" target="_blank" rel="noopener noreferrer">${esc(source.source_owner)} ↗<small>${esc(source.canonical_source_url)}${source.last_checked_at ? `<br>Last recorded check: ${esc(source.last_checked_at)}` : ''}</small></a>`).join('') || '<p>No public evidence URL is available in this record.</p>'}${image ? `<h2>Image provenance</h2><dl><dt>Image type</dt><dd>${esc(artworkLabel(image))} (${esc(image.artwork_type || 'Unspecified')})</dd><dt>Attribution</dt><dd>${esc(image.attribution)}</dd><dt>Provider</dt><dd>${esc(image.provider || 'Not recorded')}</dd><dt>License</dt><dd><a href="${safe(image.license_url)}" target="_blank" rel="noopener noreferrer">${esc(image.license)} ↗</a><br>${esc(image.license_url)}</dd><dt>Verified</dt><dd>${esc(image.verified_at)}</dd></dl><a class="source" href="${safe(image.source_page)}" target="_blank" rel="noopener noreferrer">Source file and rights statement ↗</a>` : '<p class="notice">Authentic artwork and reuse permission are still under review for this record. This unresolved entry blocks release.</p>'}${filmRecord.related.length ? `<h2 id="related-films">Discover Similar Films</h2><p class="notice">Connections by recorded filmmaker or release year.</p><div class="card-grid">${filmRecord.related.map((related) => card(related)).join('')}</div>` : ''}</article>`;
   } catch (error) {
     if (token === requestId) main.innerHTML = `<section class="cinema-section"><h1>Unable to open this dossier</h1><p class="error">${esc(error.message)}</p><a href="/discover">Return to the catalogue →</a></section>`;
   }
@@ -469,8 +533,8 @@ async function film(id) {
 async function essay(id) {
   const essayRecord = editorial.essays.find((item) => item.id === id);
   if (!essayRecord) return notFound();
-  title(essayRecord.title);
-  main.innerHTML = `<article class="reader"><a href="/journal" class="eyebrow">← Journal / ${esc(essayRecord.room)}</a><h1>${esc(essayRecord.title)}</h1><p class="deck">${esc(essayRecord.deck)}</p><span class="eyebrow">${esc(essayRecord.period)} · ${esc(essayRecord.reading)} · ${essayRecord.editorial_status === 'SOURCE_CHECKED' ? 'research essay' : 'introductory essay'}</span>${essayRecord.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}${essayRecord.question ? `<h2>A question to carry with you</h2><p>${esc(essayRecord.question)}</p>` : ''}<h2>Explore the connected films</h2><div id="connected-films" aria-live="polite"><p>Loading connected catalogue records…</p></div><h2>References</h2>${essayRecord.sources.map((source) => `<a class="source" href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.label)} ↗</a>`).join('')}<p class="note">${essayRecord.editorial_status === 'SOURCE_CHECKED' ? 'Original AI-assisted research essay, based on the institutional sources above. Interpretation is identified as analysis; this is not a firsthand viewing review.' : 'Carried forward from the supplied Studio Preview. References need renewed editorial review; confidence is provisional.'} Reading time is calculated from the text.</p></article>`;
+  title(essayRecord.title, `${essayRecord.title} — ${essayRecord.deck}`, { '@type': 'Article', articleSection: essayRecord.room });
+  main.innerHTML = `<article class="reader"><a href="/journal" class="eyebrow">← Journal / ${esc(essayRecord.room)}</a><h1>${esc(essayRecord.title)}</h1><p class="deck">${esc(essayRecord.deck)}</p><figure class="reader-hero-visual">${subjectPhoto('essay/'+essayRecord.id,essayRecord.title)}<figcaption>Subject-specific image review</figcaption></figure><span class="eyebrow">${esc(essayRecord.period)} · ${esc(essayRecord.reading)} · ${essayRecord.editorial_status === 'RESEARCHED_DRAFT' ? 'researched feature · editorial draft' : essayRecord.editorial_status === 'SOURCE_CHECKED' ? 'research essay' : 'introductory essay'}</span>${notebookButton('reading',essayRecord.id,'+ Save to reading list','✓ In reading list')}${essayRecord.sections?.length ? `<nav class="reader-contents" aria-label="On this page"><span class="eyebrow">IN THIS FEATURE</span>${essayRecord.sections.map((section,i)=>`<a href="#part-${i+1}">${String(i+1).padStart(2,'0')} · ${esc(section.heading)}</a>`).join('')}</nav>${essayRecord.sections.map((section,i)=>`<section class="reader-section" id="part-${i+1}"><span class="eyebrow">PART ${String(i+1).padStart(2,'0')}</span><h2>${esc(section.heading)}</h2>${section.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</section>`).join('')}` : essayRecord.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}${essayRecord.question ? `<h2>A question to carry with you</h2><p>${esc(essayRecord.question)}</p>` : ''}<h2>Explore the connected films</h2><div id="connected-films" aria-live="polite"><p>Loading connected catalogue records…</p></div><h2>References</h2>${essayRecord.sources.map((source) => `<a class="source" href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.label)} ↗</a>`).join('')}<p class="note">${essayRecord.editorial_status === 'RESEARCHED_DRAFT' ? 'New Lumetra research synthesis, 18 October 2026. Institutional sources are linked above. Historical claims are attributable; analysis is interpretive, not an assertion of firsthand film viewing. Specialist editorial review remains outstanding.' : essayRecord.editorial_status === 'SOURCE_CHECKED' ? 'Original AI-assisted research essay, based on the institutional sources above. Interpretation is identified as analysis; this is not a firsthand viewing review.' : 'Carried forward from the supplied Studio Preview. References need renewed editorial review; confidence is provisional.'} Reading time is calculated from the text.</p></article>`;
   const token = requestId;
   const ids = [...new Set(essayRecord.films || [])];
   const records = await Promise.all(ids.map(async (filmId) => {
@@ -483,20 +547,22 @@ async function essay(id) {
 }
 
 function journal() {
-  title('Journal');
+  title('Journal', 'Researched features and editorial introductions on cinema history, craft, preservation, and film culture.');
   const usedFilms = new Set();
-  main.innerHTML = `<section class="page-head"><span class="eyebrow">The reading room</span><h1 class="page-title">Cinema rewards a second look.</h1><p>Introductions to film history, artistic traditions, craft and preservation. Each links to its evidence and related films.</p><p class="notice">${editorial.essays.filter((essayRecord) => essayRecord.editorial_status === 'SOURCE_CHECKED').length} source-checked research essays · inherited introductions labelled separately.</p></section><section class="cinema-section"><div class="essay-list">${editorial.essays.map((item) => essayCard(item, usedFilms)).join('')}</div></section>`;
+  const features = editorial.essays.filter(e => e.editorial_status === 'RESEARCHED_DRAFT');
+  const introductions = editorial.essays.filter(e => e.editorial_status !== 'RESEARCHED_DRAFT');
+  main.innerHTML = `<section class="page-head journal-head"><span class="eyebrow">LUMETRA / READING ROOM</span><h1 class="page-title">Go beyond the film.</h1><p>Films are more than titles and release years. Follow evidence, competing histories, artistic choices and the people who kept moving images alive.</p><div class="journal-counters"><span><b>${features.length}</b> long-form research features</span><span><b>${introductions.length}</b> shorter introductions awaiting expansion</span><span>Direct links to institutional sources</span></div></section><section class="cinema-section"><div class="section-heading"><div><span class="eyebrow">NEWLY EXPANDED / DOCUMENTED RESEARCH</span><h2>Features worth spending time with</h2></div></div><p class="editorial-disclaimer">Independent research syntheses with external citations. Not peer-reviewed scholarship or a substitute for specialist archives; interpretations are identified as analysis.</p><div class="essay-list essay-feature-list">${features.map(e => essayCard(e, usedFilms)).join('')}</div></section><section class="cinema-section editorial-library"><div class="section-heading"><div><span class="eyebrow">THE LIBRARY / NEXT IN RESEARCH</span><h2>Shorter readings</h2></div></div><p class="editorial-disclaimer">These inherited pieces are starting points. Their references need continued review and their subjects deserve expanded research.</p><div class="essay-list">${introductions.map(e => essayCard(e, usedFilms)).join('')}</div></section>`;
 }
 
 function world() {
-  title('Cinema worlds');
+  title('Cinema worlds', 'Travel through cinema history, world cinemas, movements and questions connected to the Lumetra catalogue.');
   const rooms = [...new Set(editorial.essays.map((essayRecord) => essayRecord.room))];
   const usedFilms = new Set();
-  main.innerHTML = `<section class="page-head"><span class="eyebrow">Across time. Across borders.</span><h1 class="page-title">No single story contains cinema.</h1><p>Enter through a period, a filmmaking tradition or a question about the medium. These journeys connect essays to catalogue records.</p></section><section class="cinema-section"><div class="destination-grid">${worldCards()}</div></section><section class="cinema-section"><div class="section-heading"><div><span class="eyebrow">A moving timeline</span><h2>The image learns to dream.</h2></div></div><div class="era-list">${timeline()}</div></section>${rooms.map((room) => `<section class="cinema-section"><div class="section-heading"><h2>${esc(({ history: 'History & movements', culture: 'World cinemas', craft: 'The craft', preservation: 'Preservation', technology: 'Technology', industry: 'Studios, festivals & circulation' })[room] || room)}</h2></div><div class="essay-list">${editorial.essays.filter((essayRecord) => essayRecord.room === room).map((item) => essayCard(item, usedFilms)).join('')}</div></section>`).join('')}`;
+  main.innerHTML = `<section class="page-head"><span class="eyebrow">Across time. Across borders.</span><h1 class="page-title">No single story contains cinema.</h1><p>Follow ${editorial.essays.filter(e=>e.editorial_status==='RESEARCHED_DRAFT').length} in-depth investigations and discover the people, technologies, places and films behind the history of cinema. Every researched feature links to its sources.</p></section><section class="cinema-section"><div class="destination-grid">${worldCards()}</div><div class="world-research-shelf"><span class="eyebrow">DEEP RESEARCH / START HERE</span><div class="essay-list essay-feature-list">${editorial.essays.filter(e=>e.editorial_status === 'RESEARCHED_DRAFT').map(e=>essayCard(e)).join('')}</div></div></section><section class="cinema-section"><div class="section-heading"><div><span class="eyebrow">A moving timeline</span><h2>The image learns to dream.</h2></div></div><div class="era-list">${timeline()}</div></section><section class="cinema-section learn-world-links"><div class="section-heading"><div><span class="eyebrow">BEHIND THE FRAMES</span><h2>The inventions and the people.</h2></div></div><div class="destination-grid"><a class="destination-card" href="/technology"><h3>Cinema technology</h3><p>Visit 17 rooms tracing cameras, film, lighting, sound, editing, projection, effects and new tools.</p><b>Explore the machines ↗</b></a><a class="destination-card" href="/crew"><h3>The crew</h3><p>Learn who works behind the camera and how to read the credits, across 20 departments.</p><b>Meet the people ↗</b></a></div></section>${rooms.map((room) => `<section class="cinema-section"><div class="section-heading"><h2>${esc(({ history: 'History & movements', culture: 'World cinemas', craft: 'The craft', preservation: 'Preservation', technology: 'Technology', industry: 'Studios, festivals & circulation' })[room] || room)}</h2></div><div class="essay-list">${editorial.essays.filter((essayRecord) => essayRecord.room === room && essayRecord.editorial_status !== 'RESEARCHED_DRAFT').map((item) => essayCard(item, usedFilms)).join('')}</div></section>`).join('')}`;
 }
 
 function museum() {
-  title('The apparatus');
+  title('The apparatus', 'Explore the material history of cinema: projection, cameras, film stock, editing and preservation.');
   const exhibits = [
     { n: '01', category: 'PROJECTION', title: 'The room of light', text: 'The Kinetoscope offered an individual moving-image experience through a viewing aperture. Projected cinema changed the machine, the room and the social scale of looking.', url: 'https://www.loc.gov/collections/edison-company-motion-pictures-and-sound-recordings/articles-and-essays/history-of-edison-motion-pictures/', image: 'stage.png' },
     { n: '02', category: 'CAMERA', title: 'The camera thinks', text: 'A camera does not simply record. Framing, movement and the visible presence of the operator turn a city into a point of view.', url: '/essay/montage-as-thought', image: 'man-with-a-movie-camera' },
@@ -505,15 +571,15 @@ function museum() {
     { n: '05', category: 'VERSIONING', title: 'One work, many editions', text: 'A catalogue must separate a Work from its prints, restorations, scores, subtitles and playback sources. The object is never the same thing as one file.', url: '/essay/what-is-a-work', image: null },
     { n: '06', category: 'RESTORATION', title: 'The preservation master', text: 'Preservation separates the material kept safe from the copy used for access. Conservation and exhibition serve different purposes.', url: 'https://www.bfi.org.uk/features/history-archive', image: null },
   ];
-  main.innerHTML = `<div class="museum-room"><section class="page-head"><span class="eyebrow">The apparatus / A digital cinema museum</span><h1 class="page-title">Before the story,<br><em>there was light.</em></h1><p>A film depends on a chain of inventions: exposing an image, advancing a strip, controlling light, recording sound and preserving what remains. Enter the collection by following the machine.</p></section><section class="museum-entry cinema-section"><div class="museum-entry-art"><img src="/media/stage.png" alt="Lumetra projector, light beam and filmmaking stage" width="1536" height="864"></div><div><span class="universe-kicker">COLLECTION 01 / THE MOTION MACHINE</span><h2>The apparatus is part of the story.</h2><p>Every screen has a material history. Every image arrives through a lens, a gate, a strip, a cut, a room and a decision about what should survive.</p><a class="cta ghost" href="/essay/the-screen-is-a-machine">Read the apparatus essay <span>↗</span></a></div></section><section class="cinema-section museum-collection"><div class="section-heading"><div><span class="eyebrow">The first collection / six stations</span><h2>Walk the chain<br><em>from light to memory.</em></h2></div><p>Each station connects an introduction to an institutional source or a Lumetra research essay. Unresolved technical histories are not presented as settled fact.</p></div><div class="museum-grid">${exhibits.map((object) => { const film = object.image && editorial.films.find((film) => film.id === `work-${object.image}`); return `<article class="museum-object" data-reveal>${object.image === 'stage.png' ? '<div class="exhibit-image"><img src="/media/stage.png" alt="Lumetra original filmmaking stage artwork" loading="lazy"></div>' : film ? `<a href="${filmUrl(film.id)}">${poster(film)}</a>` : `<div class="device">${object.n}</div>`}<span class="museum-category">${object.category}</span><h2>${object.title}</h2><p>${object.text}</p><a href="${object.url}"${object.url.startsWith('http') ? ' target="_blank" rel="noopener noreferrer"' : ''}>${object.url.startsWith('http') ? 'Institutional evidence' : 'Read the connected essay'} ↗</a></article>`; }).join('')}</div><p class="notice">The museum is an evidence-linked first collection, not a complete engineering catalogue. New equipment histories require source review before publication.</p></section></div>`;
+  main.innerHTML = `<div class="museum-room"><section class="page-head"><span class="eyebrow">The apparatus / A digital cinema museum</span><h1 class="page-title">Before the story,<br><em>there was light.</em></h1><p>A film depends on a chain of inventions: exposing an image, advancing a strip, controlling light, recording sound and preserving what remains. Enter the collection by following the machine.</p></section><section class="museum-entry cinema-section"><div class="museum-entry-art">${subjectPhoto('museum/entry','Cinema apparatus and projection')}</div><div><span class="universe-kicker">COLLECTION 01 / THE MOTION MACHINE</span><h2>The apparatus is part of the story.</h2><p>Every screen has a material history. Every image arrives through a lens, a gate, a strip, a cut, a room and a decision about what should survive.</p><a class="cta ghost" href="/essay/the-screen-is-a-machine">Read the apparatus essay <span>↗</span></a></div></section><section class="cinema-section museum-collection"><div class="section-heading"><div><span class="eyebrow">The first collection / six stations</span><h2>Walk the chain<br><em>from light to memory.</em></h2></div><p>Each station connects an introduction to an institutional source or a Lumetra research essay. Unresolved technical histories are not presented as settled fact.</p></div><div class="museum-grid">${exhibits.map((object) => { const film = object.image && editorial.films.find((film) => film.id === `work-${object.image}`); return `<article class="museum-object" data-reveal>${film ? `<a href="${filmUrl(film.id)}">${poster(film)}</a>` : `<div class="exhibit-image">${subjectPhoto('museum/'+object.n,object.title)}</div>`}<span class="museum-category">${object.category}</span><h2>${object.title}</h2><p>${object.text}</p><a href="${object.url}"${object.url.startsWith('http') ? ' target="_blank" rel="noopener noreferrer"' : ''}>${object.url.startsWith('http') ? 'Institutional evidence' : 'Read the connected essay'} ↗</a></article>`; }).join('')}</div><p class="notice">The museum is an evidence-linked first collection, not a complete engineering catalogue. New equipment histories require source review before publication.</p></section></div>`;
 }
 
 async function person(name) {
-  title(name);
-  main.innerHTML = `<section class="page-head"><span class="eyebrow">People / Recorded filmography</span><h1 class="page-title">${esc(name)}</h1><p>Works linked through the database’s recorded director credit. Biography and detailed crew roles require separate editorial research.</p></section><section class="cinema-section" id="person-films"><p>Loading recorded works…</p></section>`;
+  title(name, `Works carrying the director credit “${name}” in the Lumetra catalogue.`, { '@type': 'CollectionPage', about: { '@type': 'Thing', name } });
+  main.innerHTML = `<section class="page-head"><span class="eyebrow">People / Recorded filmography</span><h1 class="page-title">${esc(name)}</h1><figure class="person-profile-visual">${subjectPhoto('person/'+name,name)}<figcaption>Portrait subject verification required</figcaption></figure><p>Works linked through the database’s recorded director credit. Biography and detailed crew roles require separate editorial research.</p></section><section class="cinema-section" id="person-films"><p>Loading recorded works…</p></section>`;
   const token = requestId;
   try {
-    const result = await api(`/api/films?${new URLSearchParams({ q: name, limit: 48 })}`);
+    const result = await api(`/api/films?${new URLSearchParams({ director: name, limit: 48 })}`);
     if (token !== requestId) return;
     document.querySelector('#person-films').innerHTML = `<div class="card-grid">${result.items.filter((filmRecord) => filmRecord.director === name).map((filmRecord) => card(filmRecord)).join('')}</div><a class="cta ghost" href="/discover?q=${encodeURIComponent(name)}">Search the full catalogue →</a>`;
   } catch (error) {
@@ -522,11 +588,32 @@ async function person(name) {
 }
 
 function about() {
-  title('About & sources');
+  title('About & sources', 'Learn how Lumetra separates catalogue evidence, editorial interpretation, artwork provenance and official viewing pathways.');
   main.innerHTML = `<article class="reader"><span class="eyebrow">About Lumetra</span><h1>Everything Cinema.<br><em>Evidence first.</em></h1><p>Lumetra connects a film catalogue to cinema history, craft and official viewing pathways. Its archive includes sparse records alongside introductory editorial dossiers; the two should never be mistaken for equal research depth.</p><h2>What a viewing label means</h2><p>“Official external viewing” means an eligible source passes the inherited database publication gate. “Catalogue record” establishes discovery, not playback rights. Embedding needs separate permission and technical evidence. Checks expire after seven days.</p><h2>Images and attribution</h2><p>The logo, stage artwork and opening film were supplied by the owner and are preserved unchanged. Historical images are included only with a recorded source page, rights statement and attribution.</p>${statsData ? `<h2>Database snapshot</h2><p>${Number(statsData.works).toLocaleString()} works; ${Number(statsData.source_records).toLocaleString()} playback-source records; ${Number(statsData.eligible_sources).toLocaleString()} eligible source records; ${Number(statsData.watchable_works).toLocaleString()} distinct works with eligible sources.</p>` : ''}<h2>Institutional resources</h2><a class="source" href="https://www.bfi.org.uk/bfi-national-archive" target="_blank" rel="noopener noreferrer">BFI National Archive ↗</a><a class="source" href="https://www.loc.gov/apis/" target="_blank" rel="noopener noreferrer">Library of Congress APIs ↗</a><a class="source" href="https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia" target="_blank" rel="noopener noreferrer">Wikimedia Commons reuse guidance ↗</a></article>`;
 }
 
-function notFound() { title('Page not found'); main.innerHTML = '<section class="cinema-section"><h1>That room is not in the archive.</h1><a class="cta" href="/">Return Home →</a></section>'; }
+
+async function myCinema() {
+  title('My Cinema', 'Your private, browser-only film watchlist and research reading list.');
+  const book = loadNotebook();
+  const count = book.saved.length + book.watched.length + book.reading.length;
+  main.innerHTML = `<section class="page-head notebook-head"><span class="eyebrow">THE PRIVATE SCREENING ROOM</span><h1 class="page-title">Make cinema<br><em>your own.</em></h1><p>A personal notebook for films to explore, works you have watched and essays to read. Data stays in this browser; no account, tracking or server sync.</p><div class="notebook-stats"><span><strong>${book.saved.length}</strong> saved films</span><span><strong>${book.watched.length}</strong> watched</span><span><strong>${book.reading.length}</strong> readings</span></div><div class="notebook-tools"><button type="button" class="cta" data-notebook-export ${count?'':'disabled'}>Export notebook ↓</button><label class="cta ghost notebook-import">Import notebook<input type="file" id="notebook-import" accept="application/json,.json" hidden></label></div><p class="notebook-status" id="notebook-status" role="status">Export a backup before clearing browser storage or changing devices.</p></section><section class="cinema-section notebook-shelf"><div class="section-heading"><div><span class="eyebrow">01 / YOUR WATCHLIST</span><h2>To discover</h2></div><a href="/discover" class="section-link">Browse the archive ↗</a></div><div id="notebook-saved"><p class="notice">${book.saved.length?'Loading your saved titles…':'No saved films yet. Open a film and choose Save.'}</p></div></section><section class="cinema-section notebook-shelf"><div class="section-heading"><div><span class="eyebrow">02 / VIEWING DIARY</span><h2>Already watched</h2></div></div><div id="notebook-watched"><p class="notice">${book.watched.length?'Loading recorded films…':'Mark films as watched from their dossier pages.'}</p></div></section><section class="cinema-section notebook-shelf"><div class="section-heading"><div><span class="eyebrow">03 / RESEARCH SHELF</span><h2>Reading list</h2></div><a href="/journal" class="section-link">Explore stories ↗</a></div><div id="notebook-reading">${book.reading.length?book.reading.map(id=>editorial.essays.find(e=>e.id===id)).filter(Boolean).map(e=>essayCard(e)).join(''):'<p class="notice">Save researched essays to build a reading list.</p>'}</div></section>`;
+  const request = requestId;
+  const ids=[...new Set([...book.saved,...book.watched])].slice(0,MAX_NOTEBOOK_ITEMS);
+  const chunks=[];for(let i=0;i<ids.length;i+=40)chunks.push(ids.slice(i,i+40));
+  const records=await Promise.all(chunks.map(async part=>{try{return (await api(`/api/lookup?ids=${encodeURIComponent(part.join(','))}`)).items;}catch{return [];}}));
+  if(request!==requestId)return;
+  const byId=new Map(records.flat().map(f=>[f.id,f]));
+  for(const kind of ['saved','watched']){
+    const target=document.getElementById('notebook-'+kind);
+    if(!target||!book[kind].length)continue;
+    const found=book[kind].map(id=>byId.get(id)).filter(Boolean);
+    target.innerHTML = `<div class="card-grid">${found.map(f=>card(f)).join('')}</div>`+(found.length<book[kind].length?'<p class="notice">Some saved records are no longer accessible in this catalogue snapshot.</p>':'');
+  }
+}
+const MAX_NOTEBOOK_ITEMS=250;
+
+function notFound() { title('Page not found', 'This Lumetra room is not in the archive. Return to the cinema catalogue.'); main.innerHTML = '<section class="cinema-section"><h1>That room is not in the archive.</h1><a class="cta" href="/">Return Home →</a></section>'; }
 
 async function render() {
   const renderRequest = ++requestId;
@@ -535,11 +622,22 @@ async function render() {
   closeMenu(false);
   document.body.classList.toggle('home-page', path === '/');
   syncHorizon(path);
+  const headerKey = path === '/' ? 'home' :
+    path === '/watch' ? 'watch' :
+      path === '/discover' && new URL(location.href).searchParams.get('artwork') === '1' ? 'collections' :
+        path === '/discover' || path.startsWith('/film/') || path.startsWith('/person/') || path === '/contemporary' ? 'discover' :
+          path === '/world' ? 'world' :
+            path === '/journal' || path.startsWith('/essay/') ? 'journal' :
+              path === '/museum' ? 'museum' :
+                path.startsWith('/technology') ? 'technology' :
+                  path.startsWith('/crew') ? 'crew' : null;
   for (const link of document.querySelectorAll('#nav a')) {
-    const linkPath = new URL(link.href).pathname;
-    if (path === linkPath || (path === '/contemporary' && linkPath === '/discover')) link.setAttribute('aria-current', 'page');
+    if (link.dataset.nav === headerKey) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   }
+  if (isLearningPath(path)) { renderLearning(main, path, title); return; }
+  if (path === '/attributions') { attributions(); return; }
+  if (path === '/corrections') { corrections(); return; }
   if (!editorial) {
     main.innerHTML = '<div class="loading" role="status">Opening the archive and loading the programme…</div>';
     try {
@@ -572,18 +670,60 @@ async function render() {
   else if (path.startsWith('/film/')) await film(decodeURIComponent(path.slice(6)));
   else if (path === '/contemporary') await discover(false);
   else if (path === '/journal') journal();
+  else if (path === '/my-cinema') await myCinema();
   else if (path.startsWith('/essay/')) await essay(decodeURIComponent(path.slice(7)));
   else if (path === '/world') world();
   else if (path === '/museum') museum();
   else if (path.startsWith('/person/')) await person(decodeURIComponent(path.slice(8)));
   else if (path === '/about') about();
+  else if (path === '/attributions') attributions();
   else if (path === '/corrections') corrections();
   else notFound();
 }
 
-function navigate(path) { history.pushState({}, '', path); render(); window.scrollTo(0, 0); main.focus({ preventScroll: true }); }
+function attributions() {
+  title('Image credits and rights','Sources, creators, licences and changes for approved Lumetra subject photographs.');
+  main.innerHTML=`<article class="reader"><span class="eyebrow">RIGHTS / PROVENANCE</span><h1>Every photograph has a source.</h1><p>This private review contains unfinished image research. The records below cover only the three photographs reviewed in the recovery checkpoint; they do not establish image completion across the catalogue. Original brand media is preserved from the supplied project.</p>${Object.entries(subjectImages).map(([key,image])=>`<section><h2>${esc(image.subject)}</h2>${subjectPhoto(key,image.subject)}<p><strong>Creator:</strong> ${esc(image.creator)}. <strong>Identity evidence:</strong> ${esc(image.evidence)}</p></section>`).join('')}<h2>Catalogue artwork</h2><p>Film-image records inherited from the project carry their own provenance on film dossier pages. Their current rights, subject match and loading checks remain in the release register and must be renewed before release.</p><h2>Corrections and rights enquiries</h2><p><a href="/corrections">Report an attribution, subject-identification or rights concern</a>. Include the relevant page and supporting evidence. Reports enter the private review queue.</p><h2>Your notebook</h2><p>My Cinema stores watchlist, watched and reading IDs in this browser. Export a backup before clearing browser storage. The application does not send notebook contents to its server.</p></article>`;
+}
+
+function navigate(path) {
+  history.pushState({}, '', path);
+  const reduced = document.documentElement.classList.contains('reduced') || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && typeof document.startViewTransition === 'function') {
+    // Progressive enhancement; the asynchronous render is part of the transition.
+    document.startViewTransition(() => render()).finished.catch(() => {});
+  } else render();
+  window.scrollTo(0, 0);
+  main.focus({ preventScroll: true });
+}
 
 document.addEventListener('click', async (event) => {
+  const notebookControl = event.target.closest('[data-notebook-kind]');
+  if (notebookControl) {
+    event.preventDefault();
+    const kind = notebookControl.dataset.notebookKind, id=notebookControl.dataset.notebookId;
+    const next=toggleNotebook(loadNotebook(),kind,id);
+    if (!writeNotebook(next)) {
+      notebookControl.textContent = 'Browser storage unavailable';
+      return;
+    }
+    const active=next[kind].includes(id);
+    document.querySelectorAll('[data-notebook-kind]').forEach(button=>{
+      if(button.dataset.notebookKind!==kind || button.dataset.notebookId!==id)return;
+      button.classList.toggle('is-saved',active);
+      button.setAttribute('aria-pressed',String(active));
+      button.textContent = active ? button.dataset.labelActive : button.dataset.labelAdd;
+    });
+    if(location.pathname==='/my-cinema') await myCinema();
+    return;
+  }
+  if(event.target.closest('[data-notebook-export]')){
+    const blob=new Blob([notebookJSON(loadNotebook())],{type:'application/json'});
+    const url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download='lumetra-my-cinema.json';document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    return;
+  }
   const reshuffle = event.target.closest('[data-reshuffle]');
   if (reshuffle) {
     if (programmeBusy) return;
@@ -610,6 +750,12 @@ document.addEventListener('click', async (event) => {
 });
 
 document.addEventListener('error', (event) => {
+  if (event.target instanceof HTMLImageElement && event.target.hasAttribute('data-learning-image')) {
+    event.target.hidden = true;
+    const alternative = event.target.parentElement?.querySelector('.learn-photo-fallback');
+    if (alternative) alternative.hidden = false;
+    return;
+  }
   if (event.target instanceof HTMLImageElement && event.target.hasAttribute('data-film-artwork')) {
     const parent = event.target.closest('.poster');
     if (!parent) return;
@@ -620,6 +766,18 @@ document.addEventListener('error', (event) => {
   }
 }, true);
 
+document.addEventListener('change', async event=>{
+  if(event.target.id!=='notebook-import')return;
+  const file=event.target.files?.[0];if(!file)return;
+  try{
+    if(file.size>150000)throw Error('Notebook import exceeds 150 KB');
+    const entries=importNotebook(await file.text());
+    if(!writeNotebook(entries))throw Error('Browser storage unavailable');
+    if(location.pathname==='/my-cinema')await myCinema();
+    const status=document.querySelector('#notebook-status');
+    if(status)status.textContent='Notebook imported locally. No data was uploaded.';
+  }catch(error){const status=document.querySelector('#notebook-status');if(status)status.textContent=error.message;}
+});
 window.addEventListener('popstate', render);
 const menuPanel = document.querySelector('#menu-panel');
 const menuSheet = menuPanel?.querySelector('.menu-sheet');
@@ -638,8 +796,8 @@ function closeMenu(restoreFocus = true) {
   menuPanel.hidden = true;
   menuPanel.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('menu-open');
-  for (const node of document.querySelectorAll('#main,.site-footer,.header')) node.inert = false;
-  for (const button of document.querySelectorAll('#menu,#horizon-menu')) button.setAttribute('aria-expanded', 'false');
+  for (const node of document.querySelectorAll('#main,.site-footer,.header,.horizon-nav')) node.inert = false;
+  for (const button of document.querySelectorAll('#menu,#horizon-menu')) { button.setAttribute('aria-expanded', 'false'); button.setAttribute('aria-label', 'Open menu'); }
   syncHorizon();
   if (restoreFocus && menuFocus?.isConnected) menuFocus.focus({ preventScroll: true });
 }
@@ -649,8 +807,8 @@ function openMenu() {
   menuPanel.hidden = false;
   menuPanel.setAttribute('aria-hidden', 'false');
   document.body.classList.add('menu-open');
-  for (const node of document.querySelectorAll('#main,.site-footer,.header')) node.inert = true;
-  for (const button of document.querySelectorAll('#menu,#horizon-menu')) button.setAttribute('aria-expanded', 'true');
+  for (const node of document.querySelectorAll('#main,.site-footer,.header,.horizon-nav')) node.inert = true;
+  for (const button of document.querySelectorAll('#menu,#horizon-menu')) { button.setAttribute('aria-expanded', 'true'); button.setAttribute('aria-label', 'Close menu'); }
   document.querySelector('#menu-close')?.focus({ preventScroll: true });
 }
 for (const button of document.querySelectorAll('#menu,#horizon-menu')) button.onclick = () => menuPanel.hidden ? openMenu() : closeMenu();
@@ -676,7 +834,7 @@ setMotion();
 render();
 
 function corrections() {
-  title('Corrections');
+  title('Corrections', 'Submit evidence for a catalogue, viewing-source or image-rights correction to the Lumetra archive.');
   main.innerHTML = `<article class="reader"><span class="eyebrow">Help improve the archive</span><h1>A better record starts with evidence.</h1><p>Flag a metadata error, a broken viewing source or an image-rights concern. Submissions enter a private moderation queue and never publish automatically. Please do not include sensitive personal information.</p><form id="correction" class="correction-form"><label>Film or page URL<input name="page" type="url" required maxlength="500" placeholder="https://…"></label><label>What needs correcting?<textarea name="message" rows="6" required minlength="20" maxlength="4000"></textarea></label><label>Supporting source URL<input name="evidence" type="url" required maxlength="500"></label><label class="sr-only">Leave blank<input name="website" tabindex="-1" autocomplete="off"></label><button class="cta" type="submit">Submit for review ↗</button><p id="correction-status" role="status"></p></form></article>`;
   document.querySelector('#correction').onsubmit = async (event) => {
     event.preventDefault();
@@ -692,3 +850,11 @@ function corrections() {
     } catch (error) { document.querySelector('#correction-status').textContent = error.message; } finally { button.disabled = false; }
   };
 }
+
+// A source record may be verified yet its image CDN fail at runtime.
+// A broken image must never leave an empty rectangle.
+document.addEventListener('error', (event) => {
+  if (!(event.target instanceof HTMLImageElement) || !event.target.matches('img[data-film-artwork]')) return;
+  const card = event.target.closest('.poster');
+  if (card) { card.classList.add('broken-artwork'); card.classList.remove('has-artwork'); card.classList.add('no-image'); }
+}, true);

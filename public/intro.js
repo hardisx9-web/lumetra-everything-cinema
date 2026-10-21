@@ -232,8 +232,8 @@ export function initIntro() {
     setInert(true);
     if (replay) replay.setAttribute('aria-expanded', 'true');
     video.currentTime = 0;
-    video.muted = false;
-    setSoundState(true);
+    video.muted = true;
+    setSoundState(false);
     status.textContent = 'Original opening film · 10 seconds';
     skip.focus({ preventScroll: true });
 

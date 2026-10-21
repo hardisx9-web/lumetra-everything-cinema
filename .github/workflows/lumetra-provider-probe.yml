@@ -1,0 +1,35 @@
+name: Lumetra public-safe provider probe
+on:
+  push:
+    branches: [development/lumetra-recovery-20261021]
+    paths:
+      - .github/workflows/lumetra-provider-probe.yml
+      - scripts/ci-provider-probe.py
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: lumetra-public-provider-probe
+  cancel-in-progress: false
+jobs:
+  live-provider-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test acquisition safety and provider progress logic
+        run: |
+          python3 scripts/test-image-discovery-v3.py -q
+          python3 scripts/test-image-acquisition.py -q
+      - name: Run real live discovery without private state
+        run: python3 scripts/ci-provider-probe.py
+      - name: Upload public-safe provider summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lumetra-provider-probe-${{ github.run_id }}
+          path: .sites-runtime/provider-probe.json
+          retention-days: 7

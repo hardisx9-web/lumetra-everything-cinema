@@ -34,6 +34,13 @@ jobs:
         run: |
           pnpm run test:artwork
 
+      - name: Verify editorial provenance and private notebook
+        run: |
+          node scripts/test-editorial-depth.mjs
+          node scripts/test-launch-readiness.mjs
+          node scripts/test-my-cinema.mjs
+          node scripts/test-lookup.mjs
+
       - name: Build production worker bundle
         run: |
           pnpm run build

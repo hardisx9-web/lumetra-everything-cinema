@@ -1,0 +1,25 @@
+/* LUMETRA V5 — Images everywhere. Deliberately scoped to existing typography and layouts. */
+.learn-illustration,.learn-large-image,.learn-hero-image,.learn-department-image,.learn-crew-visual,
+.learn-timeline-generated img,.learn-index-art img {width:100%;display:block;object-fit:cover;aspect-ratio:16/10;background:#102025;}
+.learn-index-art{position:relative;overflow:hidden}.learn-index-art .learn-illustration{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.98}.learn-index-art>.learn-glyph{display:none}
+.learn-index-art>span{position:absolute;bottom:0;left:0;right:0;padding:15px;background:linear-gradient(transparent,#061012e6);z-index:1}
+.learn-item{overflow:hidden}.learn-item>.learn-illustration{width:calc(100% + 0px);margin:0 0 13px;aspect-ratio:16/9;border:1px solid #d8b67427}
+.learn-detail-art,.learn-role-image{overflow:hidden}.learn-detail-art .learn-large-image{aspect-ratio:4/3;max-height:500px}.learn-role-image .learn-large-image{aspect-ratio:16/9;max-height:430px;margin:0 0 12px}
+.learn-image-caption{display:block;font:10px/1.5 Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:#b6ab91;padding:7px 0}
+.learn-hero-image{max-width:780px;max-height:260px;aspect-ratio:16/5;margin:15px 0 0;border:1px solid #e6c78855;object-fit:cover}
+.learn-department-image{max-height:175px;aspect-ratio:16/8;margin-bottom:4px;object-fit:cover;border-bottom:1px solid #d5b77b3b}
+.learn-editorial-object{overflow:hidden}.learn-editorial-object img{width:100%;height:100%;max-height:360px;object-fit:cover}
+.learn-credit-visual{position:relative;overflow:hidden}.learn-credit-visual .learn-crew-visual{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;opacity:.33;z-index:0}.learn-credit-visual>span,.learn-credit-visual>b{position:relative;z-index:1}
+.learn-timeline-generated img{aspect-ratio:16/9;max-height:265px}
+.learn-object-drawing{min-height:180px}
+.poster-visual-fallback{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;mix-blend-mode:screen}
+.poster-illustration{position:absolute;inset:0;overflow:hidden}.poster-illustration i{z-index:1;position:relative}
+.poster-title-treatment{isolation:isolate}.poster-title-treatment:after{content:'';position:absolute;inset:38% 0 0;background:linear-gradient(transparent,#02060ad9);pointer-events:none;z-index:1}.poster-title-treatment>strong,.poster-title-treatment>.cover-original-title,.poster-title-treatment>.title-treatment-meta,.poster-title-treatment>small,.poster-title-treatment>.title-treatment-kicker{z-index:2;position:relative}
+.reader-hero-visual,.person-profile-visual{margin:25px 0 35px;max-width:1100px;overflow:hidden;background:#081519;border:1px solid #d4a86c44}
+.reader-hero-visual img{width:100%;height:auto;max-height:400px;object-fit:cover;display:block}.person-profile-visual img{width:100%;max-height:340px;object-fit:cover;display:block}
+.reader-hero-visual figcaption,.person-profile-visual figcaption{padding:8px 14px;color:#bcad92;font:11px/1.4 Arial,sans-serif;letter-spacing:.04em}
+.essay-card-visual{position:relative;overflow:hidden}.essay-card-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.87}.essay-card-visual .essay-art-ring,.essay-card-visual .essay-art-line{display:none}
+.destination-card{overflow:hidden;position:relative;isolation:isolate}.destination-card .destination-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.46;filter:saturate(.75)}.destination-card .destination-wash{z-index:-1;background:linear-gradient(90deg,#051015dd,#05101566)!important}
+.era{overflow:hidden;position:relative;isolation:isolate}.era .era-image{position:absolute;right:0;top:0;width:45%;height:100%;object-fit:cover;opacity:.3;z-index:-1}
+@media(max-width:700px){.learn-hero-image{aspect-ratio:16/9;max-height:none}.learn-detail-art .learn-large-image{aspect-ratio:16/10}.reader-hero-visual img{max-height:290px}.learn-department-image{max-height:220px}}
+@media(prefers-reduced-motion:reduce){.learn-illustration,.learn-large-image{animation:none!important}}

@@ -1,0 +1,92 @@
+name: Lumetra authentic-image candidate discovery
+on:
+  workflow_dispatch:
+    inputs:
+      per_provider:
+        description: 'Searches per provider (1-250; candidates require separate review)'
+        required: false
+        default: '150'
+  # Scheduling intentionally disabled until private state storage is authorized.
+  # A repository visibility change alone does not enable the schedule.
+permissions:
+  contents: write
+concurrency:
+  group: lumetra-image-state-single-writer
+  cancel-in-progress: false
+jobs:
+  research:
+    if: github.event.repository.private == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      STATE_TAG: lumetra-image-state
+      BATCH_SIZE: ${{ inputs.per_provider || '150' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm repository is private and restore latest immutable state
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(gh repo view --json isPrivate --jq .isPrivate)" = true
+          mkdir -p .sites-runtime
+          gh release view "$STATE_TAG" --json assets > .sites-runtime/assets.json
+          python3 - <<'PYSELECT'
+          import json,pathlib,re
+          assets=json.loads(pathlib.Path('.sites-runtime/assets.json').read_text())['assets']
+          versioned=[a['name'] for a in assets if re.fullmatch(r'release-review-[0-9]{20}\.sqlite\.gz',a['name'])]
+          # Initial bootstrap may use the original name; never overwrite it.
+          selected=max(versioned) if versioned else 'release-review.sqlite.gz'
+          names={a['name'] for a in assets}
+          assert selected in names and selected+'.sha256' in names, 'State/checksum asset missing'
+          pathlib.Path('.sites-runtime/selected-state.txt').write_text(selected)
+          PYSELECT
+          STATE_FILE=$(cat .sites-runtime/selected-state.txt)
+          gh release download "$STATE_TAG" -p "$STATE_FILE" -p "$STATE_FILE.sha256" -D .sites-runtime
+          (cd .sites-runtime && sha256sum -c "$STATE_FILE.sha256")
+          gzip -dc ".sites-runtime/$STATE_FILE" > .sites-runtime/release-review.sqlite
+          python3 scripts/research-state.py .sites-runtime/release-review.sqlite
+          touch .sites-runtime/state-validated
+      - name: Test and run resumable live batch
+        id: batch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/test-image-discovery-v3.py -q
+          [[ "$BATCH_SIZE" =~ ^[0-9]{1,3}$ ]] || { echo 'Invalid batch size'; exit 1; }
+          N=$((10#$BATCH_SIZE))
+          (( N>=1 && N<=250 )) || { echo 'Batch must be 1-250'; exit 1; }
+          set +e
+          timeout --signal=TERM --kill-after=15s 40m python3 scripts/run-image-discovery-v3.py \
+            --providers commons,loc --limit-per-provider "$N" --delay 6.5 \
+            --db .sites-runtime/release-review.sqlite > .sites-runtime/run-result.jsonl 2>&1
+          RESULT=$?
+          printf '%s\n' "$RESULT" > .sites-runtime/run-exit-code.txt
+          tail -15 .sites-runtime/run-result.jsonl
+          exit "$RESULT"
+      - name: Preserve committed progress in an immutable private release asset
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f .sites-runtime/state-validated || exit 0
+          test "$(gh repo view --json isPrivate --jq .isPrivate)" = true
+          STATE_FILE="release-review-$(date -u +%Y%m%d%H%M%S)$(printf '%06d' "$GITHUB_RUN_ATTEMPT").sqlite.gz"
+          python3 scripts/research-state.py .sites-runtime/release-review.sqlite --out ".sites-runtime/$STATE_FILE" \
+            > .sites-runtime/state-save-report.json
+          # No --clobber: a failed upload cannot destroy any prior checkpoint.
+          gh release upload "$STATE_TAG" ".sites-runtime/$STATE_FILE" ".sites-runtime/$STATE_FILE.sha256"
+      - name: Upload execution evidence (private repository only)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lumetra-image-discovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .sites-runtime/run-result.jsonl
+            .sites-runtime/run-exit-code.txt
+            .sites-runtime/state-save-report.json
+          retention-days: 7

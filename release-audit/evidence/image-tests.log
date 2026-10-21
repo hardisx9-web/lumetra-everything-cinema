@@ -1,0 +1,36 @@
+✔ film category plus exact date and typed image accepted, preserving license URL (2.408424ms)
+✔ same title remake rejected (0.477781ms)
+✔ title substring and first director token are not enough (0.21176ms)
+✔ uncorroborated generic title rejected (0.186811ms)
+✔ fan artwork, books and premiere photographs rejected (0.305962ms)
+✔ territorial conflict on Commons does not become permission (0.30481ms)
+✔ NC, ND, custom and unknown licenses fail closed (0.270408ms)
+✔ CC attribution and SA identity retained, not promoted to public domain (0.240123ms)
+✔ unknown type, moving image and tiny thumbnail rejected (0.5696ms)
+✔ Unicode identity preserved (1.134171ms)
+✔ API artwork wins over the legacy map without losing provenance or alt (1.470849ms)
+✔ legacy artwork is only a backwards fallback; an explicit API rejection is authoritative (0.209346ms)
+✔ unreviewed, unhealthy, rights-incomplete and unverified legacy records are rejected (0.230998ms)
+✔ both API epoch milliseconds and legacy ISO verification dates are accepted (0.156065ms)
+✔ URL and srcset validation exclude unsafe, empty and malformed image candidates (1.287012ms)
+✔ every poster retains film-specific metadata for load-failure fallback and escapes markup (0.392723ms)
+✔ missing artwork reports unresolved image review without substitute art (0.189987ms)
+✔ stills and posters have distinct visible and accessible labels (0.216427ms)
+✔ 24 distinct API works remain disjoint across all five homepage sections (0.422187ms)
+✔ duplicate and invalid works never get replaced by invented fallback films (0.579975ms)
+✔ history chapters describe only the selected work, including unresolved metadata (0.380524ms)
+✔ programme seed stays stable in a session, rotates on a new day and reshuffles explicitly (0.237108ms)
+✔ storage restrictions never prevent reshuffling (0.168324ms)
+✔ remote verified DOM artwork is never drawn onto a WebGL canvas (0.142715ms)
+✔ 16 mm example retains exact subject, photograph source and attribution (1.402486ms)
+✔ unresolved identities never receive a random illustration or another subject photograph (0.739656ms)
+✔ rights, identity evidence and health must all pass (0.222896ms)
+✔ rejected V5 art cannot be selected by frontend modules (0.812195ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 96.998219

@@ -10,7 +10,7 @@
     "install:ci": "bash scripts/install-pnpm.sh",
     "dev": "node scripts/preview-worker.mjs",
     "preview:catalogue": "node scripts/preview-catalogue.mjs",
-    "test:artwork": "node --test preserved-ingestion/lib/artwork/policy.test.mjs scripts/test-artwork-ui.mjs && node scripts/test-hosted.mjs && node scripts/test-programming.mjs",
+    "test:artwork": "node --test preserved-ingestion/lib/artwork/policy.test.mjs scripts/test-artwork-ui.mjs && node scripts/test-route-contract.mjs && node scripts/test-responsive.mjs && node scripts/test-hosted.mjs && node scripts/test-programming.mjs",
     "build": "node scripts/run-framework.mjs build",
     "start": "node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",

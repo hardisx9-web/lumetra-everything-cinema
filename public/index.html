@@ -5,13 +5,25 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#090a0b">
   <meta name="description" content="Lumetra — Everything Cinema. Enter a living universe of films, filmmakers, images and histories.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lumetra">
+  <meta property="og:title" content="Lumetra — Everything Cinema">
+  <meta property="og:description" content="Enter a living universe of films, filmmakers, images and histories.">
+  <meta property="og:url" content="/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Lumetra — Everything Cinema">
+  <meta name="twitter:description" content="Enter a living universe of films, filmmakers, images and histories.">
+  <link rel="canonical" href="/">
+  <script id="structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Lumetra","description":"Enter a living universe of films, filmmakers, images and histories."}</script>
   <title>Lumetra — Everything Cinema</title>
   <link rel="icon" href="/favicon.svg">
   <link rel="preload" href="/media/theater-wide.webp" as="image" media="(orientation:landscape)">
   <link rel="preload" href="/media/theater-mobile.webp" as="image" media="(orientation:portrait)">
   <link rel="preload" href="/media/logo.png" as="image">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/learning.css">
   <script type="module" src="/bootstrap.js"></script>
+  <link rel="stylesheet" href="/visual-overhaul.css">
 </head>
 <body class="intro-active">
   <a class="skip-link" href="#main">Skip to the archive</a>
@@ -21,12 +33,15 @@
     <nav id="nav" aria-label="Main navigation">
       <a href="/" data-nav="home">Home</a>
       <a href="/discover" data-nav="discover">Discover</a>
+      <a href="/watch" data-nav="watch">Watch</a>
+      
       <a href="/world" data-nav="world">Worlds</a>
       <a href="/journal" data-nav="journal">Stories</a>
-      <a href="/museum" data-nav="museum">Apparatus</a>
+      <a href="/technology" data-nav="technology">Technology</a>
+      <a href="/crew" data-nav="crew">Crew</a>
     </nav>
     <a class="search-link" href="/discover" aria-label="Search films"><svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m15 15 5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
-    <button id="menu" aria-expanded="false" aria-controls="menu-panel">Menu <span>☰</span></button>
+    <button id="menu" type="button" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-panel">Menu <span aria-hidden="true">☰</span></button>
   </header>
 
   <main id="main" tabindex="-1"><div class="loading">Opening the cinema archive…</div></main>
@@ -35,7 +50,7 @@
     <a class="footer-brand" href="/" aria-label="Lumetra home">LUMETRA<span>EVERYTHING CINEMA</span></a>
     <p>A thousand ways to see.<br><em>A world worth looking closer at.</em></p>
     <div class="footer-links">
-      <a href="/about">About &amp; sources</a>
+      <a href="/my-cinema">My Cinema</a><a href="/technology">Cinema technology</a><a href="/crew">The crew</a><a href="/about">About &amp; sources</a>
       <a href="/corrections">Suggest a correction</a>
       <button id="motion" type="button" aria-pressed="false">Reduce motion</button>
       <button id="replay" type="button" aria-expanded="false">Replay opening</button>
@@ -49,7 +64,7 @@
       <a href="/discover" data-horizon-link="films" aria-label="Films"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m8 4 2 4m4-4 2 4M8 16l2 4m4-4 2 4M4 9h16M4 15h16"/></svg><span>Films</span></a>
       <a href="/world" data-horizon-link="worlds" aria-label="Worlds"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9S14.5 19.5 12 21c-2.5-1.5-3.5-5.5-3.5-9S9.5 5.5 12 3Z"/></svg><span>Worlds</span></a>
       <a href="/journal" data-horizon-link="stories" aria-label="Stories"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v17H6.5A2.5 2.5 0 0 0 4 22V5.5ZM20 5.5A2.5 2.5 0 0 0 17.5 3H12v17h5.5A2.5 2.5 0 0 1 20 22V5.5Z"/></svg><span>Stories</span></a>
-      <button type="button" id="horizon-menu" data-horizon-link="menu" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="m6.3 7.4 3 2.2m5.4 0 3-2.2m-3 7.1 3 2.1m-5.4 0-3 2.1"/></svg><span>Menu</span></button>
+      <button type="button" id="horizon-menu" data-horizon-link="menu" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="m6.3 7.4 3 2.2m5.4 0 3-2.2m-3 7.1 3 2.1m-5.4 0-3 2.1"/></svg><span>Menu</span></button>
     </div></div>
   </nav>
   <aside class="menu-panel" id="menu-panel" hidden aria-hidden="true">
@@ -57,18 +72,19 @@
     <div class="menu-sheet" role="dialog" aria-modal="true" aria-labelledby="menu-title">
       <div class="menu-sheet-top"><span class="universe-kicker">LUMETRA / THE HOUSE</span><button id="menu-close" type="button" aria-label="Close menu">Close <b>×</b></button></div>
       <h2 id="menu-title">Choose your<br><em>room.</em></h2>
-      <nav class="menu-links" aria-label="Secondary navigation">
+      <nav class="menu-links" aria-label="Secondary navigation"><a href="/my-cinema"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v17l-8-5-8 5V4Z"/></svg><span>My Cinema · saved films</span><b>↗</b></a>
         <a href="/discover"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><span>Search films</span><b>↗</b></a>
-        <a href="/discover"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg><span>Collections</span><b>↗</b></a>
-        <a href="/museum"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 17V9l7-4 7 4v8M8 17v-5m4 5v-5m4 5v-5"/></svg><span>Apparatus</span><b>↗</b></a>
+        <a href="/discover?artwork=1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg><span>Collections</span><b>↗</b></a>
+        <a href="/technology"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 17V9l7-4 7 4v8M8 17v-5m4 5v-5m4 5v-5"/></svg><span>Cinema technology</span><b>↗</b></a>
+        <a href="/crew"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 21a6 6 0 0 1 12 0M12 21a5 5 0 0 1 10 0"/></svg><span>The crew · read the credits</span><b>↗</b></a>
         <a href="/person/Satyajit%20Ray"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>People</span><b>↗</b></a>
         <a href="/world"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9S14.5 19.5 12 21c-2.5-1.5-3.5-5.5-3.5-9S9.5 5.5 12 3Z"/></svg><span>Cinema history</span><b>↗</b></a>
         <a href="/watch"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="m10 8 5 4-5 4V8Z"/></svg><span>Watch</span><b>↗</b></a>
       </nav>
-      <div class="menu-tools"><button type="button" id="menu-motion">Reduce motion</button><a href="/about">About &amp; sources ↗</a></div>
+      <div class="menu-tools"><button type="button" id="menu-motion">Reduce motion</button><a href="/about">About &amp; sources ↗</a><a href="/attributions">Image credits &amp; rights ↗</a></div>
     </div>
   </aside>
-  <section id="intro" class="theater" role="dialog" aria-modal="true" aria-label="Lumetra theater introduction">
+  <section id="intro" class="theater" role="dialog" aria-modal="true" aria-labelledby="theater-title" aria-describedby="intro-status">
     <div class="theater-scene" aria-hidden="true">
       <picture>
         <source media="(orientation:portrait)" srcset="/media/theater-mobile.webp">
@@ -84,7 +100,7 @@
         <div class="screen-bottom-light"></div>
       </div>
     </div>
-    <div class="theater-heading"><span>LUMETRA PICTURE HOUSE</span><small>TAKE YOUR SEAT · THE WORLD AWAITS</small></div>
+    <div class="theater-heading" id="theater-title"><span>LUMETRA PICTURE HOUSE</span><small>TAKE YOUR SEAT · THE WORLD AWAITS</small></div>
     <div class="intro-meta"><span>EST. 2026</span><span>ORIGINAL OPENING REEL · 01</span></div>
     <div class="intro-controls">
       <button id="sound" type="button" aria-pressed="false">Enable sound</button>

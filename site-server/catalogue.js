@@ -45,11 +45,15 @@ export async function initialize(db,assets,origin='https://lumetra.invalid'){
  return {ready:false,artwork_progress:index+1,artwork_total:chunks.length,progress:90+Math.round((index+1)/Math.max(1,chunks.length)*10)};
 }
 export async function query(db,p){
- const page=Number(p.get('page')||1),limit=Number(p.get('limit')||24),q=(p.get('q')||'').trim(),country=p.get('country')||'',year=p.get('year')||'';
- if(!Number.isInteger(page)||page<1||page>10000||!Number.isInteger(limit)||limit<1||limit>48||q.length>160||country.length>100||(year&&!/^\d{4}$/.test(year)))throw fail('Invalid search parameters');
+ const page=Number(p.get('page')||1),limit=Number(p.get('limit')||24),q=(p.get('q')||'').trim(),country=p.get('country')||'',year=p.get('year')||'',genre=p.get('genre')||'',language=p.get('language')||'',director=p.get('director')||'';
+ if(!Number.isInteger(page)||page<1||page>10000||!Number.isInteger(limit)||limit<1||limit>48||q.length>160||country.length>100||genre.length>100||language.length>100||(year&&!/^\d{4}$/.test(year)))throw fail('Invalid search parameters');
  const t=Date.now(),args=[],terms=[];
+ if(director.length>500)throw fail('Invalid director parameter');
+ if(director){terms.push('w.director=?');args.push(director);}
  if(q){const phrase=q.split(/\s+/).map(x=>'"'+x.replaceAll('"','""')+'"*').join(' AND ');const like='%'+q.replace(/[\\%_]/g,x=>'\\'+x)+'%';terms.push('(w.id IN (SELECT id FROM search WHERE search MATCH ?)'+(new TextEncoder().encode(like).length<=50?" OR w.title LIKE ? ESCAPE '\\' OR w.original_title LIKE ? ESCAPE '\\' OR w.alternate_titles LIKE ? ESCAPE '\\' OR w.director LIKE ? ESCAPE '\\'":'')+')');args.push(phrase);if(new TextEncoder().encode(like).length<=50)args.push(...Array(4).fill(like));}
  if(country){terms.push('EXISTS(SELECT 1 FROM json_each(w.countries) WHERE value=?)');args.push(country);}if(year){terms.push('w.year=?');args.push(Number(year));}
+ if(genre){terms.push("EXISTS(SELECT 1 FROM work_metadata m,json_each(m.payload,'$.genres') j WHERE m.work_id=w.id AND j.value=?)");args.push(genre);}
+ if(language){terms.push("EXISTS(SELECT 1 FROM work_metadata m,json_each(m.payload,'$.languages') j WHERE m.work_id=w.id AND j.value=?)");args.push(language);}
  if(p.get('watch')==='1')terms.push(`EXISTS(SELECT 1 FROM source s WHERE s.work_id=w.id AND s.checked_ms<=${t} AND s.expires_ms>${t})`);
  const art=`w.id IN (SELECT work_id FROM artwork_record WHERE ${ARTWORK_WHERE})`;
  if(p.get('artwork')==='1')terms.push(art);
@@ -57,6 +61,19 @@ export async function query(db,p){
  const items=(await all(db,`SELECT ${selection(t)} FROM work w${where} ORDER BY CASE WHEN ${art} THEN 0 ELSE 1 END,w.title,w.id LIMIT ? OFFSET ?`,[...args,limit,(page-1)*limit])).map(decode);
  return {items:await attachArtwork(db,items),total,page,limit,snapshot:true};
 }
+// Bounded read-only lookup for My Cinema; never save a user's notebook to the server.
+export async function lookup(db, ids) {
+ if (!Array.isArray(ids) || ids.length > 40 || ids.some(id => typeof id !== 'string' || !/^[\w-]{1,160}$/.test(id))) throw fail('Invalid film lookup');
+ const unique=[...new Set(ids)];
+ if(!unique.length)return {items:[]};
+ const marks=unique.map(()=>'?').join(',');
+ const t=Date.now();
+ const rows=(await all(db,`SELECT ${selection(t)} FROM work w WHERE w.id IN (${marks})`,unique)).map(decode);
+ const prepared=await attachArtwork(db,rows);
+ const byId=new Map(prepared.map(f=>[f.id,f]));
+ return {items:unique.map(id=>byId.get(id)).filter(Boolean)};
+}
+
 export async function dossier(db,id){
  if(!/^[\w-]{1,160}$/.test(id))throw fail('Invalid film ID');const t=Date.now(),r=await one(db,`SELECT ${selection(t)} FROM work w WHERE w.id=?`,[id]);if(!r)throw fail('Film not found',404);const w=(await attachArtwork(db,[decode(r)]))[0];
  const sources=(await all(db,'SELECT payload FROM source WHERE work_id=? AND checked_ms<=? AND expires_ms>?',[id,t,t])).map(x=>JSON.parse(x.payload));const evidence=(await all(db,'SELECT DISTINCT payload FROM evidence WHERE work_id=? LIMIT 30',[id])).map(x=>JSON.parse(x.payload));
@@ -98,4 +115,9 @@ export async function programming(db,p=new URLSearchParams()){
  return {seed,carousel,history,featured,watch,collection,stats:{candidate_count:enriched.length,selected_count:selected.length,artwork_count:selected.filter(x=>x.artwork).length,missing_artwork:selected.filter(x=>!x.artwork).length,missing_metadata:Object.fromEntries(Object.keys(seen).map(k=>[k,selected.filter(x=>!dimensions(x)[k].length).length])),diversity:Object.fromEntries(Object.entries(seen).map(([k,v])=>[k,v.size])),sections:Object.fromEntries(Object.entries({carousel,history,featured,watch,collection}).map(([k,values])=>[k,{ids:values.map(x=>x.id),countries:[...new Set(values.flatMap(x=>dimensions(x).countries))],decades:[...new Set(values.flatMap(x=>dimensions(x).decades))]}]))}};
 }
 export async function stats(db){const t=Date.now(),base=parse((await one(db,"SELECT value FROM meta WHERE key='counts'"))?.value,{}),live=await one(db,'SELECT count(*) n FROM work'),indexed=await one(db,'SELECT count(*) n FROM search'),art=await one(db,`SELECT count(DISTINCT work_id) approved_artwork FROM artwork_record WHERE ${ARTWORK_WHERE}`),imported=await one(db,'SELECT value FROM publication_import WHERE key=?',['artwork:'+artworkVersion]);return {...base,...await one(db,"SELECT count(*) eligible_sources,count(DISTINCT work_id) watchable_works,count(CASE WHEN watch_state='WATCH_HERE' THEN 1 END) embedded_sources FROM source WHERE checked_ms<=? AND expires_ms>?",[t,t]),...art,ready:Number(live?.n)>0&&Number(indexed?.n)>0,artwork_ready:imported?.value==='DONE',artwork_version:artworkVersion,as_of:new Date(t).toISOString(),snapshot_exported_at:(await one(db,"SELECT value FROM meta WHERE key='exported_at'"))?.value};}
-export async function facets(db){return {countries:(await all(db,'SELECT DISTINCT j.value FROM work w,json_each(w.countries) j ORDER BY j.value')).map(x=>x.value),years:(await all(db,'SELECT DISTINCT year value FROM work WHERE year IS NOT NULL ORDER BY year DESC')).map(x=>x.value)};}
+export async function facets(db){
+ const countries=(await all(db,'SELECT DISTINCT j.value FROM work w,json_each(w.countries) j ORDER BY j.value')).map(x=>x.value);
+ const years=(await all(db,'SELECT DISTINCT year value FROM work WHERE year IS NOT NULL ORDER BY year DESC')).map(x=>x.value);
+ const [genres,languages]=await Promise.all(['genres','languages'].map(key=>all(db,`SELECT j.value,COUNT(*) n FROM work_metadata m,json_each(m.payload,'$.${key}') j WHERE typeof(j.value)='text' AND length(trim(j.value))>1 AND lower(j.value) NOT IN ('null','unknown') GROUP BY j.value ORDER BY n DESC,j.value LIMIT 80`)));
+ return {countries,years,genres:genres.map(x=>x.value),languages:languages.map(x=>x.value),note:'Genre and language labels are inherited as supplied; normalization is in progress.'};
+}

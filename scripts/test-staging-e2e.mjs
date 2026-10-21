@@ -23,6 +23,24 @@ assert(home.text.includes('Lumetra — Everything Cinema'), 'Missing page title 
 assert(home.text.includes('id="site-header"'), 'Missing site header in homepage');
 assert(home.text.includes('id="horizon-nav"'), 'Missing mobile horizon nav in shell');
 assert(home.text.includes('id="intro"'), 'Missing theater intro section');
+assert(home.text.includes('property="og:url"'), 'Missing Open Graph URL metadata');
+assert(home.text.includes('id="structured-data"'), 'Missing structured metadata payload');
+assert.equal(home.headers.get('x-content-type-options'), 'nosniff', 'Shell must send nosniff protection');
+assert.match(home.headers.get('content-security-policy') || '', /default-src 'self'/, 'Shell must send the site CSP');
+
+// Direct reloads must keep the same Lumetra shell. Client routing then selects
+// the requested surface; the Worker must never fall through to a placeholder.
+console.log('Testing direct route shell consistency...');
+for (const path of [
+  '/discover', '/watch', '/film/work-trip-to-the-moon',
+  '/person/Georges%20M%C3%A9li%C3%A8s', '/world', '/journal',
+  '/essay/many-beginnings', '/essay/sound-was-not-a-switch', '/my-cinema', '/museum', '/about', '/corrections',
+]) {
+  const route = await request(path);
+  assert.equal(route.status, 200, `Expected shell for ${path}`);
+  assert(route.text.includes('id="site-header"'), `Missing header shell for ${path}`);
+  assert(route.text.includes('id="intro"'), `Missing cinematic intro shell for ${path}`);
+}
 
 // 2. Verify Catalogue Statistics & Exact Film Count
 console.log('Testing Catalogue Stats (/api/stats)...');
@@ -40,6 +58,19 @@ assert(search.items.length > 0, 'Search should return items array');
 const topFilm = search.items[0];
 console.log(`Top search hit: ${topFilm.title} (${topFilm.year})`);
 
+console.log('Testing verified playback and artwork filters...');
+const watch = await requestJson('/api/films?watch=1');
+if (stats.eligible_sources === 0) {
+  assert.equal(watch.total, 0, 'Expired verification must not produce watchable results');
+  console.warn('RELEASE BLOCKER: no current verified viewing links; refresh source evidence before public watch launch');
+} else {
+  assert(watch.items.length > 0, 'Verified viewing filter must include currently eligible items');
+}
+assert(watch.items.every((film) => film.watchable || film.embedded), 'Viewing results must have an eligible playback state');
+const artworkOnly = await requestJson('/api/films?artwork=1');
+assert.equal(artworkOnly.total, stats.approved_artwork, 'Artwork filter must match approved artwork count');
+assert(artworkOnly.items.every((film) => film.artwork), 'Artwork results must carry verified provenance');
+
 // 4. Verify Multi-Attribute Filtering (FTS5 + Country + Year)
 console.log('Testing Multi-Attribute Filter (/api/films?q=moon&country=France&year=1902)...');
 const filtered = await requestJson('/api/films?q=moon&country=France&year=1902');
@@ -54,6 +85,7 @@ assert.equal(dossier.director, 'Georges Méliès');
 assert.equal(dossier.year, 1902);
 assert(Array.isArray(dossier.evidence) && dossier.evidence.length > 0, 'Film must have evidence trail');
 assert(dossier.artwork, 'Film must contain verified artwork');
+assert(dossier.sources.every((source) => /^https:\/\//.test(source.canonical_source_url)), 'Playback evidence must use HTTPS source URLs');
 
 // 6. Verify Dynamic Programming & Living Universe
 console.log('Testing Programming Dimensions (/api/programming)...');
@@ -74,4 +106,4 @@ const artwork = await request('/media/artwork/2552e27ef4d4a0c10c56a851-320.webp'
 assert.equal(artwork.status, 200);
 assert.equal(artwork.headers.get('content-type'), 'image/webp');
 
-console.log('All Staging Verification checks PASSED successfully!');
+console.log('Staging functional verification PASSED. Public-release requirements are assessed separately.');
