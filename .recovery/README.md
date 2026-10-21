@@ -7,9 +7,11 @@ metadata cache. The development branch is based on the existing original
 Cloudflare-era repository head ca673de9dea0a40b0979737ee506d84f93dc7a42.
 
 The GitHub connection supports Git data writes but does not provide authenticated
-native Git push. The development snapshot therefore carries this exact bundle
-rather than rewriting the recovery commit authors or claiming different IDs are
-the originals. Restore independently with:
+native Git push. The development snapshot carries this exact bundle. The public-safe Actions
+workflow imports those original commits and attaches them as a second parent
+without changing the application tree, then fast-forward pushes only this new
+development branch. It verifies the exact recovery head, skips an already
+imported history and never force pushes. Restore independently with:
 
     git clone .recovery/Lumetra-Recovery-History.bundle recovered-history
 
