@@ -9,7 +9,7 @@ runner=importlib.util.module_from_spec(spec);spec.loader.exec_module(runner)
 results=[]
 for provider in runner.PROVIDERS:
     subject='technology/cameras/arri-alexa-35'
-    result=runner.discover_one((subject,'ARRI Alexa 35 camera photograph','technology'),provider)
+    result=runner.discover_one((subject,'ARRI ALEXA 35','technology'),provider)
     results.append({'provider':provider,'subject':subject,'outcome':result[3],
                     'candidate_count':len(result[4]),'error':result[6],
                     'private_database_loaded':False,'images_approved':0})

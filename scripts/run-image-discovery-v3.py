@@ -86,7 +86,7 @@ def discover_one(row,provider):
     subject,query,_type=row
     started=utc()
     try:
-        envelope,evidence=acq.cached_json(query_url(query,provider))
+        envelope,evidence=acq.cached_json(query_url(query,provider),timeout=60 if provider=='loc' else 20)
         candidates=[]
         for page,url,source in normalize(envelope['response'],provider):
             cid=hashlib.sha256(json.dumps([subject,source,url],sort_keys=True).encode()).hexdigest()

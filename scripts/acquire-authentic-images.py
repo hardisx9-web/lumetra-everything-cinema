@@ -52,7 +52,7 @@ def public_dns(host):
     if not addresses or any(not ipaddress.ip_address(a).is_global for a in addresses):
         raise ValueError('NON_PUBLIC_DNS_DESTINATION')
 
-def fetch_bytes(url, maximum=3*1024*1024, image=False):
+def fetch_bytes(url, maximum=3*1024*1024, image=False, timeout=20):
     # The inherited runtime proxy is respected. No direct-access or alternate-IP
     # bypass is attempted when the network or provider denies a request.
     opener = urllib.request.build_opener(NoRedirect())
@@ -64,7 +64,7 @@ def fetch_bytes(url, maximum=3*1024*1024, image=False):
         if not urllib.request.getproxies().get('https'):
             public_dns(parsed.hostname)
         try:
-            with opener.open(urllib.request.Request(url,headers={**HEADERS,'Accept':'image/jpeg,image/png,image/webp' if image else 'application/json'}),timeout=20) as response:
+            with opener.open(urllib.request.Request(url,headers={**HEADERS,'Accept':'image/jpeg,image/png,image/webp' if image else 'application/json'}),timeout=timeout) as response:
                 mime=response.headers.get_content_type()
                 if image and mime not in {'image/jpeg','image/png','image/webp'}:
                     raise ValueError('UNSUPPORTED_IMAGE_MIME')
@@ -83,12 +83,12 @@ def fetch_bytes(url, maximum=3*1024*1024, image=False):
             raise
     raise ValueError('REDIRECT_LIMIT')
 
-def cached_json(url):
+def cached_json(url, timeout=20):
     safe_url(url)
     CACHE.mkdir(parents=True,exist_ok=True)
     path=CACHE/(hashlib.sha256(url.encode()).hexdigest()+'.json')
     if path.exists():return json.loads(path.read_text()),str(path.relative_to(ROOT))
-    raw,check=fetch_bytes(url)
+    raw,check=fetch_bytes(url,timeout=timeout)
     result=json.loads(raw)
     if result.get('error'):raise ValueError('API_'+str(result['error'].get('code')))
     path.write_text(json.dumps({'response':result,'check':check},ensure_ascii=False))
