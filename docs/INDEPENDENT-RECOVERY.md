@@ -1,0 +1,9 @@
+# Independent recovery
+
+This branch retains the original public source and adds a direct Cloudflare Worker entry, without Sites identity, connectors or publishing dependencies. No deployment has been performed. The database ID in wrangler.independent.jsonc is deliberately invalid for production: replace it only after creating an isolated free-tier staging D1 database and recording its actual ID. Do not target an existing production database.
+
+Use Node 24 and the locked pnpm dependency versions. Run `node scripts/test-hosted.mjs`, artwork/programming tests, then `pnpm exec wrangler deploy --dry-run --config wrangler.independent.jsonc`. Apply the committed additive Drizzle migrations only to the new staging database. The immutable publication files seed an empty staging database through the existing bounded initializer; existing records must not be reset. Preserve and restore actual serving D1 separately before production migration.
+
+Original PostgreSQL dump, private SQLite research state, candidate records, metadata cache, master volumes and original motion/media packages remain separate private backups. Never place those files in this public repository. Verify every SHA256 manifest before restore. PostgreSQL restoration requires a compatible PostgreSQL 18 installation and relational checks; SQL extraction alone is insufficient. Private SQLite restore must include committed WAL changes via SQLite backup and pass integrity_check and foreign_key_check.
+
+Source verification dates remain historical. Expired viewing rights must not be relabelled current. Authentic-image and editorial release gates remain blocked; this branch is preservation infrastructure, not an approved release. Existing Cloudflare production stays untouched. Any future deployment requires isolated staging verification and owner approval. Rollback uses the original Git ref plus its separately saved database and assets; never reverse migrations by deleting records.

@@ -1,0 +1,24 @@
+name: Independent preservation checks
+on:
+  workflow_dispatch:
+  push:
+    branches: ['migration/independence-*']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node scripts/test-hosted.mjs
+      - run: node scripts/test-programming.mjs
+      - run: node --test preserved-ingestion/lib/artwork/policy.test.mjs scripts/test-artwork-ui.mjs
+      - run: python3 scripts/test-image-discovery-v3.py -q
+      - run: python3 scripts/test-image-acquisition.py -q
+      - run: npx --yes wrangler@4.92.0 deploy --dry-run --config wrangler.independent.jsonc
