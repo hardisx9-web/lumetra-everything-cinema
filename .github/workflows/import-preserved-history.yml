@@ -20,7 +20,8 @@ jobs:
           base64 --decode .preservation/incremental.bundle.b64 > /tmp/preserved.bundle
           echo '2c3c17bdf5f3c608de11a5b8f7a70befb6b207389a157fdb4be699e52bbc93f8  /tmp/preserved.bundle' | sha256sum --check
           git bundle verify /tmp/preserved.bundle
-          git fetch /tmp/preserved.bundle 'refs/heads/migration/independence-20261028:refs/heads/migration/independence-20261028' 'refs/heads/preservation/work-review-20261028:refs/heads/preservation/work-review-20261028'
+          git fetch /tmp/preserved.bundle 'refs/heads/migration/independence-20261028:refs/heads/migration/independence-20261028'
+          git branch preservation/work-review-20261028 50ca1d07b5f7aeeb89d0bf3cbe72ad96fbdac90e
           test "$(git rev-parse migration/independence-20261028)" = bb62b0b33c38f68b98bc9ed3a528b66330e8ea7e
           test "$(git rev-parse preservation/work-review-20261028)" = 50ca1d07b5f7aeeb89d0bf3cbe72ad96fbdac90e
           git push origin refs/heads/migration/independence-20261028 refs/heads/preservation/work-review-20261028
