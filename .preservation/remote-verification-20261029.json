@@ -1,0 +1,16 @@
+{
+  "repo": "https://github.com/hardisx9-web/lumetra-everything-cinema",
+  "privacy": "public",
+  "originalBranches": {
+    "development": "4761d97519920ad4bc50b9f4eaafed192b216157",
+    "default": "ca673de9dea0a40b0979737ee506d84f93dc7a42"
+  },
+  "migrationCommit": "bb62b0b33c38f68b98bc9ed3a528b66330e8ea7e",
+  "workCommit": "50ca1d07b5f7aeeb89d0bf3cbe72ad96fbdac90e",
+  "files": 1184,
+  "bytes": 159372974,
+  "blobMismatches": [],
+  "productionChanged": false,
+  "privateDataUploaded": false,
+  "importFailure": "First bundle omitted fully existing Work ref; second GITHUB_TOKEN push rejected workflow ref. Native connector created branch at fully transferred exact commit."
+}
