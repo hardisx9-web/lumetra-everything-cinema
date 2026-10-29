@@ -1,0 +1,27 @@
+name: Import preserved native Lumetra histories
+on:
+  push:
+    branches: [preservation/import-20261029]
+    paths: [.github/workflows/import-preserved-history.yml]
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify and import original Git objects without rewriting branches
+        shell: bash
+        run: |
+          set -euo pipefail
+          base64 --decode .preservation/incremental.bundle.b64 > /tmp/preserved.bundle
+          echo '2c3c17bdf5f3c608de11a5b8f7a70befb6b207389a157fdb4be699e52bbc93f8  /tmp/preserved.bundle' | sha256sum --check
+          git bundle verify /tmp/preserved.bundle
+          git fetch /tmp/preserved.bundle 'refs/heads/migration/independence-20261028:refs/heads/migration/independence-20261028' 'refs/heads/preservation/work-review-20261028:refs/heads/preservation/work-review-20261028'
+          test "$(git rev-parse migration/independence-20261028)" = bb62b0b33c38f68b98bc9ed3a528b66330e8ea7e
+          test "$(git rev-parse preservation/work-review-20261028)" = 50ca1d07b5f7aeeb89d0bf3cbe72ad96fbdac90e
+          git push origin refs/heads/migration/independence-20261028 refs/heads/preservation/work-review-20261028
+          git ls-remote origin refs/heads/migration/independence-20261028 refs/heads/preservation/work-review-20261028
